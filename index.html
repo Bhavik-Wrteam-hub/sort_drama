@@ -17,7 +17,7 @@
   <header class="hub-top">
     <a class="brand" href="#top"><span class="mark" id="hm"></span><span class="wordmark">spool</span></a>
     <nav aria-label="Sections">
-      <a href="#research">Research</a><a href="#play">Google Play</a><a href="#product">Product</a><a href="#ia">Navigation</a><a href="#design">Design</a><a href="#screens">Screens</a>
+      <a href="#research">Research</a><a href="#play">Google Play</a><a href="#product">Product</a><a href="#ia">Navigation</a><a href="#design">Design</a><a href="#screens">Screens</a><a href="#guide">Feature review</a>
     </nav>
     <span class="sp"></span>
     <button class="hb icon" id="themeBtn" type="button" aria-label="Toggle theme"></button>
@@ -36,7 +36,7 @@
           <a class="hb pri lg" href="mobile.html"><span id="ic1"></span>Open the mobile prototype</a>
           <a class="hb lg" href="admin.html"><span id="ic2"></span>Open the admin panel</a>
         </div>
-        <div class="meta">Prototype only: no backend, nothing is saved, every number is sample data. Works offline; open the files directly or through XAMPP.</div>
+        <div class="meta">Prototype only: no backend, nothing is saved, every number is sample data. Works offline; open the files directly or through XAMPP. New here? Start with the <a href="#guide" style="color:var(--text)">feature review</a>.</div>
       </div>
       <div class="orbitvis" id="orbit" aria-hidden="true"></div>
     </div>
@@ -182,9 +182,733 @@
       </div>
     </section>
 
+    <!-- FEATURE REVIEW -->
+    <section class="blk" id="guide">
+      <div class="kick">7 · Feature review</div>
+      <h2 class="h">How Spool works today.</h2>
+      <p class="lede">A walkthrough of everything the prototypes already do, and nothing they don't: how a viewer gets in, where money comes in, how a creator's video moves through review, and what each admin section is for. Every step uses a real screenshot and the same sample people and numbers you'll meet in the prototypes. <b>Click any screenshot to enlarge it.</b></p>
+
+      <div class="g-doc">
+        <nav class="g-toc" aria-label="Feature review contents">
+          <h4>In this review</h4>
+          <ol>
+            <li><a href="#g-glance">What's built</a></li>
+            <li><a href="#g-people">Who uses it</a></li>
+            <li><a href="#g-words">Glossary</a></li>
+            <li><a href="#g-enter">How a viewer gets in</a></li>
+            <li><a href="#g-paywall">When money comes in</a></li>
+            <li><a href="#g-app">Every app screen</a></li>
+            <li><a href="#g-creator">Creator upload</a></li>
+            <li><a href="#g-review">The review module</a></li>
+            <li><a href="#g-admin">Every admin section</a></li>
+            <li><a href="#g-links">App and admin together</a></li>
+            <li><a href="#g-use">Driving the prototype</a></li>
+            <li><a href="#g-missing">Not built yet</a></li>
+          </ol>
+        </nav>
+
+        <div class="g-body">
+
+          <!-- what's built -->
+          <article class="g-part" id="g-glance">
+            <div class="g-k">At a glance</div>
+            <h3 class="g-h">What's built</h3>
+            <p>Both prototypes are clickable models of the real product. They look and behave like the app: buttons respond, coins move, the wallet gains a ledger row. There is no server or database behind them. All data is sample data, and a page reload puts everything back where it started.</p>
+            <div class="g-counts">
+              <div><b>23</b><span>app screens</span></div>
+              <div><b>16</b><span>bottom sheets</span></div>
+              <div><b>11</b><span>one-click demo journeys</span></div>
+              <div><b>18</b><span>admin sections</span></div>
+              <div><b>23</b><span>sample titles</span></div>
+              <div><b>7</b><span>team roles with permissions</span></div>
+            </div>
+            <div class="g-files">
+              <div class="g-tile"><code>mobile.html</code><h5>Mobile app</h5><p>The phone sits in the middle with helper panels around it. Both the viewer and the creator experience live here.</p></div>
+              <div class="g-tile"><code>admin.html</code><h5>Admin panel (Spool Studio)</h5><p>For the team: content, review, creators, money, reports and settings.</p></div>
+              <div class="g-tile"><code>index.html</code><h5>This brief</h5><p>Research, the Google Play teardown, signature features, design, and this feature review.</p></div>
+            </div>
+            <p style="margin-top:16px">Open the files directly; no internet or server is needed. To run it through XAMPP, copy the folder into <span class="g-mono">htdocs</span> and open <span class="g-mono">http://localhost/SortDrama/</span>.</p>
+          </article>
+
+          <!-- who uses it -->
+          <article class="g-part" id="g-people">
+            <div class="g-k">Who uses it</div>
+            <h3 class="g-h">Three kinds of people, one loop</h3>
+            <p>Spool serves three groups. The examples in this review use the same names the prototypes show, so you can find each one.</p>
+            <div class="g-people">
+              <div class="g-tile"><div class="g-k">Viewer</div><h5>Maya Rao</h5><div class="who">United States · @maya.watches</div><p>Watches dramas, buys coins, comments and votes. Her wallet holds <span class="g-coin">290</span> paid + <span class="g-coin">20</span> bonus = <span class="g-coin">310</span> coins.</p><div class="where">mobile.html</div></div>
+              <div class="g-tile"><div class="g-k">Creator</div><h5>Ritu Sharma and others</h5><div class="who">Mumbai · also Mina Park, Zara Q, Kofi Mensah</div><p>Posts videos, episodes or pilots, and earns by tagging dramas with Fan Links.</p><div class="where">mobile.html › Create, Creator Studio</div></div>
+              <div class="g-tile"><div class="g-k">Team</div><h5>Riya Desai and the studio</h5><div class="who">Owner · with Omar Haddad (Content), Grace Liu (Moderator), Tomás Ruiz (Finance)</div><p>Uploads dramas, reviews content, sets prices and rules, and handles money and creator payouts.</p><div class="where">admin.html</div></div>
+            </div>
+            <h4 class="g-sub">The content loop</h4>
+            <ol class="g-cycle">
+              <li><span class="g-num">1</span><h5>Made</h5><p>The team uploads dramas and episodes. Creators post their own videos.</p></li>
+              <li><span class="g-num">2</span><h5>Checked</h5><p>Every upload passes automatic checks. If anything looks doubtful, a person decides.</p></li>
+              <li><span class="g-num">3</span><h5>Watched</h5><p>Viewers watch in the app: first episodes free, then coins, an ad, a Series Pass or VIP.</p></li>
+              <li><span class="g-num">4</span><h5>Shared</h5><p>Revenue goes to Spool. Creators earn 10% of the coins viewers spend on a drama they reached through a Fan Link, paid on the 1st of each month.</p></li>
+            </ol>
+          </article>
+
+          <!-- glossary -->
+          <article class="g-part" id="g-words">
+            <div class="g-k">Glossary</div>
+            <h3 class="g-h">Words you'll see everywhere</h3>
+            <p>Spool has its own names for several features. Text in a chip, like <span class="g-ui">Unlock with coins</span>, appears in the app exactly as written.</p>
+            <dl class="g-gloss">
+              <div><dt>Coins</dt><dd>The in-app currency. An episode usually costs <span class="g-coin">60</span> coins, about $0.59.</dd></div>
+              <div><dt>Paid and bonus coins</dt><dd>Paid coins are bought with money and never expire. Bonus coins are free (check-ins, ads, offers), expire after 7 days and are always spent first.</dd></div>
+              <div><dt>Unlock</dt><dd>Opening a locked episode. It stays unlocked on the account, on any phone.</dd></div>
+              <div><dt>Series Pass</dt><dd>Every episode of a series for one price, including future drops.</dd></div>
+              <div><dt>VIP</dt><dd>A weekly, monthly or yearly plan. Everything unlocked and never an ad.</dd></div>
+              <div><dt>Fair Unlock</dt><dd>The sheet on a locked episode, with every option priced in coins and money before a tap.</dd></div>
+              <div><dt>Ledger</dt><dd>A record of every coin in and out. Nothing is edited or deleted; corrections are new rows.</dd></div>
+              <div><dt>Spend guard</dt><dd>A daily spending limit (<span class="g-coin">300</span> coins by default), like screen time for money.</dd></div>
+              <div><dt>Price lock</dt><dd>The per-episode price a viewer started a series with can't rise for them.</dd></div>
+              <div><dt>Cliffhanger Call</dt><dd>A prediction at the end of an episode, such as “Who sent Ava the text?” A correct call earns +5 bonus coins.</dd></div>
+              <div><dt>Pulse Bar</dt><dd>The bar under the player that shows where viewers reacted most. Tap a 😱 to jump to that moment.</dd></div>
+              <div><dt>Story Rewind</dt><dd>A 20-second recap for viewers coming back after a break, without spoilers.</dd></div>
+              <div><dt>Who's who</dt><dd>A character map that only shows the people you've already met.</dd></div>
+              <div><dt>Scene Search</dt><dd>Find a moment by describing it, like “the slap at the gala”.</dd></div>
+              <div><dt>Fan Link</dt><dd>A creator tags a drama in their video. Viewers get a <span class="g-ui">Watch</span> button and the creator earns a share.</dd></div>
+              <div><dt>Pilot Season</dt><dd>Creators post 2–3 episode pilots, viewers vote <span class="g-ui">Want more</span>, and at 10,000 votes the team considers a full season.</dd></div>
+              <div><dt>Trope</dt><dd>The kind of story: Revenge, Billionaire, Werewolf, Hidden identity and so on.</dd></div>
+              <div><dt>Drop</dt><dd>A new episode release, such as “daily at 8 PM”.</dd></div>
+              <div><dt>Promise Guard</dt><dd>Checks that what an ad promises (“the first 7 episodes free”) is true in the app before the campaign can run.</dd></div>
+              <div><dt>SLA</dt><dd>How quickly a review must be decided. Two hours here.</dd></div>
+            </dl>
+          </article>
+
+          <!-- first session -->
+          <article class="g-part" id="g-enter">
+            <div class="g-k">First session</div>
+            <h3 class="g-h">How a viewer gets in</h3>
+            <p>Example: a new viewer opens Spool for the first time. No account is needed. They start as a guest with a <span class="g-coin">100</span>-coin welcome bonus.</p>
+            <ol class="g-steps">
+              <li class="g-step"><div class="top"><span class="g-num">1</span><h5>Splash</h5></div><button class="g-shot g-phone" type="button" data-zoom="assets/shots/a-splash.webp"><img src="assets/shots/a-splash.webp" width="585" height="1266" alt="Splash screen with the Spool mark" loading="lazy" decoding="async"></button><p>The Spool mark and the line “Stories that hook you. Prices that don't.” Moves on after two seconds.</p></li>
+              <li class="g-step"><div class="top"><span class="g-num">2</span><h5>What hooks you?</h5></div><button class="g-shot g-phone" type="button" data-zoom="assets/shots/a-onboard.webp"><img src="assets/shots/a-onboard.webp" width="585" height="1266" alt="Onboarding: picking tropes" loading="lazy" decoding="async"></button><p>Pick at least 3 of 12 story types. Home is shaped around the picks. <span class="g-ui">Skip for now</span> is there too.</p></li>
+              <li class="g-step"><div class="top"><span class="g-num">3</span><h5>Language</h5></div><button class="g-shot g-phone" type="button" data-zoom="assets/shots/a-lang.webp"><img src="assets/shots/a-lang.webp" width="585" height="1266" alt="Onboarding: language and data saver" loading="lazy" decoding="async"></button><p>Original audio with subtitles, or dubbed. AI-voiced audio is always labelled “AI voice”. Data saver for slow networks.</p></li>
+              <li class="g-step"><div class="top"><span class="g-num">4</span><h5>Home</h5></div><button class="g-shot g-phone" type="button" data-zoom="assets/shots/a-home.webp"><img src="assets/shots/a-home.webp" width="585" height="1266" alt="Home screen" loading="lazy" decoding="async"></button><p>A large hero card, the wallet chip (<span class="g-coin">310</span> coins and the streak), search and notifications. Four tabs: For you · Dramas · Series &amp; films · Creators.</p></li>
+              <li class="g-step"><div class="top"><span class="g-num">5</span><h5>Series page</h5></div><button class="g-shot g-phone" type="button" data-zoom="assets/shots/a-series2.webp"><img src="assets/shots/a-series2.webp" width="585" height="1266" alt="Series page of The Heiress Returns with its cost card" loading="lazy" decoding="async"></button><p>The Heiress Returns shows its price up front: E1–E7 free, <span class="g-coin">1,020</span> coins (≈ $10.10) to catch up on the other 17 released episodes, or a <span class="g-coin">1,990</span>-coin Series Pass.</p></li>
+              <li class="g-step"><div class="top"><span class="g-num">6</span><h5>Player</h5></div><button class="g-shot g-phone" type="button" data-zoom="assets/shots/a-player.webp"><img src="assets/shots/a-player.webp" width="585" height="1266" alt="Vertical player with subtitles and the Pulse Bar" loading="lazy" decoding="async"></button><p>Vertical video. Swipe up for the next episode. Tap to pause, double-tap to like, hold for 2× speed. The Pulse Bar runs along the bottom.</p></li>
+            </ol>
+            <div class="g-note">
+              <div><span class="g-label">Worth knowing</span><p>Nobody is asked for an account until money is involved. The first purchase asks <span class="g-ui">Sign in to keep what you buy</span> (Apple, Google or phone number), so coins and unlocks survive a new phone. Guest history and the bonus move into the account.</p></div>
+              <div class="g-shots">
+                <button class="g-shot g-phone" type="button" data-zoom="assets/shots/a-gate.webp"><img src="assets/shots/a-gate.webp" width="585" height="1266" alt="Sheet asking a guest to sign in before buying" loading="lazy" decoding="async"></button>
+                <button class="g-shot g-phone" type="button" data-zoom="assets/shots/a-signin.webp"><img src="assets/shots/a-signin.webp" width="585" height="1266" alt="Sign-in screen" loading="lazy" decoding="async"></button>
+              </div>
+            </div>
+            <h4 class="g-sub">Home, top to bottom</h4>
+            <div class="g-split">
+              <ul class="g-rails">
+                <li><b>Continue watching</b><span>Picks up where you stopped. A locked next episode shows 🔒 with its price.</span></li>
+                <li><b>Fits your break</b><span>Choose 5, 15 or 30 minutes. 15 minutes gives Divorce Day E1–E10, all free, ending at a good turn in the story.</span></li>
+                <li><b>Drops tonight</b><span>Tonight's new episodes, each with <span class="g-ui">Remind me</span>.</span></li>
+                <li><b>Top 10 today</b><span>The most-watched dramas in your country.</span></li>
+                <li><b>Because you like…</b><span>Rails built from the tropes picked during onboarding.</span></li>
+                <li><b>Pilot Season</b><span>Creator pilots with their vote progress.</span></li>
+                <li><b>From creators</b><span>Creator videos linked to dramas.</span></li>
+                <li><b>Series &amp; films</b><span>Landscape web series and films.</span></li>
+                <li><b>Browse by trope, Complete</b><span>Trope tiles, and finished series with the cost to finish.</span></li>
+              </ul>
+              <div class="g-shots">
+                <button class="g-shot g-phone" type="button" data-zoom="assets/shots/a-home2.webp"><img src="assets/shots/a-home2.webp" width="585" height="1266" alt="Home: Fits your break, Drops tonight and Top 10" loading="lazy" decoding="async"></button>
+                <button class="g-shot g-phone" type="button" data-zoom="assets/shots/a-home3.webp"><img src="assets/shots/a-home3.webp" width="585" height="1266" alt="Home: Pilot Season and From creators" loading="lazy" decoding="async"></button>
+              </div>
+            </div>
+          </article>
+
+          <!-- paywall -->
+          <article class="g-part" id="g-paywall">
+            <div class="g-k">The paywall moment</div>
+            <h3 class="g-h">When and how money comes in</h3>
+            <p>The most important moment: the viewer is hooked and the next episode is locked. Take Maya Rao. She has watched E1–E7 of The Heiress Returns for free, and her wallet holds <span class="g-coin">290</span> paid + <span class="g-coin">20</span> bonus = <span class="g-coin">310</span> coins.</p>
+            <ol class="g-steps">
+              <li class="g-step"><div class="top"><span class="g-num">1</span><h5>End of E7: Cliffhanger Call</h5></div><button class="g-shot g-phone" type="button" data-zoom="assets/shots/a-endcard.webp"><img src="assets/shots/a-endcard.webp" width="585" height="1266" alt="Cliffhanger Call at the end of E7" loading="lazy" decoding="async"></button><p>The question: “Who sent Ava the text?” Celeste 46% · Ethan 33% · Victor 21%. The answer arrives in E8; a correct call earns +5 bonus coins. <span class="g-ui">Skip</span> is always there.</p></li>
+              <li class="g-step"><div class="top"><span class="g-num">2</span><h5>E8 is locked: Fair Unlock</h5></div><button class="g-shot g-phone" type="button" data-zoom="assets/shots/a-unlock.webp"><img src="assets/shots/a-unlock.webp" width="585" height="1266" alt="Fair Unlock sheet on E8 with four options" loading="lazy" decoding="async"></button><p>Four ways in, each priced up front: <span class="g-coin">60</span> coins (≈ $0.59) · one ad, free · Series Pass <span class="g-coin">1,990</span> · VIP $5.99 a week. <span class="g-ui">Unlock E8 · 60 coins</span> starts E8 straight away.</p></li>
+              <li class="g-step"><div class="top"><span class="g-num">3</span><h5>The wallet row</h5></div><button class="g-shot g-phone" type="button" data-zoom="assets/shots/a-wallet.webp"><img src="assets/shots/a-wallet.webp" width="585" height="1266" alt="Wallet with the new E8 unlock row" loading="lazy" decoding="async"></button><p>A new row: “Unlocked · The Heiress Returns E8 · −60 · 20 bonus first, then 40 paid”, with the balance after it: 250 · 0.</p></li>
+            </ol>
+            <div class="g-pay">
+              <div class="g-receipt">
+                <h5>How Maya's 60 coins were taken</h5>
+                <div class="r"><span>Before</span><b>290 paid + 20 bonus = 310</b></div>
+                <div class="r"><span>E8 price</span><b>60</b></div>
+                <div class="r"><span>From bonus first</span><b class="minus">−20 → bonus 0</b></div>
+                <div class="r"><span>Then from paid</span><b class="minus">−40 → paid 250</b></div>
+                <div class="r t"><span>After</span><b>250 paid + 0 bonus = 250</b></div>
+                <p class="foot">Bonus coins expire after 7 days, so they go first and the coins Maya paid for last longer. Unlocking the same episode again never charges twice.</p>
+              </div>
+              <div>
+                <p>Two things always sit under the Fair Unlock options:</p>
+                <ul class="g-bul">
+                  <li><b>Auto-unlock</b> is off by default. When on, the next episode opens without asking, but never past the daily limit.</li>
+                  <li><b>Price locked at 60 for you.</b> Maya started this series at 60 coins an episode, so a later price rise doesn't reach her.</li>
+                  <li><b>Balance:</b> paid and bonus coins, and when the bonus expires (16 Oct).</li>
+                </ul>
+              </div>
+            </div>
+            <h4 class="g-sub">Other situations</h4>
+            <div class="g-cases">
+              <div class="g-case">
+                <h5>Short of coins</h5>
+                <p>Only 20 coins in the wallet, so the sheet selects <span class="g-ui">Watch 1 ad</span> on its own. <span class="g-ui">Top up</span> → “You need 40 more coins for E8” → 1,000 + 200 bonus ($9.99) → <span class="g-ui">1-tap buy</span> in Google Play. The coins land and E8 unlocks itself; nobody is sent back.</p>
+                <div class="g-shots">
+                  <button class="g-shot g-phone" type="button" data-zoom="assets/shots/a-unlock-low.webp"><img src="assets/shots/a-unlock-low.webp" width="585" height="1266" alt="Fair Unlock with a low balance" loading="lazy" decoding="async"></button>
+                  <button class="g-shot g-phone" type="button" data-zoom="assets/shots/a-topup.webp"><img src="assets/shots/a-topup.webp" width="585" height="1266" alt="Top up from the paywall" loading="lazy" decoding="async"></button>
+                  <button class="g-shot g-phone" type="button" data-zoom="assets/shots/a-pay.webp"><img src="assets/shots/a-pay.webp" width="585" height="1266" alt="Google Play-style purchase confirmation" loading="lazy" decoding="async"></button>
+                </div>
+              </div>
+              <div class="g-case">
+                <h5>India: free with ads</h5>
+                <p>With the region set to India, the ad is preselected. Sindoor Ka Badla has 15 free episodes, then <span class="g-coin">30</span> coins (≈ ₹8.7) or one ad, up to 20 a day. If the ad fails, the episode unlocks anyway: “The ad didn't finish — you get the reward anyway.”</p>
+                <div class="g-shots">
+                  <button class="g-shot g-phone" type="button" data-zoom="assets/shots/a-india.webp"><img src="assets/shots/a-india.webp" width="585" height="1266" alt="India: the ad is the default unlock" loading="lazy" decoding="async"></button>
+                  <button class="g-shot g-phone" type="button" data-zoom="assets/shots/a-ad.webp"><img src="assets/shots/a-ad.webp" width="585" height="1266" alt="Honest rewarded ad with a Simulate a failed ad button" loading="lazy" decoding="async"></button>
+                </div>
+              </div>
+              <div class="g-case">
+                <h5>Daily limit reached</h5>
+                <p>Maya's limit is <span class="g-coin">300</span> coins a day. With 260 spent and E8 costing 60, the unlock pauses and offers three choices: <span class="g-ui">Raise today to 600 and unlock</span>, <span class="g-ui">Watch 1 ad instead</span>, <span class="g-ui">Not now</span>. Nothing is charged without a decision.</p>
+                <div class="g-shots">
+                  <button class="g-shot g-phone" type="button" data-zoom="assets/shots/a-cap.webp"><img src="assets/shots/a-cap.webp" width="585" height="1266" alt="Daily cap sheet" loading="lazy" decoding="async"></button>
+                  <button class="g-shot g-phone" type="button" data-zoom="assets/shots/a-guard.webp"><img src="assets/shots/a-guard.webp" width="585" height="1266" alt="Spend guard sheet" loading="lazy" decoding="async"></button>
+                </div>
+              </div>
+              <div class="g-case">
+                <h5>VIP, done honestly</h5>
+                <p>$5.99 a week · $19.99 a month · $119.99 a year. No trial trap. A reminder arrives 24 hours before every charge and can't be turned off. Cancelling takes two taps in the app. VIP never sees an ad.</p>
+                <div class="g-shots">
+                  <button class="g-shot g-phone" type="button" data-zoom="assets/shots/a-vip.webp"><img src="assets/shots/a-vip.webp" width="585" height="1266" alt="VIP plans" loading="lazy" decoding="async"></button>
+                  <button class="g-shot g-phone" type="button" data-zoom="assets/shots/a-cancelvip.webp"><img src="assets/shots/a-cancelvip.webp" width="585" height="1266" alt="Cancel VIP in two taps" loading="lazy" decoding="async"></button>
+                </div>
+              </div>
+              <div class="g-case">
+                <h5>Back after 12 days</h5>
+                <p>A win-back push: “Who sent the text? 👀 E8 of The Heiress Returns is free for you today.” The offer comes once per series. The series page offers Story Rewind: E1–E6 in 20 seconds, spoiler-free.</p>
+                <div class="g-shots">
+                  <button class="g-shot g-phone" type="button" data-zoom="assets/shots/a-push.webp"><img src="assets/shots/a-push.webp" width="585" height="1266" alt="Win-back push notification" loading="lazy" decoding="async"></button>
+                  <button class="g-shot g-phone" type="button" data-zoom="assets/shots/a-recap.webp"><img src="assets/shots/a-recap.webp" width="585" height="1266" alt="Story Rewind" loading="lazy" decoding="async"></button>
+                </div>
+              </div>
+              <div class="g-case">
+                <h5>Gift an episode</h5>
+                <p><span class="g-ui">Send a Cliffhanger</span> gives a friend E8 for free, and they need no account to start. When they finish it, the sender gets +100 bonus coins. Two gifts a week.</p>
+                <div class="g-shots">
+                  <button class="g-shot g-phone" type="button" data-zoom="assets/shots/a-share.webp"><img src="assets/shots/a-share.webp" width="585" height="1266" alt="Send a Cliffhanger sheet" loading="lazy" decoding="async"></button>
+                  <button class="g-shot g-phone" type="button" data-zoom="assets/shots/a-rewards.webp"><img src="assets/shots/a-rewards.webp" width="585" height="1266" alt="Rewards screen" loading="lazy" decoding="async"></button>
+                </div>
+              </div>
+            </div>
+            <div class="g-box">
+              <span class="g-label">Ten rules that are part of the product</span>
+              <p>They answer the biggest complaints about the top short-drama apps on Google Play, and they live in the code. In the admin they show as Locked under <span class="g-ui">Monetization › Fair-play rules</span>, so no one can switch them off by accident.</p>
+              <ol class="g-rules">
+                <li>The price shows in coins and money before every unlock.</li>
+                <li>Bonus coins are spent first; paid coins never expire.</li>
+                <li>The ledger never loses a row. Refunds are new rows, and every admin correction needs a reason.</li>
+                <li>No episode is charged twice; unlocks belong to the account.</li>
+                <li>Price lock: a series never gets more expensive for someone already watching it.</li>
+                <li>Auto-unlock is off by default and always stays inside the daily limit.</li>
+                <li>One ad = one reward, 30 seconds at most, never playable. A failed ad still pays out.</li>
+                <li>VIP: no trial trap, the renewal date up front, a reminder 24 hours before, two-tap cancel, no ads.</li>
+                <li>Promise Guard: ad offers are checked on the server.</li>
+                <li>Episodes run at least 45 seconds; finished series carry a Complete badge.</li>
+              </ol>
+            </div>
+          </article>
+
+          <!-- every app screen -->
+          <article class="g-part" id="g-app">
+            <div class="g-k">Every app screen</div>
+            <h3 class="g-h">Every screen in the app</h3>
+            <p>Every screen, in the order of the Screens panel in mobile.html. The tab bar along the bottom has five buttons: Home · Scenes · ➕ Create · Library · Me. Each route opens that screen in the prototype.</p>
+
+            <div class="g-group">
+              <h5>First run</h5>
+              <div class="g-cat c3">
+                <div class="g-card"><button class="g-shot g-phone" type="button" data-zoom="assets/shots/a-splash.webp"><img src="assets/shots/a-splash.webp" width="585" height="1266" alt="Splash" loading="lazy" decoding="async"></button><div><h6>Splash</h6><a class="g-route" href="mobile.html#/splash">/splash ↗</a><p>The mark and tagline; onboarding after two seconds.</p></div></div>
+                <div class="g-card"><button class="g-shot g-phone" type="button" data-zoom="assets/shots/a-onboard.webp"><img src="assets/shots/a-onboard.webp" width="585" height="1266" alt="Pick what hooks you" loading="lazy" decoding="async"></button><div><h6>Pick what hooks you</h6><a class="g-route" href="mobile.html#/onboard">/onboard ↗</a><p>At least 3 tropes, then language and data saver. No account.</p></div></div>
+                <div class="g-card"><button class="g-shot g-phone" type="button" data-zoom="assets/shots/a-signin.webp"><img src="assets/shots/a-signin.webp" width="585" height="1266" alt="Save your progress" loading="lazy" decoding="async"></button><div><h6>Save your progress</h6><a class="g-route" href="mobile.html#/signin">/signin ↗</a><p>Apple, Google or phone OTP, or <span class="g-ui">Keep browsing as guest</span>.</p></div></div>
+              </div>
+            </div>
+
+            <div class="g-group">
+              <h5>Discover</h5>
+              <div class="g-cat c3">
+                <div class="g-card"><button class="g-shot g-phone" type="button" data-zoom="assets/shots/a-home.webp"><img src="assets/shots/a-home.webp" width="585" height="1266" alt="Home" loading="lazy" decoding="async"></button><div><h6>Home</h6><a class="g-route" href="mobile.html#/home">/home ↗</a><p>For you, Dramas, Series &amp; films, Creators. A hero card on top, rails below.</p></div></div>
+                <div class="g-card"><button class="g-shot g-phone" type="button" data-zoom="assets/shots/a-search.webp"><img src="assets/shots/a-search.webp" width="585" height="1266" alt="Search and Scene Search" loading="lazy" decoding="async"></button><div><h6>Search &amp; Scene Search</h6><a class="g-route" href="mobile.html#/search">/search ↗</a><p>Type “the slap at the gala” → The Heiress Returns E7 at 0:40, “That was for the wedding.” Tap it and the video starts there.</p></div></div>
+                <div class="g-card"><button class="g-shot g-phone" type="button" data-zoom="assets/shots/a-charts.webp"><img src="assets/shots/a-charts.webp" width="585" height="1266" alt="Charts" loading="lazy" decoding="async"></button><div><h6>Charts</h6><a class="g-route" href="mobile.html#/charts">/charts ↗</a><p>Top today, Trending, Most saved, New &amp; rising, Complete. Updated hourly.</p></div></div>
+                <div class="g-card"><button class="g-shot g-phone" type="button" data-zoom="assets/shots/a-drops.webp"><img src="assets/shots/a-drops.webp" width="585" height="1266" alt="Drops calendar" loading="lazy" decoding="async"></button><div><h6>Drops calendar</h6><a class="g-route" href="mobile.html#/drops">/drops ↗</a><p>New episodes by day at 7, 8 and 9 PM. <span class="g-ui">Remind</span> sends an alert an hour before.</p></div></div>
+                <div class="g-card"><button class="g-shot g-phone" type="button" data-zoom="assets/shots/a-browse.webp"><img src="assets/shots/a-browse.webp" width="585" height="1266" alt="Browse by trope" loading="lazy" decoding="async"></button><div><h6>Browse by trope</h6><a class="g-route" href="mobile.html#/browse/Revenge">/browse/Revenge ↗</a><p>Revenge holds 5 titles, with filters such as Complete, Ongoing and Dubbed.</p></div></div>
+              </div>
+            </div>
+
+            <div class="g-group">
+              <h5>Watch</h5>
+              <div class="g-cat c2">
+                <div class="g-card"><button class="g-shot g-phone" type="button" data-zoom="assets/shots/a-series3.webp"><img src="assets/shots/a-series3.webp" width="585" height="1266" alt="Series page episode grid" loading="lazy" decoding="async"></button><div><h6>Series page</h6><a class="g-route" href="mobile.html#/series/heiress">/series/heiress ↗</a><p>The price card, the episode grid (✓ watched, 🔒 locked, ⏱ coming), Who's who, Reviews, More like this. Share and gift from the top.</p></div></div>
+                <div class="g-card"><button class="g-shot g-phone" type="button" data-zoom="assets/shots/a-player.webp"><img src="assets/shots/a-player.webp" width="585" height="1266" alt="Vertical player" loading="lazy" decoding="async"></button><div><h6>Vertical player</h6><a class="g-route" href="mobile.html#/player/heiress/7">/player/heiress/7 ↗</a><p>Swipe, Pulse Bar, subtitles. Like, comment, save, gift and episodes down the right side. Keys: <span class="kbd">C</span> comments, <span class="kbd">E</span> episodes.</p></div></div>
+                <div class="g-card"><button class="g-shot g-phone" type="button" data-zoom="assets/shots/a-unlock.webp"><img src="assets/shots/a-unlock.webp" width="585" height="1266" alt="Paywall moment" loading="lazy" decoding="async"></button><div><h6>Paywall moment</h6><a class="g-route" href="mobile.html#/player/heiress/8">/player/heiress/8 ↗</a><p>A locked episode opens the Fair Unlock sheet on its own, with the four options above.</p></div></div>
+                <div class="g-card"><button class="g-shot g-phone land" type="button" data-zoom="assets/shots/a-landscape.webp"><img src="assets/shots/a-landscape.webp" width="1218" height="561" alt="Landscape player" loading="lazy" decoding="async"></button><div><h6>Landscape player</h6><a class="g-route" href="mobile.html#/landscape/ledger/1">/landscape/ledger/1 ↗</a><p>Web series and films (Cold Ledger, Monsoon Hostel, Paper Lanterns). The phone turns sideways; Skip intro and Next episode. Films rent for <span class="g-coin">300</span> coins for 30 days, or come with VIP.</p></div></div>
+              </div>
+            </div>
+
+            <div class="g-group">
+              <h5>Scenes &amp; creators</h5>
+              <div class="g-cat c3">
+                <div class="g-card"><button class="g-shot g-phone" type="button" data-zoom="assets/shots/a-scenes.webp"><img src="assets/shots/a-scenes.webp" width="585" height="1266" alt="Scenes feed" loading="lazy" decoding="async"></button><div><h6>Scenes feed</h6><a class="g-route" href="mobile.html#/scenes">/scenes ↗</a><p>A short-video feed: Following, For you, Pilots. Under Zara Q's dance video sits a Fan Link to The Heiress Returns, E1–E7 free, <span class="g-ui">Watch</span>.</p></div></div>
+                <div class="g-card"><button class="g-shot g-phone" type="button" data-zoom="assets/shots/a-creator.webp"><img src="assets/shots/a-creator.webp" width="585" height="1266" alt="Creator profile" loading="lazy" decoding="async"></button><div><h6>Creator profile</h6><a class="g-route" href="mobile.html#/creator/ritu">/creator/ritu ↗</a><p>Ritu Sharma: 412K followers, <span class="g-ui">Follow</span>, <span class="g-ui">Tip</span>, Videos, Series &amp; pilots.</p></div></div>
+                <div class="g-card"><button class="g-shot g-phone" type="button" data-zoom="assets/shots/a-create.webp"><img src="assets/shots/a-create.webp" width="585" height="1266" alt="Create" loading="lazy" decoding="async"></button><div><h6>Upload a video</h6><a class="g-route" href="mobile.html#/create">/create ↗</a><p>Three steps: type and clip, details, pipeline. Covered in Creator upload below.</p></div></div>
+                <div class="g-card"><button class="g-shot g-phone" type="button" data-zoom="assets/shots/a-studio.webp"><img src="assets/shots/a-studio.webp" width="585" height="1266" alt="Creator Studio" loading="lazy" decoding="async"></button><div><h6>Creator Studio</h6><a class="g-route" href="mobile.html#/studio">/studio ↗</a><p>Earnings, views, watch time, Fan Link unlocks and the status of every upload.</p></div></div>
+                <div class="g-card"><button class="g-shot g-phone" type="button" data-zoom="assets/shots/a-pilot.webp"><img src="assets/shots/a-pilot.webp" width="585" height="1266" alt="Pilot Season entry" loading="lazy" decoding="async"></button><div><h6>Pilot Season entry</h6><a class="g-route" href="mobile.html#/series/lastdelivery">/series/lastdelivery ↗</a><p>The Last Delivery: 9,642 of 10,000 votes, and 81% of viewers finish all three episodes. <span class="g-ui">Want more</span>.</p></div></div>
+              </div>
+            </div>
+
+            <div class="g-group">
+              <h5>Library</h5>
+              <div class="g-cat c2">
+                <div class="g-card"><button class="g-shot g-phone" type="button" data-zoom="assets/shots/a-library.webp"><img src="assets/shots/a-library.webp" width="585" height="1266" alt="Library" loading="lazy" decoding="async"></button><div><h6>Library</h6><a class="g-route" href="mobile.html#/library">/library ↗</a><p>Watching, My List, Drops, Unlocked, Downloads (VIP only). The Unlocked tab reminds viewers that unlocks belong to the account, not the phone.</p></div></div>
+                <div class="g-card"><button class="g-shot g-phone" type="button" data-zoom="assets/shots/a-inbox.webp"><img src="assets/shots/a-inbox.webp" width="585" height="1266" alt="Notifications" loading="lazy" decoding="async"></button><div><h6>Notifications</h6><a class="g-route" href="mobile.html#/inbox">/inbox ↗</a><p>New drops, Cliffhanger Call results, bonus expiry, replies and the weekly summary. Never more than 3 alerts a day.</p></div></div>
+              </div>
+            </div>
+
+            <div class="g-group">
+              <h5>Wallet &amp; me</h5>
+              <div class="g-cat c3">
+                <div class="g-card"><button class="g-shot g-phone" type="button" data-zoom="assets/shots/a-me.webp"><img src="assets/shots/a-me.webp" width="585" height="1266" alt="Profile" loading="lazy" decoding="async"></button><div><h6>Profile</h6><a class="g-route" href="mobile.html#/me">/me ↗</a><p>Wallet, VIP, Rewards, Creator Studio, Spend guard, Settings, Restore purchases, Help &amp; refunds.</p></div></div>
+                <div class="g-card"><button class="g-shot g-phone" type="button" data-zoom="assets/shots/a-wallet.webp"><img src="assets/shots/a-wallet.webp" width="585" height="1266" alt="Wallet and ledger" loading="lazy" decoding="async"></button><div><h6>Wallet &amp; ledger</h6><a class="g-route" href="mobile.html#/wallet">/wallet ↗</a><p>Balance, paid and bonus, spend guard, and All / Coins in / Coins out. Tap a row for the full entry with its reference.</p></div></div>
+                <div class="g-card"><button class="g-shot g-phone" type="button" data-zoom="assets/shots/a-store.webp"><img src="assets/shots/a-store.webp" width="585" height="1266" alt="Top up" loading="lazy" decoding="async"></button><div><h6>Top up</h6><a class="g-route" href="mobile.html#/store">/store ↗</a><p>First top-up 300 + 300 ($1.99, once) · 500 + 50 $4.99 · 1,000 + 200 $9.99 · 2,000 + 600 $19.99 · 5,000 + 2,000 $49.99. Each pack shows roughly how many episodes it buys.</p></div></div>
+                <div class="g-card"><button class="g-shot g-phone" type="button" data-zoom="assets/shots/a-vip.webp"><img src="assets/shots/a-vip.webp" width="585" height="1266" alt="VIP" loading="lazy" decoding="async"></button><div><h6>VIP</h6><a class="g-route" href="mobile.html#/vip">/vip ↗</a><p>Plans, perks (everything unlocked, no ads, downloads, 1080p, early drops) and terms.</p></div></div>
+                <div class="g-card"><button class="g-shot g-phone" type="button" data-zoom="assets/shots/a-rewards.webp"><img src="assets/shots/a-rewards.webp" width="585" height="1266" alt="Rewards" loading="lazy" decoding="async"></button><div><h6>Rewards</h6><a class="g-route" href="mobile.html#/rewards">/rewards ↗</a><p>A 7-day check-in (+10, +10, +15, +15, +20, +25, +60), +15 per ad (6 a day), and tasks such as +100 for sending a friend a Cliffhanger.</p></div></div>
+                <div class="g-card"><button class="g-shot g-phone" type="button" data-zoom="assets/shots/a-settings.webp"><img src="assets/shots/a-settings.webp" width="585" height="1266" alt="Settings" loading="lazy" decoding="async"></button><div><h6>Settings</h6><a class="g-route" href="mobile.html#/settings">/settings ↗</a><p>Playback, Language, Money &amp; safety (Spend guard, Purchase PIN, Teen mode), Notifications and Account. Delete account works in the app.</p></div></div>
+              </div>
+            </div>
+
+            <h4 class="g-sub">The 16 bottom sheets</h4>
+            <p>A sheet is a panel that slides up from the bottom of the screen. Drag it down to close it.</p>
+            <div class="g-sheets">
+              <figure><button class="g-shot g-phone" type="button" data-zoom="assets/shots/a-unlock.webp"><img src="assets/shots/a-unlock.webp" width="585" height="1266" alt="Unlock options sheet" loading="lazy" decoding="async"></button><figcaption><b>Unlock options</b><span>Fair Unlock: four priced ways in.</span></figcaption></figure>
+              <figure><button class="g-shot g-phone" type="button" data-zoom="assets/shots/a-topup.webp"><img src="assets/shots/a-topup.webp" width="585" height="1266" alt="Top up sheet" loading="lazy" decoding="async"></button><figcaption><b>Top up</b><span>Straight from the paywall; the episode unlocks after the purchase.</span></figcaption></figure>
+              <figure><button class="g-shot g-phone" type="button" data-zoom="assets/shots/a-cap.webp"><img src="assets/shots/a-cap.webp" width="585" height="1266" alt="Daily cap sheet" loading="lazy" decoding="async"></button><figcaption><b>Daily cap</b><span>The daily limit is reached; the viewer decides.</span></figcaption></figure>
+              <figure><button class="g-shot g-phone" type="button" data-zoom="assets/shots/a-gate.webp"><img src="assets/shots/a-gate.webp" width="585" height="1266" alt="Sign in before buying sheet" loading="lazy" decoding="async"></button><figcaption><b>Sign in before buying</b><span>When a guest makes a first purchase.</span></figcaption></figure>
+              <figure><button class="g-shot g-phone" type="button" data-zoom="assets/shots/a-pay.webp"><img src="assets/shots/a-pay.webp" width="585" height="1266" alt="Store confirmation sheet" loading="lazy" decoding="async"></button><figcaption><b>Store confirmation</b><span>A Google Play-style confirmation (sample).</span></figcaption></figure>
+              <figure><button class="g-shot g-phone" type="button" data-zoom="assets/shots/a-cancelvip.webp"><img src="assets/shots/a-cancelvip.webp" width="585" height="1266" alt="Cancel VIP sheet" loading="lazy" decoding="async"></button><figcaption><b>Cancel VIP</b><span>Two taps, with the terms spelled out.</span></figcaption></figure>
+              <figure><button class="g-shot g-phone" type="button" data-zoom="assets/shots/a-episodes.webp"><img src="assets/shots/a-episodes.webp" width="585" height="1266" alt="Episodes sheet" loading="lazy" decoding="async"></button><figcaption><b>Episodes</b><span>Every episode and the catch-up cost.</span></figcaption></figure>
+              <figure><button class="g-shot g-phone" type="button" data-zoom="assets/shots/a-comments.webp"><img src="assets/shots/a-comments.webp" width="585" height="1266" alt="Comments sheet" loading="lazy" decoding="async"></button><figcaption><b>Comments</b><span>Top, By moment, Newest. Tap a timestamp to jump; spoilers stay blurred.</span></figcaption></figure>
+              <figure><button class="g-shot g-phone" type="button" data-zoom="assets/shots/a-cast.webp"><img src="assets/shots/a-cast.webp" width="585" height="1266" alt="Who's who sheet" loading="lazy" decoding="async"></button><figcaption><b>Who's who</b><span>The spoiler-safe character map.</span></figcaption></figure>
+              <figure><button class="g-shot g-phone" type="button" data-zoom="assets/shots/a-recap.webp"><img src="assets/shots/a-recap.webp" width="585" height="1266" alt="Story Rewind sheet" loading="lazy" decoding="async"></button><figcaption><b>Story Rewind</b><span>The story so far in 20 seconds.</span></figcaption></figure>
+              <figure><button class="g-shot g-phone" type="button" data-zoom="assets/shots/a-share.webp"><img src="assets/shots/a-share.webp" width="585" height="1266" alt="Send a Cliffhanger sheet" loading="lazy" decoding="async"></button><figcaption><b>Send a Cliffhanger</b><span>Gift an episode to a friend.</span></figcaption></figure>
+              <figure><button class="g-shot g-phone" type="button" data-zoom="assets/shots/a-psettings.webp"><img src="assets/shots/a-psettings.webp" width="585" height="1266" alt="Playback settings sheet" loading="lazy" decoding="async"></button><figcaption><b>Playback settings</b><span>Speed, quality, audio, subtitles, Clean view, Report a problem.</span></figcaption></figure>
+              <figure><button class="g-shot g-phone" type="button" data-zoom="assets/shots/a-rate.webp"><img src="assets/shots/a-rate.webp" width="585" height="1266" alt="Rate sheet" loading="lazy" decoding="async"></button><figcaption><b>Rate</b><span>Ratings open after 3 watched episodes.</span></figcaption></figure>
+              <figure><button class="g-shot g-phone" type="button" data-zoom="assets/shots/a-ledger.webp"><img src="assets/shots/a-ledger.webp" width="585" height="1266" alt="Ledger entry sheet" loading="lazy" decoding="async"></button><figcaption><b>Ledger entry</b><span>Every detail of one row.</span></figcaption></figure>
+              <figure><button class="g-shot g-phone" type="button" data-zoom="assets/shots/a-guard.webp"><img src="assets/shots/a-guard.webp" width="585" height="1266" alt="Spend guard sheet" loading="lazy" decoding="async"></button><figcaption><b>Spend guard</b><span>100, 300, 600 or 1,000 coins a day.</span></figcaption></figure>
+              <figure><button class="g-shot g-phone" type="button" data-zoom="assets/shots/a-tip.webp"><img src="assets/shots/a-tip.webp" width="585" height="1266" alt="Tip sheet" loading="lazy" decoding="async"></button><figcaption><b>Tip</b><span>50, 100 or 500 coins to a creator, from paid coins only.</span></figcaption></figure>
+            </div>
+            <p style="margin-top:16px">Also: the honest ad screen (a 5-second sample with a <span class="g-ui">Simulate a failed ad</span> button) and the push banner that appears inside the phone.</p>
+          </article>
+
+          <!-- creator upload -->
+          <article class="g-part" id="g-creator">
+            <div class="g-k">Creator upload</div>
+            <h3 class="g-h">How a creator posts a video</h3>
+            <p>Example: Maya thinks Ethan sent Ava the text and posts her theory. Any viewer can be a creator; the ➕ in the tab bar leads straight here.</p>
+            <ol class="g-steps">
+              <li class="g-step"><div class="top"><span class="g-num">1</span><h5>What are you posting?</h5></div><button class="g-shot g-phone" type="button" data-zoom="assets/shots/a-create.webp"><img src="assets/shots/a-create.webp" width="585" height="1266" alt="Create: Video, Episode or Pilot" loading="lazy" decoding="async"></button><p><span class="g-ui">Video</span> for a one-off, <span class="g-ui">Episode</span> for part of your own series, <span class="g-ui">Pilot</span> for Pilot Season. Pick a clip from the camera roll below.</p></li>
+              <li class="g-step"><div class="top"><span class="g-num">2</span><h5>Details and Fan Link</h5></div><button class="g-shot g-phone" type="button" data-zoom="assets/shots/a-details.webp"><img src="assets/shots/a-details.webp" width="585" height="1266" alt="Details: title and Fan Link" loading="lazy" decoding="async"></button><p>Title: “Ethan sent the text — here's the proof”. Fan Link: The Heiress Returns. Viewers get <span class="g-ui">Watch E1</span>, and for 30 days the creator earns 10% of the coins spent on that drama.</p></li>
+              <li class="g-step"><div class="top"><span class="g-num">3</span><h5>Rights check</h5></div><button class="g-shot g-phone" type="button" data-zoom="assets/shots/a-details2.webp"><img src="assets/shots/a-details2.webp" width="585" height="1266" alt="Audience, visibility and the rights checkbox" loading="lazy" decoding="async"></button><p>Audience 13+, Public, Auto subtitles, Music check. <span class="g-ui">Post</span> stays disabled until “I own this video…” is ticked. No clips from Spool series longer than 30 seconds.</p></li>
+              <li class="g-step"><div class="top"><span class="g-num">4</span><h5>The pipeline</h5></div><button class="g-shot g-phone" type="button" data-zoom="assets/shots/a-processing.webp"><img src="assets/shots/a-processing.webp" width="585" height="1266" alt="Upload pipeline" loading="lazy" decoding="async"></button><p>Upload → Processing (240p to 1080p, thumbnails, subtitles) → Safety check (nudity, violence, music, copyright) → Publishing (followers first) → Live. Pilots get a human review within 24 hours after the safety check.</p></li>
+              <li class="g-step"><div class="top"><span class="g-num">5</span><h5>Creator Studio</h5></div><button class="g-shot g-phone" type="button" data-zoom="assets/shots/a-studio2.webp"><img src="assets/shots/a-studio2.webp" width="585" height="1266" alt="Creator Studio: upload statuses" loading="lazy" decoding="async"></button><p>Every upload shows its status: Live · In review · Processing · Needs changes. “Trailer reaction — Glass Crown” shows the reason in red, “Clip from Glass Crown runs 41 s (limit 30 s)”, with a <span class="g-ui">Fix</span> button.</p></li>
+              <li class="g-step"><div class="top"><span class="g-num">6</span><h5>Earnings</h5></div><button class="g-shot g-phone" type="button" data-zoom="assets/shots/a-studio.webp"><img src="assets/shots/a-studio.webp" width="585" height="1266" alt="Creator Studio: earnings" loading="lazy" decoding="async"></button><p>Earnings · October $42.30, paid out once it reaches $50, on the 1st of each month. Views 61.1K · Watch time 412 h · Fan Link unlocks 1,210 → The Heiress Returns · New followers +386.</p></li>
+            </ol>
+          </article>
+
+          <!-- review module -->
+          <article class="g-part" id="g-review">
+            <div class="g-k">Review module</div>
+            <h3 class="g-h">How the review module works</h3>
+            <p>Review runs in three layers. Machines handle the obvious cases, people decide the rest, and every decision is logged with its reason. In the admin, this work happens in Creator videos and Moderation; Pilot Season and payout requests have their own approvals.</p>
+            <div class="g-layers">
+              <div class="g-tile"><span class="g-label plain">Layer 1</span><h5>Automatic checks</h5><div class="where">Every upload</div><p>Scores for nudity, violence, copyright match, music match and spam. 96.4% of uploads are approved automatically. A copyright match of 90% or more hides the video at once and tells the creator.</p></div>
+              <div class="g-tile"><span class="g-label plain">Layer 2</span><h5>Human review</h5><div class="where">Admin › Creator videos</div><p>Pilots, reported and flagged videos. Tabs: Needs review · Flagged · Processing · Live · Needs changes. Median decision time 38 minutes; SLA 2 hours.</p></div>
+              <div class="g-tile"><span class="g-label plain">Layer 3</span><h5>Reports and moderation</h5><div class="where">Admin › Moderation</div><p>One queue for videos, comments, reviews and creator identity checks, with rules, SLAs, warnings, account restrictions and appeals.</p></div>
+            </div>
+
+            <div class="g-flow" aria-label="From upload to decision">
+              <div class="g-fl"><div class="g-fn"><span class="dot"></span>The creator taps <span class="g-ui">Post</span> and the video goes straight through automatic checks<small>Nudity · Violence · Copyright match · Music match · Spam</small></div></div>
+              <div class="g-ar c3"><span>↓</span><span>↓</span><span>↓</span></div>
+              <div class="g-fl c3">
+                <div class="g-fn ok"><span class="dot"></span><b>All clear</b> → Live, followers first<small>96.4% of uploads</small></div>
+                <div class="g-fn warn"><span class="dot"></span><b>Needs review</b>: pilots, reports, middling scores<small>Stays visible until a person decides</small></div>
+                <div class="g-fn bad"><span class="dot"></span><b>Flagged</b>: copyright match 90% or more<small>Hidden automatically; creator notified</small></div>
+              </div>
+              <div class="g-ar c3"><span></span><span class="span2">↓</span></div>
+              <div class="g-fl c3">
+                <div class="g-fn aside">A live video that gets reported later lands in the Moderation queue.</div>
+                <div class="g-fn span2"><span class="dot"></span>A moderator opens the drawer: the video, the creator's details, five scores, and a reason to pick</div>
+              </div>
+              <div class="g-ar c3"><span>↓</span><span>↓</span><span>↓</span></div>
+              <div class="g-fl c3">
+                <div class="g-fn ok"><span class="dot"></span><span class="g-ui">Approve</span> → Live<small>“Approved · live for followers first”</small></div>
+                <div class="g-fn warn"><span class="dot"></span><span class="g-ui">Request changes</span> → the exact reason goes to the creator<small>Shown in red in the app's Studio, with a Fix button</small></div>
+                <div class="g-fn bad"><span class="dot"></span><span class="g-ui">Remove</span> → strike, creator notified<small>“Removed · strike recorded · creator notified”</small></div>
+              </div>
+              <div class="g-ar"><span>↓</span></div>
+              <div class="g-fl"><div class="g-fn"><span class="dot"></span>The audit log records who, when, what and why. A mistake can be undone from the toast.</div></div>
+            </div>
+
+            <h4 class="g-sub">Four real examples from the prototype</h4>
+            <div class="g-ex">
+              <div>
+                <span class="g-label">Example 1</span>
+                <h5>A leaked episode → Remove</h5>
+                <p>Neel Joshi (@neel.jokes) posted “Heiress E23 LEAKED full episode”. E23 hasn't even been released. The copyright match came back at 96%, so the system hid the video within 12 minutes and told the creator. A red line appeared under Needs attention on the Dashboard.</p>
+                <ol>
+                  <li>A moderator (Grace Liu) opens <span class="g-ui">Creator videos › Flagged</span>.</li>
+                  <li>The video sits on the left; the creator's details and the five scores on the right.</li>
+                  <li>She picks the reason “Copyright: uses an unreleased Spool episode”.</li>
+                  <li><span class="g-ui">Remove</span> → “Removed · strike recorded · creator notified”.</li>
+                  <li>Audit log: “System · Auto-hid video · Content match 96% · creator notified”.</li>
+                </ol>
+                <a class="g-open" href="admin.html#/ugc?tab=flagged">Open Creator videos › Flagged ↗</a>
+              </div>
+              <button class="g-shot g-browser" type="button" data-zoom="assets/shots/d-ugc-v13.webp"><span class="bar"><i></i><i></i><i></i><span>admin.html#/ugc?tab=flagged</span></span><img src="assets/shots/d-ugc-v13.webp" width="1440" height="900" alt="Creator videos: reviewing the leaked E23, copyright match 96%" loading="lazy" decoding="async"></button>
+            </div>
+            <div class="g-ex flip">
+              <button class="g-shot g-browser" type="button" data-zoom="assets/shots/d-ugc-v14.webp"><span class="bar"><i></i><i></i><i></i><span>admin.html#/ugc</span></span><img src="assets/shots/d-ugc-v14.webp" width="1440" height="900" alt="Creator videos: reviewing the gym prank with 14 reports" loading="lazy" decoding="async"></button>
+              <div>
+                <span class="g-label">Example 2</span>
+                <h5>A dangerous prank → a person decides</h5>
+                <p>Arjun Mehta's “Gym prank on my brother” drew 14 reports for dangerous acts in 3 hours, with a violence score of 41%. Videos aren't hidden automatically before 20 reports, so this one goes to a person in Needs review.</p>
+                <p>The moderator watches it and chooses <span class="g-ui">Approve</span>, <span class="g-ui">Request changes</span> or <span class="g-ui">Remove</span>; the reason “Dangerous acts” goes to the creator.</p>
+                <a class="g-open" href="admin.html#/ugc">Open Creator videos ↗</a>
+              </div>
+            </div>
+            <div class="g-duo">
+              <div class="g-ex"><div><span class="g-label">Example 3</span><h5>Uncleared music → Request changes</h5><p>Ritu Sharma's “Aunty Knows Best · Pilot E2” has a music match of 88%. Its status is Needs changes, with the reason “Music not cleared (00:12–00:31)”. In the app, the creator sees the reason in red in Creator Studio, with a <span class="g-ui">Fix</span> button, swaps the track and posts again.</p></div></div>
+              <div class="g-ex"><div><span class="g-label">Example 4</span><h5>A pilot → always a person</h5><p>Diego Álvarez's “The Last Delivery · Pilot E3” passed the automatic checks (risk 5%), but every pilot episode gets a human check for rights, quality and age rating. Once approved it opens for votes for 30 days. A sample audit entry: “Grace Liu · Approved pilot episode · Ghost Signals E3 · Rights ✓ · Quality ✓ · 16+”.</p></div></div>
+            </div>
+
+            <h4 class="g-sub">The moderation queue</h4>
+            <p>Three panes: the list on the left, details in the middle, the decision on the right. Each item shows how long it has waited and how many reports it has. Items near the 2-hour SLA turn amber; items past it turn red.</p>
+            <div class="g-duo">
+              <button class="g-shot g-browser" type="button" data-zoom="assets/shots/d-moderation.webp"><span class="bar"><i></i><i></i><i></i><span>admin.html#/moderation</span></span><img src="assets/shots/d-moderation.webp" width="1440" height="900" alt="Moderation queue with the leaked video selected" loading="lazy" decoding="async"></button>
+              <button class="g-shot g-browser" type="button" data-zoom="assets/shots/d-mod-comment.webp"><span class="bar"><i></i><i></i><i></i><span>admin.html#/moderation</span></span><img src="assets/shots/d-mod-comment.webp" width="1440" height="900" alt="Moderation queue with a harassment comment and its thread" loading="lazy" decoding="async"></button>
+            </div>
+            <ul class="g-decide">
+              <li><span class="g-ui">Approve · keep it</span><span>Keep it. The report was wrong.</span></li>
+              <li><span class="g-ui">Remove</span><span>Take it down. The reason goes to the user.</span></li>
+              <li><span class="g-ui">Remove + warn user</span><span>Take it down and warn the user.</span></li>
+              <li><span class="g-ui">Restrict account (7 days)</span><span>No comments, uploads or purchases for 7 days. Anything already unlocked still plays.</span></li>
+            </ul>
+            <p style="margin-top:14px">Users see the reason; internal notes are for moderators only. A user can appeal once, and a different moderator handles the appeal. Keys: <span class="kbd">J</span> and <span class="kbd">K</span> to move, <span class="kbd">A</span> to approve, <span class="kbd">R</span> to remove.</p>
+            <div class="tw">
+              <table class="tb">
+                <thead><tr><th>Type</th><th>What it is</th><th>What the system did</th><th>SLA</th></tr></thead>
+                <tbody>
+                  <tr><td>Video</td><td>Heiress E23 leak, 96% copyright match</td><td>Hidden automatically</td><td><span class="g-pill ok">On time</span></td></tr>
+                  <tr><td>Video</td><td>Gym prank, 14 reports in 3 hours</td><td>Still visible, below the 20-report threshold</td><td><span class="g-pill warn">Close</span></td></tr>
+                  <tr><td>Comment</td><td>“nobody asked for your opinion…” · harassment · Moonbound E22</td><td>Held for review</td><td><span class="g-pill ok">On time</span></td></tr>
+                  <tr><td>Comment</td><td>“lol Celeste dies in E31 btw” · unlabelled spoiler · 22 reports</td><td>Blurred automatically</td><td><span class="g-pill ok">On time</span></td></tr>
+                  <tr><td>Review</td><td>“Free coins here → spoo1-coins.biz”</td><td>Hidden by the link blocklist</td><td><span class="g-pill ok">On time</span></td></tr>
+                  <tr><td>Video</td><td>Vows of the Don ending explained · spoiler label missing</td><td>Waiting for a label</td><td><span class="g-pill ok">On time</span></td></tr>
+                  <tr><td>Video</td><td>The Last Delivery · Pilot E3</td><td>Passed auto-checks; human review</td><td><span class="g-pill ok">On time</span></td></tr>
+                  <tr><td>Comment</td><td>Hate speech · Sindoor Ka Badla E40</td><td>Hidden; account restricted</td><td><span class="g-pill bad">Breached</span></td></tr>
+                  <tr><td>Review</td><td>Identical “5 stars” reviews from 12 accounts</td><td>Excluded from the score</td><td><span class="g-pill warn">Close</span></td></tr>
+                  <tr><td>Creator</td><td>Kofi Mensah · ID for a first payout</td><td>Manual check</td><td><span class="g-pill warn">Close</span></td></tr>
+                </tbody>
+              </table>
+            </div>
+
+            <h4 class="g-sub">Rules (the Rules tab)</h4>
+            <div class="g-ex flip">
+              <button class="g-shot g-browser" type="button" data-zoom="assets/shots/d-mod-rules.webp"><span class="bar"><i></i><i></i><i></i><span>admin.html#/moderation?tab=rules</span></span><img src="assets/shots/d-mod-rules.webp" width="1440" height="900" alt="Moderation rules" loading="lazy" decoding="async"></button>
+              <ul class="g-bul">
+                <li>Blocked-word lists in English, हिन्दी, Bahasa, Português and Español.</li>
+                <li>Links and phone numbers blocked in comments and reviews.</li>
+                <li>AI moderation scores toxicity, harassment and spoilers.</li>
+                <li>Unlabelled spoilers are blurred automatically.</li>
+                <li>After 20 reports an item is hidden until a moderator decides.</li>
+                <li>Comments from accounts under 24 hours old wait for approval.</li>
+                <li>At most 5 comments a minute. Review SLA: 2 hours.</li>
+                <li>Copyright match of 90% or more → hide and notify.</li>
+              </ul>
+            </div>
+
+            <h4 class="g-sub">The Pilot Season board</h4>
+            <div class="g-ex">
+              <div>
+                <p>Four columns: <b>Voting</b> (30 days) → <b>Shortlisted</b> (10,000 votes and at least 60% of viewers finishing) → <b>Greenlit</b> (offer sent) → <b>In production</b> (the season is being made).</p>
+                <p>The Last Delivery has 9,642 votes and an 81% finish rate, so it sits in Shortlisted. <span class="g-ui">Greenlight</span> → budget $25,000 · 30 episodes · 30% revenue share for the creator · delivery 15 Dec 2026 → <span class="g-ui">Send offer</span>. Everyone who voted gets a push when the season is announced. Flatmates S2 (Ritu Sharma) is already in production, with 14 of 24 episodes released.</p>
+                <p>One vote per account, counted only after a full episode. Accounts under 24 hours old can't vote, which stops vote farming.</p>
+                <a class="g-open" href="admin.html#/pilots">Open Pilot Season ↗</a>
+              </div>
+              <button class="g-shot g-browser" type="button" data-zoom="assets/shots/d-greenlight.webp"><span class="bar"><i></i><i></i><i></i><span>admin.html#/pilots</span></span><img src="assets/shots/d-greenlight.webp" width="1440" height="900" alt="Pilot Season: greenlighting The Last Delivery" loading="lazy" decoding="async"></button>
+            </div>
+
+            <h4 class="g-sub">Payout approvals</h4>
+            <div class="g-ex flip">
+              <button class="g-shot g-browser" type="button" data-zoom="assets/shots/d-payouts.webp"><span class="bar"><i></i><i></i><i></i><span>admin.html#/creators?tab=payouts</span></span><img src="assets/shots/d-payouts.webp" width="1440" height="900" alt="Payout requests" loading="lazy" decoding="async"></button>
+              <div>
+                <p><span class="g-ui">Creators &amp; payouts › Payout requests</span>: Zara Q ($9,120), Mina Park ($6,840) and Ritu Sharma ($4,120) are waiting, $20,080 in total. Finance chooses <span class="g-ui">Approve</span> for the 1 Nov batch, or <span class="g-ui">Hold</span>.</p>
+                <p>Kofi Mensah's $300 is On hold for an identity check. Once his ID clears in the Moderation queue, Finance presses <span class="g-ui">Release</span>.</p>
+                <a class="g-open" href="admin.html#/creators?tab=payouts">Open Payout requests ↗</a>
+              </div>
+            </div>
+
+            <h4 class="g-sub">What the app shows of all this</h4>
+            <ul class="g-bul">
+              <li><b>Creators</b> see In review or Needs changes in Studio, with the reason and a <span class="g-ui">Fix</span> button.</li>
+              <li><b>Viewers'</b> comments pass auto-moderation; comments from new accounts wait for review.</li>
+              <li><b>Anyone</b> can tap <span class="g-ui">Report a problem</span> in the player settings, and the report goes straight to the moderation queue.</li>
+              <li><b>Spoilers</b> in comments carry a “Spoiler · E12” label and stay blurred until tapped.</li>
+            </ul>
+          </article>
+
+          <!-- admin sections -->
+          <article class="g-part" id="g-admin">
+            <div class="g-k">Admin · Spool Studio</div>
+            <h3 class="g-h">What each admin section does</h3>
+            <p>The admin panel is called Spool Studio. The sidebar holds 18 sections in 7 groups. Along the top: search <span style="white-space:nowrap">(<span class="kbd">⌘K</span>)</span>, a region picker that rescopes every number, and light or dark. Numbers in the sidebar count open work, such as Moderation 37.</p>
+
+            <div class="g-agroup">
+              <h5>Overview</h5>
+              <div class="g-arow">
+                <button class="g-shot g-browser" type="button" data-zoom="assets/shots/d-dashboard.webp"><span class="bar"><i></i><i></i><i></i><span>#/dashboard</span></span><img src="assets/shots/d-dashboard.webp" width="1440" height="900" alt="Dashboard" loading="lazy" decoding="async"></button>
+                <div><div class="g-ahead"><h6>Dashboard</h6><span class="who">Owner · everyone</span><a class="g-open" href="admin.html#/dashboard">Open ↗</a></div><p class="lead">The whole platform on one page.</p>
+                  <dl class="g-kv"><div><dt>What</dt><dd>Revenue (coins and passes, VIP, ads), daily viewers, unlock conversion, day-7 retention, top titles, live activity, the paywall funnel and per-country numbers.</dd></div>
+                  <div><dt>Example</dt><dd>Needs attention lists only the 6 things a person must decide, such as “Unreleased episode leaked · Heiress E23 · 96% match”. One click opens Creator videos › Flagged.</dd></div></dl></div>
+              </div>
+            </div>
+
+            <div class="g-agroup">
+              <h5>Content</h5>
+              <div class="g-arow">
+                <button class="g-shot g-browser" type="button" data-zoom="assets/shots/d-titles.webp"><span class="bar"><i></i><i></i><i></i><span>#/titles</span></span><img src="assets/shots/d-titles.webp" width="1440" height="900" alt="Titles" loading="lazy" decoding="async"></button>
+                <div><div class="g-ahead"><h6>Titles</h6><span class="who">Content manager</span><a class="g-open" href="admin.html#/titles">Open ↗</a></div><p class="lead">Every drama, series, film and pilot.</p>
+                  <dl class="g-kv"><div><dt>What</dt><dd>23 titles: 14 dramas, 2 web series, 2 films, 1 creator series and 4 pilots, all on one content model. Search, filter, sort, CSV import, <span class="g-ui">New title</span> and bulk price changes.</dd></div>
+                  <div><dt>Example</dt><dd>The Heiress Returns · 24 of 60 episodes · 7 free · <span class="g-coin">60</span> coins · Live.</dd></div></dl></div>
+              </div>
+              <div class="g-arow">
+                <button class="g-shot g-browser" type="button" data-zoom="assets/shots/d-editor-money.webp"><span class="bar"><i></i><i></i><i></i><span>#/titles/heiress?tab=money</span></span><img src="assets/shots/d-editor-money.webp" width="1440" height="900" alt="Title editor, Monetization tab" loading="lazy" decoding="async"></button>
+                <div><div class="g-ahead"><h6>Title editor</h6><span class="who">Content manager</span><a class="g-open" href="admin.html#/titles/heiress?tab=money">Open ↗</a></div><p class="lead">One title in full, across 7 tabs.</p>
+                  <dl class="g-kv"><div><dt>What</dt><dd>Overview (name, synopsis, tropes, age rating, artwork, release, regions, rights), Episodes, Monetization, Cast, Localization, Analytics and Reviews, with a live preview of the series page.</dd></div>
+                  <div><dt>Example</dt><dd>In Monetization, slide free episodes from 7 to 10 and the “What it costs” card in the preview updates at once. Under Episodes › E7 you write the Cliffhanger Call question and the scene notes Scene Search reads (“The slap at 0:42”).</dd></div></dl></div>
+              </div>
+              <div class="g-arow">
+                <button class="g-shot g-browser" type="button" data-zoom="assets/shots/d-upload.webp"><span class="bar"><i></i><i></i><i></i><span>#/upload</span></span><img src="assets/shots/d-upload.webp" width="1440" height="900" alt="Upload and pipeline" loading="lazy" decoding="async"></button>
+                <div><div class="g-ahead"><h6>Upload &amp; pipeline</h6><span class="who">Content manager</span><a class="g-open" href="admin.html#/upload">Open ↗</a></div><p class="lead">Episode files in, ready episodes out.</p>
+                  <dl class="g-kv"><div><dt>What</dt><dd>MP4 or MOV up to 20 GB. Automatically: transcode (240p–1080p) → AI subtitles → dubbing → ready to schedule. Bulk import by CSV, or import from a URL or HLS.</dd></div>
+                  <div><dt>Example</dt><dd>“Reborn, I Chose Myself E34” failed with “Audio track missing (stream 1)”. A CSV import of 50 episodes went through with 0 errors.</dd></div></dl></div>
+              </div>
+              <div class="g-arow">
+                <button class="g-shot g-browser" type="button" data-zoom="assets/shots/d-schedule.webp"><span class="bar"><i></i><i></i><i></i><span>#/schedule</span></span><img src="assets/shots/d-schedule.webp" width="1440" height="900" alt="Release schedule" loading="lazy" decoding="async"></button>
+                <div><div class="g-ahead"><h6>Release schedule</h6><span class="who">Content manager</span><a class="g-open" href="admin.html#/schedule">Open ↗</a></div><p class="lead">When each episode goes out.</p>
+                  <dl class="g-kv"><div><dt>What</dt><dd>A week calendar. Drag an episode to change its day or time. Drops go out in each viewer's local time, reminders an hour before, VIP 24 hours early.</dd></div>
+                  <div><dt>Example</dt><dd>The Heiress Returns E24 goes out tomorrow at 8:00 PM in every region. Omar Haddad scheduled it, and the audit log has the entry.</dd></div></dl></div>
+              </div>
+              <div class="g-arow">
+                <button class="g-shot g-browser" type="button" data-zoom="assets/shots/d-home.webp"><span class="bar"><i></i><i></i><i></i><span>#/home-builder</span></span><img src="assets/shots/d-home.webp" width="1440" height="900" alt="Home builder" loading="lazy" decoding="async"></button>
+                <div><div class="g-ahead"><h6>Home builder</h6><span class="who">Content manager</span><a class="g-open" href="admin.html#/home-builder">Open ↗</a></div><p class="lead">The order of Home, per country.</p>
+                  <dl class="g-kv"><div><dt>What</dt><dd>Which rails appear on Home and in what order. Drag to reorder, switch rails on or off, check the phone preview. <span class="g-ui">Publish layout</span> goes live in about a minute and keeps the previous version.</dd></div>
+                  <div><dt>Example</dt><dd>Separate Homes for the US, India and Brazil, with Hindi Originals first in India.</dd></div></dl></div>
+              </div>
+            </div>
+
+            <div class="g-agroup">
+              <h5>Community</h5>
+              <div class="g-arow">
+                <button class="g-shot g-browser" type="button" data-zoom="assets/shots/d-ugc.webp"><span class="bar"><i></i><i></i><i></i><span>#/ugc</span></span><img src="assets/shots/d-ugc.webp" width="1440" height="900" alt="Creator videos" loading="lazy" decoding="async"></button>
+                <div><div class="g-ahead"><h6>Creator videos</h6><span class="who">Moderator</span><a class="g-open" href="admin.html#/ugc">Open ↗</a></div><p class="lead">Review of creator uploads.</p>
+                  <dl class="g-kv"><div><dt>What</dt><dd>Needs review · Flagged · Processing · Live · Needs changes. Open a video → five automatic scores → <span class="g-ui">Approve</span>, <span class="g-ui">Request changes</span> or <span class="g-ui">Remove</span>, with a reason.</dd></div>
+                  <div><dt>Example</dt><dd>4,812 uploads today, 96.4% approved automatically, a median of 38 minutes to decide. More in <a href="#g-review">the review module</a>.</dd></div></dl></div>
+              </div>
+              <div class="g-arow">
+                <button class="g-shot g-browser" type="button" data-zoom="assets/shots/d-pilots.webp"><span class="bar"><i></i><i></i><i></i><span>#/pilots</span></span><img src="assets/shots/d-pilots.webp" width="1440" height="900" alt="Pilot Season board" loading="lazy" decoding="async"></button>
+                <div><div class="g-ahead"><h6>Pilot Season</h6><span class="who">Owner · Content manager</span><a class="g-open" href="admin.html#/pilots">Open ↗</a></div><p class="lead">Which pilots become seasons.</p>
+                  <dl class="g-kv"><div><dt>What</dt><dd>The Voting → Shortlisted → Greenlit → In production board, <span class="g-ui">Greenlight</span> offers, and the rules: 10,000 votes, a 60% finish rate, 30 days.</dd></div>
+                  <div><dt>Example</dt><dd>The Last Delivery: 9,642 of 10,000, Shortlisted. Ghost Signals (8,214), Desk 14 (5,960) and Aunty Knows Best (3,120) are still voting.</dd></div></dl></div>
+              </div>
+              <div class="g-arow">
+                <button class="g-shot g-browser" type="button" data-zoom="assets/shots/d-creators.webp"><span class="bar"><i></i><i></i><i></i><span>#/creators</span></span><img src="assets/shots/d-creators.webp" width="1440" height="900" alt="Creators and payouts" loading="lazy" decoding="async"></button>
+                <div><div class="g-ahead"><h6>Creators &amp; payouts</h6><span class="who">Finance</span><a class="g-open" href="admin.html#/creators">Open ↗</a></div><p class="lead">Creators, their earnings and payouts.</p>
+                  <dl class="g-kv"><div><dt>What</dt><dd>8 creators (followers, Partner status, share, Fan Link unlocks, 30-day earnings), payout approvals, Fan Link accounting and program rules: creator series 50%, Fan Links 10%, greenlit series 30%, $50 minimum payout.</dd></div>
+                  <div><dt>Example</dt><dd>Fan Links › The Heiress Returns: 211K taps → 38.4K unlocks → $2,304 for the creators.</dd></div></dl></div>
+              </div>
+              <div class="g-arow">
+                <button class="g-shot g-browser" type="button" data-zoom="assets/shots/d-moderation.webp"><span class="bar"><i></i><i></i><i></i><span>#/moderation</span></span><img src="assets/shots/d-moderation.webp" width="1440" height="900" alt="Moderation" loading="lazy" decoding="async"></button>
+                <div><div class="g-ahead"><h6>Moderation</h6><span class="who">Moderator</span><a class="g-open" href="admin.html#/moderation">Open ↗</a></div><p class="lead">The report queue and its rules.</p>
+                  <dl class="g-kv"><div><dt>What</dt><dd>One queue for reported videos, comments, reviews and creator identity checks. Automatic rules live in the Rules tab.</dd></div>
+                  <div><dt>Example</dt><dd>“lol Celeste dies in E31 btw”: 22 reports, blurred automatically, waiting for a moderator. More in <a href="#g-review">the review module</a>.</dd></div></dl></div>
+              </div>
+            </div>
+
+            <div class="g-agroup">
+              <h5>Audience</h5>
+              <div class="g-arow">
+                <button class="g-shot g-browser" type="button" data-zoom="assets/shots/d-user.webp"><span class="bar"><i></i><i></i><i></i><span>#/users/u_10293</span></span><img src="assets/shots/d-user.webp" width="1440" height="900" alt="Users: Maya Rao's wallet and ledger" loading="lazy" decoding="async"></button>
+                <div><div class="g-ahead"><h6>Users</h6><span class="who">Support · Finance</span><a class="g-open" href="admin.html#/users/u_10293">Open ↗</a></div><p class="lead">Every viewer's account and history.</p>
+                  <dl class="g-kv"><div><dt>What</dt><dd>Search by name, email or ID. Open a user for Wallet &amp; ledger, Unlocks, Purchases, Subscription and Activity, plus <span class="g-ui">Restore purchases</span>, <span class="g-ui">Adjust balance</span>, <span class="g-ui">Restrict</span> and <span class="g-ui">Grant an episode</span>.</dd></div>
+                  <div><dt>Example</dt><dd>Google Play charged Maya Rao twice. Tomás added +60 paid coins with the reason “Double charge on GPA.3381 — store refund pending”, which became a new ledger row. Adjustments over 1,000 coins need a second approver from Finance.</dd></div></dl></div>
+              </div>
+              <div class="g-arow">
+                <button class="g-shot g-browser" type="button" data-zoom="assets/shots/d-campaigns.webp"><span class="bar"><i></i><i></i><i></i><span>#/campaigns</span></span><img src="assets/shots/d-campaigns.webp" width="1440" height="900" alt="Campaigns and push" loading="lazy" decoding="async"></button>
+                <div><div class="g-ahead"><h6>Campaigns &amp; push</h6><span class="who">Growth</span><a class="g-open" href="admin.html#/campaigns">Open ↗</a></div><p class="lead">Bringing viewers back at the right moment.</p>
+                  <dl class="g-kv"><div><dt>What</dt><dd>Four automations, a push composer with a phone preview, and ad deep links checked by Promise Guard. No viewer gets more than 3 notifications a day, and money notices are never marketing.</dd></div>
+                  <div><dt>Example</dt><dd>Cliffhanger win-back: a viewer stuck at a locked episode for 24 hours gets the next episode free, once per series. 182.4K sent in 30 days, 18.2% came back, $61.2K in revenue. The VIP renewal reminder is marked Required and can't be switched off.</dd></div></dl></div>
+              </div>
+            </div>
+
+            <div class="g-agroup">
+              <h5>Money</h5>
+              <div class="g-arow">
+                <button class="g-shot g-browser" type="button" data-zoom="assets/shots/d-monetization.webp"><span class="bar"><i></i><i></i><i></i><span>#/monetization</span></span><img src="assets/shots/d-monetization.webp" width="1440" height="900" alt="Monetization, Regions tab" loading="lazy" decoding="async"></button>
+                <div><div class="g-ahead"><h6>Monetization</h6><span class="who">Owner · Finance · Growth</span><a class="g-open" href="admin.html#/monetization">Open ↗</a></div><p class="lead">How each country earns.</p>
+                  <dl class="g-kv"><div><dt>What</dt><dd>Three modes: Hybrid (coins + VIP + ads), Free with ads, and Coins + VIP with no ads. Episode price, free episodes, daily ad cap and VIP price per country. Tabs: Regions, Coin packs, VIP plans, Ads, Rewards, Fair-play rules.</dd></div>
+                  <div><dt>Example</dt><dd>India: free with ads · 30 coins · 15 free · 20 ads a day · VIP ₹49 a week. Germany: coins + VIP, ads off. US: hybrid · 60 coins · 6 ads · $5.99.</dd></div></dl></div>
+              </div>
+              <div class="g-arow">
+                <button class="g-shot g-browser" type="button" data-zoom="assets/shots/d-x31.webp"><span class="bar"><i></i><i></i><i></i><span>#/paywall-lab/x-31</span></span><img src="assets/shots/d-x31.webp" width="1440" height="900" alt="Paywall Lab experiment x-31" loading="lazy" decoding="async"></button>
+                <div><div class="g-ahead"><h6>Paywall Lab</h6><span class="who">Growth</span><a class="g-open" href="admin.html#/paywall-lab/x-31">Open ↗</a></div><p class="lead">Test before you change.</p>
+                  <dl class="g-kv"><div><dt>What</dt><dd>Test where the paywall sits, the price, pass discounts and ad caps on part of new viewers. If retention, refunds or complaints slip, the test stops itself.</dd></div>
+                  <div><dt>Example</dt><dd>x-31 “Paywall position · E8 vs E10” on Married to the Wrong Billionaire: a paywall at E8 lifts revenue per viewer from $0.412 to $0.438, +6.3% at 94% confidence. <span class="g-ui">Ship B</span> applies to new viewers only; existing viewers keep their locked price.</dd></div></dl></div>
+              </div>
+              <div class="g-arow">
+                <button class="g-shot g-browser" type="button" data-zoom="assets/shots/d-transactions.webp"><span class="bar"><i></i><i></i><i></i><span>#/transactions</span></span><img src="assets/shots/d-transactions.webp" width="1440" height="900" alt="Transactions" loading="lazy" decoding="async"></button>
+                <div><div class="g-ahead"><h6>Transactions</h6><span class="who">Finance</span><a class="g-open" href="admin.html#/transactions">Open ↗</a></div><p class="lead">Every purchase and refund.</p>
+                  <dl class="g-kv"><div><dt>What</dt><dd>Every purchase from Google Play, the App Store and the web (Stripe, Razorpay, PayPal). Coins land only after the receipt is verified on the server. <span class="g-ui">Refund</span> goes back through the original store and writes a reversal row to the viewer's ledger.</dd></div>
+                  <div><dt>Example</dt><dd>Refund rate 0.6%, 3 chargebacks this week. One delivery timed out on the first attempt and completed on a retry 4 seconds later (“0 still missing”).</dd></div></dl></div>
+              </div>
+            </div>
+
+            <div class="g-agroup">
+              <h5>Insights</h5>
+              <div class="g-arow">
+                <button class="g-shot g-browser" type="button" data-zoom="assets/shots/d-analytics.webp"><span class="bar"><i></i><i></i><i></i><span>#/analytics?tab=content</span></span><img src="assets/shots/d-analytics.webp" width="1440" height="900" alt="Analytics, Content tab" loading="lazy" decoding="async"></button>
+                <div><div class="g-ahead"><h6>Analytics</h6><span class="who">Owner · Growth</span><a class="g-open" href="admin.html#/analytics?tab=content">Open ↗</a></div><p class="lead">What works, and where viewers drop off.</p>
+                  <dl class="g-kv"><div><dt>What</dt><dd>Four tabs: Audience (viewers, sources, retention), Content (most watched, drop-off, Scene Search, Cliffhanger Calls), Revenue (sources, countries, funnel) and Creators.</dd></div>
+                  <div><dt>Example</dt><dd>The Heiress Returns loses 36% of its viewers at E8, the paywall. 68% of viewers who make a Cliffhanger Call come back for the reveal, against 41% of those who skip it.</dd></div></dl></div>
+              </div>
+            </div>
+
+            <div class="g-agroup">
+              <h5>System</h5>
+              <div class="g-arow">
+                <button class="g-shot g-browser" type="button" data-zoom="assets/shots/d-settings.webp"><span class="bar"><i></i><i></i><i></i><span>#/settings</span></span><img src="assets/shots/d-settings.webp" width="1440" height="900" alt="Settings, Branding" loading="lazy" decoding="async"></button>
+                <div><div class="g-ahead"><h6>Settings</h6><span class="who">Owner · Admin</span><a class="g-open" href="admin.html#/settings">Open ↗</a></div><p class="lead">Everything configurable without code.</p>
+                  <dl class="g-kv"><div><dt>What</dt><dd>Branding, Regions &amp; languages (14 languages), Payments, Storage &amp; CDN, Video pipeline, Sign-in, App versions, Legal pages, Notifications, API &amp; webhooks.</dd></div>
+                  <div><dt>Example</dt><dd>Pick the Ember accent in Branding and the app prototype and this brief turn Ember too. That change is real, in the same browser.</dd></div></dl></div>
+              </div>
+              <div class="g-arow">
+                <button class="g-shot g-browser" type="button" data-zoom="assets/shots/d-team.webp"><span class="bar"><i></i><i></i><i></i><span>#/team</span></span><img src="assets/shots/d-team.webp" width="1440" height="900" alt="Team and roles" loading="lazy" decoding="async"></button>
+                <div><div class="g-ahead"><h6>Team &amp; roles</h6><span class="who">Owner</span><a class="g-open" href="admin.html#/team">Open ↗</a></div><p class="lead">Who can do what.</p>
+                  <dl class="g-kv"><div><dt>What</dt><dd>7 members and 7 roles: Owner, Admin, Content manager, Moderator, Finance, Growth and Support. A permissions table (E = edit, V = view, — = no access), <span class="g-ui">Invite</span> and 2FA.</dd></div>
+                  <div><dt>Example</dt><dd>Moderators can't refund or adjust wallets. Support can refund up to $20.</dd></div></dl></div>
+              </div>
+              <div class="g-arow">
+                <button class="g-shot g-browser" type="button" data-zoom="assets/shots/d-audit.webp"><span class="bar"><i></i><i></i><i></i><span>#/audit</span></span><img src="assets/shots/d-audit.webp" width="1440" height="900" alt="Audit log" loading="lazy" decoding="async"></button>
+                <div><div class="g-ahead"><h6>Audit log</h6><span class="who">Owner</span><a class="g-open" href="admin.html#/audit">Open ↗</a></div><p class="lead">A permanent record of every change.</p>
+                  <dl class="g-kv"><div><dt>What</dt><dd>Who did what, when, to which record, and why. Entries are never edited or deleted and are kept for 2 years.</dd></div>
+                  <div><dt>Example</dt><dd>“Riya Desai · Changed region mode · Germany · Hybrid → Coins + VIP (ads off)”.</dd></div></dl></div>
+              </div>
+              <div class="g-arow">
+                <button class="g-shot g-browser" type="button" data-zoom="assets/shots/d-login.webp"><span class="bar"><i></i><i></i><i></i><span>#/login</span></span><img src="assets/shots/d-login.webp" width="1440" height="900" alt="Studio sign-in" loading="lazy" decoding="async"></button>
+                <div><div class="g-ahead"><h6>Login</h6><span class="who">Everyone</span><a class="g-open" href="admin.html#/login">Open ↗</a></div><p class="lead">How the team gets in.</p>
+                  <dl class="g-kv"><div><dt>What</dt><dd>Work email and password, or Google Workspace, then a 2FA code. Sessions end after 12 hours.</dd></div>
+                  <div><dt>Example</dt><dd>Sign in as riya@spool.tv and land on the Dashboard.</dd></div></dl></div>
+              </div>
+            </div>
+          </article>
+
+          <!-- app and admin together -->
+          <article class="g-part" id="g-links">
+            <div class="g-k">App and admin</div>
+            <h3 class="g-h">How the app and admin connect</h3>
+            <p>In the real product, the app and the admin will share one server API, so a change in the admin shows up in the app. In the prototypes both read the same sample data (<span class="g-mono">data.js</span>), but with no server, a change on one side doesn't reach the other. The one exception is the accent colour.</p>
+            <div class="tw">
+              <table class="tb">
+                <thead><tr><th>Do this in the admin</th><th>What the real app will do</th><th>In the prototype today</th></tr></thead>
+                <tbody>
+                  <tr><td><b>Settings › Branding › Accent colour</b></td><td>The whole app changes colour</td><td><span class="g-pill ok">Really changes</span> in the same browser</td></tr>
+                  <tr><td><b>Title editor › Monetization › Free episodes</b></td><td>The series page's “What it costs” card</td><td><span class="g-pill">Admin preview</span></td></tr>
+                  <tr><td><b>Monetization › Regions › India</b></td><td>The ad becomes the default unlock</td><td><span class="g-pill">App: Scenario › Region › India</span></td></tr>
+                  <tr><td><b>Campaigns › Cliffhanger win-back</b></td><td>A push, and E8 free</td><td><span class="g-pill">App: Scenario › Push › Win-back</span></td></tr>
+                  <tr><td><b>Creator videos › Request changes</b></td><td>The reason and Fix in the creator's Studio</td><td><span class="g-pill">Separate samples on each side</span></td></tr>
+                  <tr><td><b>Users › Adjust balance</b></td><td>A new row in the viewer's wallet</td><td><span class="g-pill">Separate samples on each side</span></td></tr>
+                  <tr><td><b>Release schedule</b></td><td>The drops calendar and reminders</td><td><span class="g-pill">Separate samples on each side</span></td></tr>
+                  <tr><td><b>Home builder › Publish layout</b></td><td>The order of Home rails</td><td><span class="g-pill">Admin preview</span></td></tr>
+                </tbody>
+              </table>
+            </div>
+          </article>
+
+          <!-- driving the prototype -->
+          <article class="g-part" id="g-use">
+            <div class="g-k">Using the prototype</div>
+            <h3 class="g-h">How to drive the prototype</h3>
+            <p>Open <a href="mobile.html">mobile.html</a>. The phone in the middle works like the real app: click, scroll and swipe. The panels around it exist only in the prototype and won't ship.</p>
+            <button class="g-shot g-browser" type="button" data-zoom="assets/shots/s-stage.webp" style="margin-top:18px"><span class="bar"><i></i><i></i><i></i><span>mobile.html · The paywall moment, step 3</span></span><span class="g-imgbox"><img src="assets/shots/s-stage.webp" width="1600" height="1000" alt="mobile.html: the phone in the middle with panels around it" loading="lazy" decoding="async"><span class="g-pin" style="left:13.1%;top:7.5%" aria-hidden="true">1</span><span class="g-pin" style="left:13.1%;top:46.6%" aria-hidden="true">2</span><span class="g-pin" style="left:64.5%;top:7.5%" aria-hidden="true">3</span><span class="g-pin" style="left:64.5%;top:36.5%" aria-hidden="true">4</span><span class="g-pin" style="left:64.5%;top:70.3%" aria-hidden="true">5</span><span class="g-pin" style="left:69.4%;top:2.7%" aria-hidden="true">6</span></span></button>
+            <ol class="g-panels">
+              <li><span class="g-num">1</span><span><b>Journey</b>: 11 ready-made demos. Pick one and press <span class="g-ui">Next step</span>; the phone performs each step.</span></li>
+              <li><span class="g-num">2</span><span><b>Screens</b>: every screen and sheet. Click one to open it on the phone.</span></li>
+              <li><span class="g-num">3</span><span><b>Live events</b>: what the real app would send to the server: TRACK (analytics), LEDGER (coin movements), API (server calls), PUSH, AD, STORE, VIEW. A working spec for developers.</span></li>
+              <li><span class="g-num">4</span><span><b>On this screen</b>: what to try on the current screen, and the research behind the feature.</span></li>
+              <li><span class="g-num">5</span><span><b>Scenario</b>: Viewer (New guest / Regular / VIP), Region (US / India / Brazil), Wallet (310 / 20 / 0 / +500), Returning (after 12 days), Speed (1× / 3× / 6×), six push types and five accent colours.</span></li>
+              <li><span class="g-num">6</span><span><b>Jump to a screen</b>: press <span class="kbd">/</span> and type any screen or journey name. The Brief and Admin panel buttons sit next to it.</span></li>
+            </ol>
+            <div class="g-keys">
+              <div><b>In the player:</b> <span class="kbd">↑</span> <span class="kbd">↓</span>, swipe or scroll to change episode · tap to pause · double-tap to like · hold for 2× · <span class="kbd">C</span> comments · <span class="kbd">E</span> episodes.</div>
+              <div><b>Video time:</b> video runs at 3×, so a 90-second episode plays in about 30 seconds. Labels show real time.</div>
+              <div><b>In the admin:</b> <span class="kbd">⌘K</span> or <span class="kbd">/</span> to search; <span class="kbd">J</span> <span class="kbd">K</span> <span class="kbd">A</span> <span class="kbd">R</span> in Moderation.</div>
+              <div><b>Start here:</b> in the Journey panel, pick “The paywall moment” and press <span class="g-ui">Next step</span> five times.</div>
+            </div>
+            <h4 class="g-sub">The 11 ready-made journeys</h4>
+            <div class="tw">
+              <table class="tb">
+                <thead><tr><th>Name in the Journey panel</th><th>What it shows</th><th class="r">Steps</th></tr></thead>
+                <tbody>
+                  <tr><td><b>First session as a guest</b></td><td>A new viewer with no account: Splash → tropes → language → Home → series page → E1</td><td class="r">6</td></tr>
+                  <tr><td><b>The paywall moment</b></td><td>E7 → Cliffhanger Call → E8 locked → unlock with coins → Wallet</td><td class="r">5</td></tr>
+                  <tr><td><b>Out of coins</b></td><td>20 coins → top up from the paywall → Google Play → E8 unlocks itself → Wallet</td><td class="r">5</td></tr>
+                  <tr><td><b>Free with ads · India</b></td><td>Hindi Originals → Sindoor Ka Badla → E16 locked → one ad (try “Simulate a failed ad”)</td><td class="r">4</td></tr>
+                  <tr><td><b>Coming back after 12 days</b></td><td>Win-back push → E8 free → Story Rewind → Who's who</td><td class="r">5</td></tr>
+                  <tr><td><b>Creator: post a video</b></td><td>Scenes → clip → details, Fan Link, rights → Post → Creator Studio</td><td class="r">5</td></tr>
+                  <tr><td><b>Vote a pilot into production</b></td><td>Pilots feed → The Last Delivery → Want more → “Greenlit” push</td><td class="r">4</td></tr>
+                  <tr><td><b>Find a scene by describing it</b></td><td>Search → Scene Search → the player opens at 0:40</td><td class="r">3</td></tr>
+                  <tr><td><b>Go VIP, fairly</b></td><td>Profile → VIP → Google Play → VIP on → renewal reminder → cancel in two taps</td><td class="r">6</td></tr>
+                  <tr><td><b>Daily habit</b></td><td>Rewards → check-in → an ad → the wallet rows</td><td class="r">4</td></tr>
+                  <tr><td><b>Series &amp; films</b></td><td>Home → Cold Ledger → the landscape player (the phone turns)</td><td class="r">3</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </article>
+
+          <!-- not built yet -->
+          <article class="g-part" id="g-missing">
+            <div class="g-k">Not built yet</div>
+            <h3 class="g-h">What isn't built yet</h3>
+            <p>Worth being clear about before deciding anything. The prototypes exist to settle what to build and why; the real apps are still to be built.</p>
+            <ul class="g-missing">
+              <li><b>No server, database or API.</b>All data lives in <span class="g-mono">data.js</span> as samples. A reload resets everything.</li>
+              <li><b>No real sign-in.</b>The Apple, Google and phone OTP buttons are for show.</li>
+              <li><b>No real payments.</b>The Google Play sheet is a sample; no money moves.</li>
+              <li><b>No real video.</b>The player runs on stills and subtitles at 3× speed.</li>
+              <li><b>No real ads or push.</b>The ad is a 5-second sample; pushes are banners inside the phone.</li>
+              <li><b>No real AI.</b>Scene Search and Story Rewind use pre-written examples.</li>
+              <li><b>Generated artwork.</b>Posters and character art are generated; real, licensed posters are needed.</li>
+              <li><b>Admin changes don't reach the app.</b>Only the accent colour carries across.</li>
+              <li><b>No SaaS or Partner Studio module.</b>Outside companies registering, getting approved and connecting platforms has only been discussed; there is no code.</li>
+              <li><b>The real apps haven't started.</b>Flutter (Android and iOS), the Laravel admin and the Next.js web are still to come. These prototypes are their blueprint; each part of <span class="g-mono">data.js</span> becomes a database table.</li>
+            </ul>
+            <p style="margin-top:18px">The decisions that come next are in <a href="#next">What happens next</a>, below.</p>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
     <!-- NEXT -->
     <section class="blk" id="next">
-      <div class="kick">7 · What happens next</div>
+      <div class="kick">8 · What happens next</div>
       <h2 class="h">Decisions for the team.</h2>
       <div class="steps2">
         <div class="st2"><b>Confirm the name and accent</b><span>“Spool” and chartreuse are working choices. Both are a single config value (brand name, --accent).</span></div>
@@ -193,6 +917,8 @@
         <div class="st2"><b>Write store-policy rules per country</b><span>Web checkout links are an admin switch per region, off by default except where policy allows.</span></div>
         <div class="st2"><b>Prototype on real devices</b><span>Validate the vertical player's preload and the swipe-to-unlock moment in Flutter first. It's the riskiest piece.</span></div>
         <div class="st2"><b>Source licensed demo content</b><span>Vertical and landscape samples with clear rights for the store listing and buyer demos.</span></div>
+        <div class="st2"><b>Choose the first market</b><span>India (ads first, low prices) or the US (coins and VIP). Both region modes already run in the prototype.</span></div>
+        <div class="st2"><b>Set the build order</b><span>Backend and admin first, so content can go in before the app ships, or both together. The prototypes are the spec either way.</span></div>
       </div>
     </section>
 
@@ -218,6 +944,11 @@
 
     <footer class="hf">Spool UI prototype · sample data only · generated key art stands in for real posters · fonts: Geist and Instrument Serif (SIL OFL), self-hosted.</footer>
   </main>
+
+  <div class="g-lb" id="gLb" hidden role="dialog" aria-modal="true" aria-label="Enlarged screenshot">
+    <button type="button" class="x" id="gLbX" aria-label="Close">×</button>
+    <div class="in"><img id="gLbImg" alt=""><p id="gLbCap"></p></div>
+  </div>
 
   <script src="assets/js/icons.js"></script>
   <script src="assets/js/art.js"></script>
@@ -307,6 +1038,43 @@
         '<h4>More</h4><div class="ls"><a href="admin.html#/users/u_10293">User · wallet ledger</a><a href="admin.html#/paywall-lab/x-31">Experiment detail</a><a href="admin.html#/login">Sign in</a></div>';
       $("#screenMap").innerHTML = '<div class="sgr"><h3>' + ic("phone", 18) + 'Mobile app<a class="hb" href="mobile.html">Open</a></h3>' + mob + '<h4>Sheets & moments</h4><div class="ls"><a href="mobile.html#/player/heiress/8">Fair Unlock sheet</a><a href="mobile.html#/player/heiress/7/76">Cliffhanger Call</a><a href="mobile.html#/rewards">Honest rewarded ad</a><a href="mobile.html#/wallet">Ledger detail</a></div></div>' +
         '<div class="sgr"><h3>' + ic("layout", 18) + 'Admin panel<a class="hb" href="admin.html">Open</a></h3>' + adm + "</div>";
+
+      /* feature review: screenshots open in a lightbox; the contents follow the scroll */
+      var lb = $("#gLb"), lbImg = $("#gLbImg"), lbCap = $("#gLbCap"), lbX = $("#gLbX"), lastShot = null;
+      function openShot(btn) {
+        var img = btn.querySelector("img");
+        lastShot = btn;
+        lbImg.src = btn.getAttribute("data-zoom");
+        lbImg.alt = img ? img.alt : "";
+        lbCap.textContent = img ? img.alt : "";
+        lb.hidden = false;
+        root.style.overflow = "hidden";
+        lbX.focus();
+      }
+      function closeShot() {
+        lb.hidden = true;
+        lbImg.removeAttribute("src");
+        root.style.overflow = "";
+        if (lastShot) lastShot.focus();
+      }
+      document.addEventListener("click", function (e) {
+        var b = e.target.closest("[data-zoom]");
+        if (b) { e.preventDefault(); openShot(b); return; }
+        if (!lb.hidden && (e.target === lb || e.target === lbX || e.target === lbImg || e.target.classList.contains("in"))) closeShot();
+      });
+      document.addEventListener("keydown", function (e) { if (e.key === "Escape" && !lb.hidden) closeShot(); });
+
+      var gl = Array.prototype.slice.call(document.querySelectorAll(".g-toc a"));
+      var parts = gl.map(function (a) { return document.getElementById(a.getAttribute("href").slice(1)); });
+      var ticking = false;
+      function markPart() {
+        ticking = false;
+        var line = window.innerHeight * .3, cur = -1;
+        parts.forEach(function (p, i) { if (p && p.getBoundingClientRect().top <= line) cur = i; });
+        gl.forEach(function (a, i) { a.classList.toggle("on", i === cur); });
+      }
+      window.addEventListener("scroll", function () { if (!ticking) { ticking = true; requestAnimationFrame(markPart); } }, { passive: true });
+      markPart();
     })();
   </script>
 </body>

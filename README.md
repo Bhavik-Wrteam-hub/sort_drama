@@ -13,7 +13,7 @@ Nothing persists. Every number is sample data. Video playback is simulated.
 
 | Entry point | What it is |
 |---|---|
-| `index.html` | Product brief: research, Google Play teardown, signature features, navigation, design language, screen map |
+| `index.html` | Product brief: research, Google Play teardown, signature features, navigation, design language, screen map, and a feature review that walks through every built feature with screenshots |
 | `mobile.html` | Mobile prototype. The phone sits in the centre; panels around it carry the journey, the screen map, live events, what to try on this screen, and scenario controls |
 | `admin.html` | Admin panel prototype: 20 sections across content, community, audience, money, insights and system |
 
@@ -33,7 +33,8 @@ SortDrama/
     │   ├── core.css      Tokens (ink/paper themes, accent), fonts, shared primitives (poster, coin, pills…)
     │   ├── mobile.css    Stage, device frame, every app component
     │   ├── admin.css     Shell, tables, forms, chart tokens, all admin components
-    │   └── hub.css       Brief page
+    │   └── hub.css       Brief page, including the feature review
+    ├── shots/            Screenshots used by the feature review (captured from the prototypes)
     └── js/
         ├── icons.js      Icon set (24px grid) + brand mark
         ├── art.js        Generated key art: posters, scene stills, thumbnails, avatars (SVG → blob URLs)
@@ -129,5 +130,7 @@ and are shown as locked policies in `admin.html#/monetization?tab=fair`.
 - No backend, no persistence beyond `localStorage` for theme/accent and panel state.
 - Video, ads, store payment sheets and push delivery are simulated.
 - Key art is generated; replace with licensed artwork for demos and store listings.
+- The feature review in `index.html` uses static screenshots in `assets/shots/` (captured 10 Oct 2026).
+  Recapture the affected images when a screen changes.
 - “Spool” and chartreuse are working choices; both are single config values.
 # sort_drama

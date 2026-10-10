@@ -719,7 +719,7 @@
     { id: "cp-3", name: "New episode drops", kind: "Automation", trigger: "Followed series publishes an episode", offer: "—", status: "Active", sent: 1204000, conv: .44, revenue: 0 },
     { id: "cp-4", name: "VIP renewal reminder", kind: "Automation", trigger: "24 h before any VIP renewal", offer: "Manage or cancel link", status: "Active · required", sent: 41800, conv: 0, revenue: 0, locked: true },
     { id: "cp-5", name: "Diwali Binge Weekend", kind: "Campaign", trigger: "IN · 31 Oct – 2 Nov", offer: "48 h Binge Pass ₹49", status: "Scheduled", sent: 0, conv: 0, revenue: 0 },
-    { id: "cp-6", name: "Meta ad · “The Heiress Returns” (US)", kind: "Ad deep link", trigger: "spool.tv/r/heiress-e1", offer: "Promise: E1–E10 free · checked ✓", status: "Active", sent: 0, conv: .09, revenue: 0, promise: true }
+    { id: "cp-6", name: "Meta ad · “The Heiress Returns” (US)", kind: "Ad deep link", trigger: "spool.tv/r/heiress-e1", offer: "Promise: E1–E7 free · checked ✓", status: "Active", sent: 0, conv: .09, revenue: 0, promise: true }
   ];
 
   const AUDIT = [
