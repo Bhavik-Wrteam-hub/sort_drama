@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Spool Mobile Prototype</title>
+  <meta name="description" content="Interactive mobile prototype of Spool, a short-drama-first streaming app. The phone sits in the centre; the journey, screen map, live event stream, interactions and scenario controls sit around it.">
+  <link rel="stylesheet" href="assets/css/core.css">
+  <link rel="stylesheet" href="assets/css/mobile.css">
+</head>
+
+<body class="stage-page">
+  <header class="stagebar">
+    <a class="sb-brand" href="index.html" title="Back to the product brief">
+      <span class="mark" id="sbMark"></span>
+      <span class="wordmark">spool</span>
+      <span class="tag">Mobile prototype</span>
+    </a>
+    <div class="sb-route" id="sbRoute"></div>
+    <div class="sb-sp"></div>
+    <button class="sb-jump" id="sbJump" type="button" aria-label="Jump to a screen">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="11" cy="11" r="6.8"/><path d="m20.2 20.2-4.4-4.4"/></svg>
+      <span>Jump to a screen…</span><span class="kbd">/</span>
+    </button>
+    <button class="sb-btn sb-only-narrow" id="sbPanels" type="button">Panels</button>
+    <button class="sb-btn icon" id="sbTheme" type="button" aria-label="Toggle canvas theme"></button>
+    <a class="sb-btn" href="index.html">Brief</a>
+    <a class="sb-btn pri" href="admin.html">Admin panel</a>
+  </header>
+
+  <main class="stage" id="stage">
+    <svg class="links" id="links" aria-hidden="true"></svg>
+
+    <aside class="orbit left" aria-label="Journeys and screens">
+      <section class="sat" id="sat-journey"></section>
+      <section class="sat" id="sat-screens"></section>
+    </aside>
+
+    <div class="center">
+      <div class="device-wrap" id="deviceWrap">
+        <div class="device" id="device">
+          <div class="screen" id="screen">
+            <div class="island"></div>
+            <div class="statusbar"><span id="clock">9:41</span><span class="r"><span class="sig"><i></i><i></i><i></i><i></i></span>
+                <svg width="16" height="12" viewBox="0 0 16 12" fill="currentColor" aria-hidden="true"><path d="M8 2.6c2.2 0 4.2.9 5.7 2.3l1.1-1.2A9.8 9.8 0 0 0 8 1 9.8 9.8 0 0 0 1.2 3.7l1.1 1.2A8.2 8.2 0 0 1 8 2.6zm0 3.2c1.3 0 2.5.5 3.4 1.3l1.1-1.2A6.6 6.6 0 0 0 8 4.2c-1.7 0-3.3.6-4.5 1.7l1.1 1.2A5 5 0 0 1 8 5.8zm0 3.2c-.5 0-1 .2-1.3.5L8 11l1.3-1.5c-.3-.3-.8-.5-1.3-.5z"/></svg>
+                <span class="bat"></span></span></div>
+            <div class="app" id="app"></div>
+            <nav class="tabbar" id="tabbar" aria-label="Main"></nav>
+            <div class="push" id="push" role="status"></div>
+            <div class="scrim" id="scrim"></div>
+            <div class="sheet" id="sheet" role="dialog" aria-modal="true"></div>
+            <div class="toast" id="toast" role="status"></div>
+            <div class="homebar"></div>
+          </div>
+        </div>
+      </div>
+      <div class="device-cap">
+        <button type="button" id="capBack" title="Back">‹ Back</button>
+        <span class="where" id="capWhere"></span>
+        <button type="button" id="capRotate" title="Rotate the device">Rotate</button>
+      </div>
+    </div>
+
+    <aside class="orbit right" aria-label="Events, interactions and scenario">
+      <section class="sat" id="sat-events"></section>
+      <section class="sat" id="sat-screen"></section>
+      <section class="sat" id="sat-scenario"></section>
+    </aside>
+  </main>
+
+  <aside class="drawer" id="drawer" aria-label="Prototype panels">
+    <div class="dtabs" id="dtabs"></div>
+    <div class="dbody" id="dbody"></div>
+  </aside>
+  <button class="fab-ctl" id="fabCtl" type="button">Prototype panels</button>
+
+  <script src="assets/js/icons.js"></script>
+  <script src="assets/js/art.js"></script>
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/mobile.js"></script>
+  <script src="assets/js/mobile-screens.js"></script>
+  <script src="assets/js/mobile-sheets.js"></script>
+  <script src="assets/js/stage.js"></script>
+</body>
+
+</html>

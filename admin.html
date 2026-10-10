@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Spool Studio Admin</title>
+  <meta name="description" content="Admin panel prototype for Spool: content, episodes, creator videos, Pilot Season, moderation, users and wallets, monetization, Paywall Lab, analytics and settings.">
+  <script>
+    /* theme before paint: saved choice, else light */
+    (function () { try { var t = localStorage.getItem("spool-admin-theme"); document.documentElement.dataset.theme = t === "dark" ? "dark" : "light"; var a = localStorage.getItem("spool-accent"); if (a && a !== "lime") document.documentElement.dataset.accent = a; } catch (e) { } })();
+  </script>
+  <link rel="stylesheet" href="assets/css/core.css">
+  <link rel="stylesheet" href="assets/css/admin.css">
+</head>
+
+<body class="admin">
+  <div class="shell">
+    <aside class="side" id="side" aria-label="Main navigation"></aside>
+    <div class="main">
+      <header class="top" id="top"></header>
+      <main class="page" id="page" tabindex="-1"></main>
+    </div>
+  </div>
+  <div class="ovl" id="ovl"></div>
+  <div class="modal" id="modal" role="dialog" aria-modal="true"></div>
+  <aside class="drawer2" id="drawer" aria-label="Details"></aside>
+  <div class="toasts" id="toasts" role="status"></div>
+  <div class="bulk" id="bulk"></div>
+  <div id="tip" role="tooltip"></div>
+
+  <script src="assets/js/icons.js"></script>
+  <script src="assets/js/art.js"></script>
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/admin-core.js"></script>
+  <script src="assets/js/admin-pages.js"></script>
+  <script src="assets/js/admin-pages2.js"></script>
+  <script>Admin.start();</script>
+</body>
+
+</html>

@@ -1,0 +1,314 @@
+<!doctype html>
+<html lang="en" data-theme="auto">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Spool Product Brief</title>
+  <meta name="description" content="Research, product definition and the two interactive prototypes (mobile app and admin panel) for Spool, a short-drama-first streaming platform with a creator video layer.">
+  <script>
+    (function () { try { var t = localStorage.getItem("spool-hub-theme"); if (t === "dark" || t === "light") document.documentElement.dataset.theme = t; var a = localStorage.getItem("spool-accent"); if (a && a !== "lime") document.documentElement.dataset.accent = a; } catch (e) { } })();
+  </script>
+  <link rel="stylesheet" href="assets/css/core.css">
+  <link rel="stylesheet" href="assets/css/hub.css">
+</head>
+
+<body class="hub">
+  <header class="hub-top">
+    <a class="brand" href="#top"><span class="mark" id="hm"></span><span class="wordmark">spool</span></a>
+    <nav aria-label="Sections">
+      <a href="#research">Research</a><a href="#play">Google Play</a><a href="#product">Product</a><a href="#ia">Navigation</a><a href="#design">Design</a><a href="#screens">Screens</a>
+    </nav>
+    <span class="sp"></span>
+    <button class="hb icon" id="themeBtn" type="button" aria-label="Toggle theme"></button>
+    <a class="hb" href="admin.html">Admin panel</a>
+    <a class="hb pri" href="mobile.html">Mobile prototype</a>
+  </header>
+
+  <main class="wrap" id="top">
+    <!-- HERO -->
+    <div class="hero2">
+      <div>
+        <div class="kick">Product brief · UI prototype v1.0 · 9 Oct 2026</div>
+        <h1>Short dramas first.<em>Every kind of video after.</em></h1>
+        <p>Spool is a short-drama streaming platform with a full creator video layer. It's built to be the fairest app in a category known for coin walls and subscription traps, and to turn creators into a pipeline of new shows.</p>
+        <div class="ctas">
+          <a class="hb pri lg" href="mobile.html"><span id="ic1"></span>Open the mobile prototype</a>
+          <a class="hb lg" href="admin.html"><span id="ic2"></span>Open the admin panel</a>
+        </div>
+        <div class="meta">Prototype only: no backend, nothing is saved, every number is sample data. Works offline; open the files directly or through XAMPP.</div>
+      </div>
+      <div class="orbitvis" id="orbit" aria-hidden="true"></div>
+    </div>
+
+    <!-- RESEARCH -->
+    <section class="blk" id="research">
+      <div class="kick">1 · The opportunity</div>
+      <h2 class="h">Huge, growing, and leaking viewers.</h2>
+      <p class="lede">Downloads are growing much faster than revenue, and almost nobody stays. Viewers try these apps and leave. In reviews they say why: <b>surprise charges, broken ad unlocks and prices they can't predict.</b> That is the gap Spool is designed into.</p>
+      <div class="stats5">
+        <div class="stt"><div class="l">Short-drama downloads, Q1 2026</div><div class="v">850M+</div><div class="d"><b>+140%</b> year on year<br><span class="src">Sensor Tower</span></div></div>
+        <div class="stt"><div class="l">In-app revenue, Q1 2026</div><div class="v">~$750M</div><div class="d">+20% year on year: revenue lags installs<br><span class="src">Sensor Tower</span></div></div>
+        <div class="stt"><div class="l">Retention</div><div class="v">15% → 2%</div><div class="d">day 1 → day 30<br><span class="src">Adjust via PPC Land</span></div></div>
+        <div class="stt"><div class="l">Hongguo daily users, free + ads</div><div class="v">168M</div><div class="d">July 2026, more than four major long-form apps combined<br><span class="src">SCMP via eWeek</span></div></div>
+        <div class="stt"><div class="l">Microdrama views on YouTube</div><div class="v">6.5B</div><div class="d">H1 2026; Shorts Series launched Sep 2026<br><span class="src">YouTube blog</span></div></div>
+      </div>
+      <div class="tw">
+        <table class="tb">
+          <thead><tr><th>Who</th><th>What they do well</th><th>Where they fall short</th><th>Spool's answer</th></tr></thead>
+          <tbody>
+            <tr><td><b>ReelShort, DramaBox</b><br><span class="src">category leaders</span></td><td>Huge catalogues, trope-led discovery, coins + VIP, daily drops with reminders</td><td>Coin walls, cancel-proof subscriptions, broken ad unlocks; ReelShort sits at 3.8★ on Play</td><td>Fair Unlock, honest ads, two-tap cancel, a ledger viewers can read</td></tr>
+            <tr><td><b>Hongguo</b> (ByteDance)</td><td>Free with ads; ad-to-unlock plus coin rewards; 168M daily users</td><td>China-only; leans on Douyin for traffic; now adding an ad-free membership and non-drama video</td><td>Region modes: ads-first where ads win (India, Indonesia), hybrid elsewhere</td></tr>
+            <tr><td><b>PineDrama</b> (TikTok)</td><td>Discover tab, real-time reactions, clean-screen mode, TikTok sign-in</td><td>Ads open the wrong show; freezes; history lost after restart</td><td>Ad deep links with Promise Guard; server-side history; Pulse Bar</td></tr>
+            <tr><td><b>YouTube Shorts Series</b></td><td>Creators can now ship seasons and episodes of Shorts</td><td>No paywall, no drama-grade storefront, no path from creator to funded show</td><td>Creator series, Pilot Season voting, Fan Links that pay creators</td></tr>
+            <tr><td><b>Netflix Clips</b></td><td>A vertical feed of moments that sells long-form titles</td><td>Long-form only</td><td>Scenes: trailers, clips, creator videos and pilots in one feed</td></tr>
+            <tr><td><b>c.ai Series</b> (Character.AI)</td><td>Chat with characters after an episode</td><td>Animated and AI-heavy; chat is adults-only</td><td>Cliffhanger Calls: light prediction polls for every viewer, revealed next episode</td></tr>
+            <tr><td><b>CodeCanyon kits</b><br><span class="src">StoryBox $149 · CineReel $89 · DramaShort $79</span></td><td>Android, iOS and admin in one purchase</td><td>Web locked behind the Extended License; no ledger, payouts or conversion analytics</td><td>Web in the base product, operator analytics, Paywall Lab, creator payouts</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- GOOGLE PLAY -->
+    <section class="blk" id="play">
+      <div class="kick">2 · What 16 Google Play apps show</div>
+      <h2 class="h">Same red-and-gold look. Same complaints.</h2>
+      <p class="lede">Live listings pulled on 9 Oct 2026, with the most-relevant reviews on each page. Two things stand out. Every leader dresses in red, maroon and gold. And the top reviews are almost all about <b>money that behaves unpredictably.</b></p>
+      <div class="tw">
+        <table class="tb" id="playTbl"></table>
+      </div>
+      <div class="cards3" id="complaints"></div>
+      <div class="cards2">
+        <div class="qc" style="gap:12px">
+          <div class="t"><span class="ic" style="background:var(--green-soft);color:var(--green-ink)" id="ic3"></span>Patterns worth keeping</div>
+          <div class="a" style="font-size:13.5px;color:var(--text-2);line-height:1.7">Coming-soon rows with “Remind me” (ReelShort, NetShort) · daily, weekly and monthly rankings (DramaWave) · trope filters · episode selector, speed and clean-screen mode (PineDrama) · 240p data saver and dubbed picks (FreeReels) · offline downloads (ShortMax) · watch-time rewards · language-first browsing for India (QuickTV, Kuku TV).</div>
+        </div>
+        <div class="qc" style="gap:12px">
+          <div class="t"><span class="ic" style="background:var(--accent-soft);color:var(--accent-text)" id="ic4"></span>Why Spool is chartreuse</div>
+          <div class="a" style="font-size:13.5px;color:var(--text-2);line-height:1.7">Every leading app uses red, maroon and gold. Spool's interface is ink and cream with one “greenlight” accent. It stands out in the store, never competes with the warm key art, and stays clear of the indigo and teal used in your other prototypes. Operators can switch the accent to Ember, Iris, Rosé or Aqua from one setting.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PRODUCT -->
+    <section class="blk" id="product">
+      <div class="kick">3 · The product</div>
+      <h2 class="h">Stories that hook you. Prices that don't.</h2>
+      <p class="lede"><b>Positioning:</b> the short-drama app people can trust with their money, plus a creator layer where fans and filmmakers feed the catalogue. Short dramas lead every surface. Web series, films, trailers and creator videos share the same content model, wallet and paywall.</p>
+      <div class="feats" id="feats"></div>
+      <div class="tw">
+        <table class="tb">
+          <thead><tr><th>For operators</th><th>What it is</th><th>Where to see it</th></tr></thead>
+          <tbody>
+            <tr><td><b>Region modes</b></td><td>Coins + VIP + ads, free with ads, or coins only, per country. India earns ~$0.03 per download against $0.20+ in Southeast Asia and Latin America.</td><td><a href="admin.html#/monetization">Admin › Monetization</a></td></tr>
+            <tr><td><b>Paywall Lab</b></td><td>A/B tests of paywall position, price, pass discount and ad caps, with guardrails that stop the test if retention or refunds slip</td><td><a href="admin.html#/paywall-lab/x-31">Admin › Paywall Lab</a></td></tr>
+            <tr><td><b>Promise Guard</b></td><td>Ad deep links carry a server-side offer, so a campaign can't promise what the app won't deliver</td><td><a href="admin.html#/campaigns">Admin › Campaigns</a></td></tr>
+            <tr><td><b>Cliffhanger win-back</b></td><td>When a viewer stalls at a locked episode, one free unlock per series, once</td><td><a href="admin.html#/campaigns">Admin › Campaigns</a> · <a href="mobile.html">Mobile › Scenario › Win-back</a></td></tr>
+            <tr><td><b>Auditable ledger</b></td><td>Append-only coin history with references; refunds become reversal entries; adjustments need a reason</td><td><a href="admin.html#/users/u_10293">Admin › Users › Maya Rao</a></td></tr>
+            <tr><td><b>Home builder</b></td><td>Drag rails per region with a live phone preview</td><td><a href="admin.html#/home-builder">Admin › Home builder</a></td></tr>
+            <tr><td><b>Moderation pipeline</b></td><td>Auto-checks first (copyright match catches leaked episodes), people decide the rest, every action logged</td><td><a href="admin.html#/moderation">Admin › Moderation</a></td></tr>
+            <tr><td><b>Creator economy</b></td><td>Revenue share, Fan Link commission, payouts with identity checks, Pilot Season offers</td><td><a href="admin.html#/creators?tab=payouts">Admin › Creators</a> · <a href="admin.html#/pilots">Pilot Season</a></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="tw">
+        <table class="tb">
+          <thead><tr><th>How Spool earns</th><th>How it works</th><th>The fair-play rule attached</th></tr></thead>
+          <tbody>
+            <tr><td><b>Coins</b></td><td>First episodes free, then a coin price per episode; packs with bonus coins</td><td>Price shown in money too; bonus spent first; paid never expires; price lock per viewer</td></tr>
+            <tr><td><b>Series Pass</b></td><td>Every episode, including future drops, for one price</td><td>Cost to finish shown next to it, so the saving is obvious</td></tr>
+            <tr><td><b>VIP</b></td><td>Weekly, monthly or yearly; unlocks the catalogue</td><td>No trial trap; reminder 24 h before renewal; cancel in two taps; no ads, ever</td></tr>
+            <tr><td><b>Rewarded ads</b></td><td>One ad unlocks one episode, or earns bonus coins</td><td>≤ 30 s, never playable; a failed ad still grants the reward</td></tr>
+            <tr><td><b>Creators</b></td><td>Creator series with their own paywall; tips; Fan Links</td><td>Tips from paid coins only; creators see every unlock they drove</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- IA -->
+    <section class="blk" id="ia">
+      <div class="kick">4 · Navigation</div>
+      <h2 class="h">Five tabs on the phone. Seven groups in the studio.</h2>
+      <p class="lede">The mobile app keeps dramas one tap away and gives creators a centre button. The admin panel follows the operator's day: content, community, audience, money, insight, system.</p>
+      <div class="ia">
+        <div class="iacol"><h3 id="iaM">Mobile app</h3>
+          <div class="tabsrow" id="tabsrow"></div>
+          <div class="navg" style="margin-top:16px">
+            <div><h4>From Home</h4>Series page → vertical player → Fair Unlock<br>Search & Scene Search · Charts · Drops · Browse by trope</div>
+            <div><h4>From the player</h4>Episodes · Comments by moment · Who's who · Story Rewind · Send a Cliffhanger · Cliffhanger Call</div>
+            <div><h4>From Me</h4>Wallet & ledger · Top up · VIP · Rewards · Spend guard · Creator Studio · Settings</div>
+            <div><h4>Gestures</h4>Swipe for episodes · tap pause · double-tap like · hold for 2× · rotate for series and films</div>
+          </div>
+        </div>
+        <div class="iacol"><h3 id="iaA">Admin panel</h3><div class="navg" id="adminNav"></div></div>
+      </div>
+    </section>
+
+    <!-- DESIGN -->
+    <section class="blk" id="design">
+      <div class="kick">5 · Design language</div>
+      <h2 class="h">Calm chrome. Loud stories.</h2>
+      <p class="lede">Ink and cream with one accent, so the key art does the shouting. Instrument Serif italic gives titles the feel of a film festival; Geist handles everything you read or tap. The phone UI is always dark; the studio and this page follow your system theme.</p>
+      <div class="swatches2">
+        <div class="sw"><div class="c" style="background:#0A0A0B"></div><div class="t">Ink<small>#0A0A0B · app ground</small></div></div>
+        <div class="sw"><div class="c" style="background:#F3F1EA"></div><div class="t">Cream<small>#F3F1EA · text</small></div></div>
+        <div class="sw"><div class="c" style="background:var(--accent)"></div><div class="t">Greenlight<small>--accent · actions</small></div></div>
+        <div class="sw"><div class="c" style="background:#F2C25B"></div><div class="t">Coin gold<small>#F2C25B · coins only</small></div></div>
+        <div class="sw"><div class="c" style="background:linear-gradient(135deg,#FBEACB,#E7C88E 46%,#B98A45)"></div><div class="t">Champagne<small>VIP only</small></div></div>
+        <div class="sw"><div class="c" style="background:#FF4F6E"></div><div class="t">Rose<small>#FF4F6E · love, reactions</small></div></div>
+      </div>
+      <div class="typo">
+        <div><div class="big1">The Heiress Returns</div><div class="src" style="margin-top:10px">Instrument Serif Italic · titles, editorial moments</div></div>
+        <div><div class="big2">Unlock E8 · 60 coins</div><div style="margin-top:8px;color:var(--text-2)">≈ $0.59 · uses 20 bonus first, then 40 paid</div><div class="src" style="margin-top:10px">Geist · interface, numbers</div></div>
+      </div>
+      <div class="principles">
+        <div class="pr"><b>Story first</b><span>Open on a picture, not a form. Guests can watch before any sign-up.</span></div>
+        <div class="pr"><b>Fair by default</b><span>A price is always visible before a tap. Nothing charges without a decision.</span></div>
+        <div class="pr"><b>One thumb</b><span>Every primary action sits in the bottom half; sheets beat full screens.</span></div>
+        <div class="pr"><b>Liquid, not loud</b><span>A floating glass tab bar that shrinks on scroll, and springy motion.</span></div>
+      </div>
+    </section>
+
+    <!-- SCREENS -->
+    <section class="blk" id="screens">
+      <div class="kick">6 · The prototypes</div>
+      <h2 class="h">Every screen, one click away.</h2>
+      <p class="lede">The mobile prototype puts the phone at the centre. Around it sit the <b>journey</b>, a <b>screen map</b>, a <b>live event stream</b> (analytics, ledger rows, API calls, pushes), <b>what to try on this screen</b> with the research behind it, and <b>scenario controls</b> for persona, region, wallet, pushes, accent and speed.</p>
+      <div class="screens" id="screenMap"></div>
+      <div class="steps2">
+        <div class="st2"><b>Start with a journey</b><span>Pick “The paywall moment” in the Journey panel and press Next step: E7's cliffhanger, the Cliffhanger Call, then Fair Unlock.</span></div>
+        <div class="st2"><b>Change the scenario</b><span>Switch region to India to see free-with-ads mode, set the wallet to 20 coins to hit the top-up flow, or fire the win-back push.</span></div>
+        <div class="st2"><b>Then open the studio</b><span>The same titles, creators and ledger power the admin panel. Change the accent in Settings › Branding and the app follows.</span></div>
+      </div>
+    </section>
+
+    <!-- NEXT -->
+    <section class="blk" id="next">
+      <div class="kick">7 · What happens next</div>
+      <h2 class="h">Decisions for the team.</h2>
+      <div class="steps2">
+        <div class="st2"><b>Confirm the name and accent</b><span>“Spool” and chartreuse are working choices. Both are a single config value (brand name, --accent).</span></div>
+        <div class="st2"><b>Lock v1.0 scope</b><span>Live streaming, interactive branching and downloads for free users stay on the roadmap. Pilot Season can launch as voting-only first.</span></div>
+        <div class="st2"><b>Pick vendors</b><span>Subtitles and AI dubbing (human QA required), ad mediation, and a storage/CDN default for buyers.</span></div>
+        <div class="st2"><b>Write store-policy rules per country</b><span>Web checkout links are an admin switch per region, off by default except where policy allows.</span></div>
+        <div class="st2"><b>Prototype on real devices</b><span>Validate the vertical player's preload and the swipe-to-unlock moment in Flutter first. It's the riskiest piece.</span></div>
+        <div class="st2"><b>Source licensed demo content</b><span>Vertical and landscape samples with clear rights for the store listing and buyer demos.</span></div>
+      </div>
+    </section>
+
+    <section class="blk" id="sources">
+      <div class="kick">Sources</div>
+      <ul class="sources">
+        <li><a href="https://play.google.com/store/search?q=short%20drama&c=apps" rel="noopener">Google Play listings and most-relevant reviews: ReelShort, DramaBox, ShortMax, GoodShort, NetShort, FreeReels, DramaWave, FlexTV, MoboReels, PineDrama, iDrama, FreeDrama, Kalos TV, Kuku TV, QuickTV, FlickReels</a>, checked 9 Oct 2026</li>
+        <li>Sensor Tower, <i>State of Short Drama Apps 2026</i>, June 2026</li>
+        <li>PPC Land on the Adjust report, 28 June 2026</li>
+        <li><a href="https://www.eweek.com/news/bytedance-hongguo-ai-short-drama-china-streaming-apac/" rel="noopener">eWeek: Hongguo hits 168M daily users</a></li>
+        <li><a href="https://www.caixinglobal.com/2025-08-22/in-depth-micro-drama-platforms-knock-down-paywalls-as-viewers-lose-interest-102354440.html" rel="noopener">Caixin: micro-drama platforms knock down paywalls</a></li>
+        <li><a href="https://blog.youtube/news-and-events/made-on-youtube-creators-shorts-series-tv-features/" rel="noopener">YouTube: Shorts Series</a> · <a href="https://www.tubefilter.com/2026/09/24/made-on-youtube-shorts-series-microdramas/amp/" rel="noopener">Tubefilter</a></li>
+        <li><a href="https://techcrunch.com/2026/01/16/tiktok-quietly-launches-a-micro-drama-app-called-pinedrama/" rel="noopener">TechCrunch: TikTok launches PineDrama</a></li>
+        <li><a href="https://engadget.com/entertainment/streaming/netflix-mobile-app-redesign-will-offer-deeper-integration-of-vertical-video-120000820.html" rel="noopener">Engadget: Netflix vertical video</a> · <a href="https://pulse2.com/netflix-launches-vertical-video-feed-and-redesigned-mobile-experience-for-members/amp/" rel="noopener">Pulse 2.0: Netflix Clips</a></li>
+        <li><a href="https://www.digitaltrends.com/movies/character-ai-now-lets-you-watch-ai-microdrama-and-even-talk-to-the-cast/" rel="noopener">Digital Trends: c.ai Series</a></li>
+        <li><a href="https://oyelabs.com/reelshort-vs-dramabox-what-keeps-users-watching/" rel="noopener">Oyelabs: ReelShort vs DramaBox UX patterns</a></li>
+        <li><a href="https://unstar.app/blog/reelshort-dramabox-shortmax-goodshort-flextv-short-drama-apps-ranked-2026" rel="noopener">Unstar: short drama apps ranked, review analysis</a></li>
+        <li>TechCrunch on India's app market (22 Apr 2026) · exchange4media on Kuku TV and Pocket TV (2026)</li>
+        <li><a href="https://developer.apple.com/videos/play/wwdc2025/284/" rel="noopener">Apple: Liquid Glass and floating tab bars</a> · Material 3 Expressive</li>
+        <li>Internal: <i>Short Drama Platform — MVP Research & Feature Plan</i>, 9 Oct 2026</li>
+      </ul>
+    </section>
+
+    <footer class="hf">Spool UI prototype · sample data only · generated key art stands in for real posters · fonts: Geist and Instrument Serif (SIL OFL), self-hosted.</footer>
+  </main>
+
+  <script src="assets/js/icons.js"></script>
+  <script src="assets/js/art.js"></script>
+  <script src="assets/js/data.js"></script>
+  <script>
+    (function () {
+      "use strict";
+      var S = window.SPOOL, T = S.T, ic = window.ic;
+      var $ = function (s) { return document.querySelector(s); };
+      $("#hm").innerHTML = brandMark(19);
+      $("#ic1").innerHTML = ic("phone", 18); $("#ic2").innerHTML = ic("layout", 18);
+      $("#ic3").innerHTML = ic("checkc", 16); $("#ic4").innerHTML = ic("sparkle", 16);
+      $("#iaM").innerHTML = ic("phone", 18) + "Mobile app"; $("#iaA").innerHTML = ic("layout", 18) + "Admin panel";
+
+      /* theme toggle: auto → dark → light */
+      var root = document.documentElement;
+      function paintTheme() { $("#themeBtn").innerHTML = ic(root.dataset.theme === "light" ? "moon" : "sun", 17); }
+      $("#themeBtn").onclick = function () {
+        var dark = root.dataset.theme === "dark" || (root.dataset.theme === "auto" && !matchMedia("(prefers-color-scheme: light)").matches);
+        root.dataset.theme = dark ? "light" : "dark";
+        try { localStorage.setItem("spool-hub-theme", root.dataset.theme); } catch (e) { }
+        paintTheme();
+      };
+      paintTheme();
+
+      /* hero: the phone at the centre, product ideas in orbit */
+      var heat = S.SCRIPT["heiress:7"].heat, max = Math.max.apply(null, heat);
+      var bars = heat.map(function (v, i) { return '<i style="height:' + Math.max(10, v / max * 100) + '%" class="' + (i < 22 ? "p" : v / max > .55 ? "h" : "") + '"></i>'; }).join("");
+      var sats = [["unlock", "Fair Unlock", "price in money, cost to finish", "left:0;top:14%"], ["pulse", "Pulse Bar", "see where everyone gasped", "right:0;top:8%"], ["clapper", "Pilot Season", "viewers greenlight shows", "left:-2%;top:52%"], ["poll", "Cliffhanger Calls", "predict the twist", "right:-2%;top:44%"], ["sparkle", "Story Rewind", "catch up in 20 s", "left:6%;bottom:6%"], ["link", "Fan Links", "creators paid for fandom", "right:4%;bottom:10%"]];
+      $("#orbit").innerHTML = '<div class="ring" style="width:420px;height:420px"></div><div class="ring" style="width:540px;height:540px;opacity:.6"></div>' +
+        '<div class="mini"><div class="s"><div class="isl"></div><img src="' + Art.scene(T.heiress, 7, 0) + '" alt=""><div class="g"></div>' +
+        '<div class="sub"><small>AVA</small>That was for the wedding.</div><div class="ttl">The Heiress Returns · E7</div><div class="pb">' + bars + "</div></div></div>" +
+        sats.map(function (s, i) { return '<div class="sat2' + (i > 3 ? " hide-sm" : "") + '" style="' + s[3] + '"><span class="ic">' + ic(s[0], 15) + "</span><span>" + s[1] + "<small>" + s[2] + "</small></span></div>"; }).join("");
+
+      /* Google Play table (live listing data, 9 Oct 2026) */
+      var play = [
+        ["ReelShort", "#E3262E", 3.8, "1.9M", "100M+", "$0.09–$199.99", "Can't cancel; ads loop the same scene", "bad"],
+        ["DramaBox", "#C2185B", 4.6, "5.5M", "100M+", "$0.49–$299.99", "Playable ads bounce to Play Store", ""],
+        ["GoodShort", "#E53935", 4.7, "4.5M", "50M+", "$0.99–$299.99", "4 coins per ad; endings cut short", ""],
+        ["ShortMax", "#B8860B", 4.4, "2.1M", "100M+", "$0.49–$199.99", "“Free 24 h” ad not honoured", ""],
+        ["NetShort", "#D32F2F", 4.7, "1.95M", "100M+", "$0.49–$299.99", "“2 ads” turned into 6", ""],
+        ["FreeReels", "#F4511E", 4.7, "1.97M", "100M+", "$0.99–$119.99", "Free, but ads longer than episodes", "good"],
+        ["Kuku TV", "#B71C1C", 4.2, "1.19M", "100M+", "$0.39–$199.99", "₹1 trial became ₹700", ""],
+        ["DramaWave", "#6A1B9A", 4.5, "796K", "100M+", "$0.09–$299.99", "Charged 3× · cancel tab hidden", ""],
+        ["FlickReels", "#AD1457", 4.6, "738K", "10M+", "$0.99–$199.99", "Forced playable ads", ""],
+        ["MoboReels", "#8E24AA", 4.1, "715K", "10M+", "$0.99–$299.99", "$35/week VIP, then another paywall", "bad"],
+        ["PineDrama", "#111111", 4.5, "393K", "50M+", "$2.99–$199.99", "Freezes; history lost; wrong show from ads", ""],
+        ["QuickTV", "#5D4037", 3.5, "146K", "50M+", "$0.19–$169.99", "₹699 autopay without notice", "bad"],
+        ["FlexTV", "#1565C0", 4.5, "145K", "10M+", "$0.49–$299.99", "~$30 to finish one story", ""]
+      ];
+      $("#playTbl").innerHTML = "<thead><tr><th>App</th><th class=\"r\">Rating</th><th class=\"r\">Ratings</th><th class=\"r\">Installs</th><th class=\"r\">In-app items</th><th>Top complaint in the visible reviews</th></tr></thead><tbody>" +
+        play.map(function (p) { return '<tr><td><div class="app"><i style="background:' + p[1] + '">' + p[0][0] + "</i><b>" + p[0] + '</b></div></td><td class="r ' + p[7] + '">' + p[2].toFixed(1) + '★</td><td class="r">' + p[3] + '</td><td class="r">' + p[4] + '</td><td class="r">' + p[5] + "</td><td>" + p[6] + "</td></tr>"; }).join("") +
+        '<tr><td colspan="6" class="src">Also checked: iDrama 4.7 (332K), FreeDrama 4.5 (200K), Kalos TV 4.2 (53K). Store figures rounded; review counts are “found this helpful” votes shown on the listing.</td></tr></tbody>';
+
+      /* complaint → design answer */
+      var C = [
+        ["ad", "Ad unlocks that break", "“The video keeps repeating the same part over and over” after watching ads.", "ReelShort · 3,641 helpful", "<b>Honest ads:</b> 1 ad ≤ 30 s = 1 episode, never playable; if the ad fails, the episode unlocks anyway."],
+        ["alert", "Subscriptions you can't leave", "“They change to a website and make it almost impossible to cancel.”", "ReelShort · 69 helpful; similar for ShortMax, Kuku TV, QuickTV", "<b>Fair VIP:</b> renewal date before paying, a reminder 24 h before every charge, cancel in two taps."],
+        ["coins", "Prices nobody can predict", "“You'll need ~4,550 coins to finish a series… over $30.”", "FlexTV · 157 helpful", "<b>Cost to finish</b> on every series page, <b>price lock</b> per viewer and a <b>Series Pass</b>."],
+        ["link", "Ads that promise something else", "“The app opens up to a completely random show instead of the one advertised.”", "PineDrama · 20 helpful; ShortMax “free 24 hrs”", "<b>Promise Guard:</b> ad deep links carry a server-side offer that is checked before launch."],
+        ["refresh", "Lost progress and coins", "“My watch history was completely erased.” · “Charged twice and never received any coins.”", "PineDrama · FlexTV (452 helpful)", "<b>Server-side history, receipts and an append-only ledger</b> the viewer can open row by row."],
+        ["film", "Stories that end in fragments", "“By the end you are watching tons of ads for a 3 to 5 second ‘episode’.”", "GoodShort · 67 helpful", "<b>Episode length floor</b> (45 s) in the admin and a <b>Complete</b> badge for finished series."]
+      ];
+      $("#complaints").innerHTML = C.map(function (c) { return '<div class="qc"><div class="t"><span class="ic">' + ic(c[0], 16) + "</span>" + c[1] + "</div><blockquote>" + c[2] + "<cite>" + c[3] + '</cite></blockquote><div class="fix">' + c[4] + "</div></div>"; }).join("");
+
+      /* signature features with deep links into both prototypes */
+      var F = [
+        ["Fair Unlock", "The coin wall is the #1 complaint (29% of 1–3★ reviews).", "Price in coins <b>and</b> money, the bonus/paid split, a daily <b>spend cap</b>, auto-unlock off by default, and a price lock per viewer.", [["See the paywall", "mobile.html#/player/heiress/8"], ["Fair-play rules", "admin.html#/monetization?tab=fair"]], true],
+        ["Pulse Bar", "Viewers react in the comments, but nobody can find the moment again.", "The progress bar shows <b>where everyone reacted</b>; tap a 😱 to jump there. Comments carry timestamps.", [["Play E7", "mobile.html#/player/heiress/7/30"], ["Pulse analytics", "admin.html#/titles/heiress?tab=analytics"]]],
+        ["Cliffhanger Calls", "Day-30 retention is 2%. People need a reason to come back.", "Predict the twist at the end card. The <b>reveal is in the next episode</b>; correct callers get +5 bonus coins.", [["Watch the end of E7", "mobile.html#/player/heiress/7/76"]]],
+        ["Story Rewind", "Returning viewers have lost the thread.", "A 20-second <b>“Previously on…”</b> recap and a <b>spoiler-safe Who's who</b> map, generated from subtitles and checked by an editor.", [["Try it", "mobile.html#/series/crown"], ["Cast setup", "admin.html#/titles/heiress?tab=cast"]]],
+        ["Pilot Season", "Creators post episodic stories, but no app turns them into shows.", "Creators post 2–3 episode pilots; viewers vote <b>Want more</b>; the best get a <b>funded season</b>.", [["Pilots feed", "mobile.html#/scenes/pilots"], ["Greenlight board", "admin.html#/pilots"]], true],
+        ["Fan Links", "Fan edits drive discovery, but the drama never gets the credit.", "Creators tag a drama; viewers get a <b>Watch E1</b> chip; the creator earns 10% of what those viewers spend.", [["Scenes feed", "mobile.html#/scenes"], ["Fan Link payouts", "admin.html#/creators?tab=fanlinks"]]],
+        ["Fits Your Break", "“I have 15 minutes” has no button anywhere.", "Pick 5, 15 or 30 minutes and get a session that <b>ends at a good stopping point</b>, not on a paywall.", [["Home", "mobile.html#/home"]]],
+        ["Scene Search", "People remember the slap, not the title.", "Describe a moment (“the slap at the gala”) and <b>jump straight to it</b>.", [["Search", "mobile.html#/search"]]],
+        ["Send a Cliffhanger", "Referral codes don't spread stories.", "Gift <b>the next episode</b> to a friend. They watch free; you get +100 bonus when they finish it.", [["Share sheet", "mobile.html#/series/heiress"]], true]
+      ];
+      $("#feats").innerHTML = F.map(function (f, i) { return '<div class="fc' + (f[4] ? " big" : "") + '"><div class="n">' + String(i + 1).padStart(2, "0") + "</div><h3>" + f[0] + '</h3><div class="p">' + f[1] + '</div><div class="a">' + f[2] + '</div><div class="links">' + f[3].map(function (l) { return '<a href="' + l[1] + '">' + l[0] + " " + ic("arrowr", 13) + "</a>"; }).join("") + "</div></div>"; }).join("");
+
+      /* IA */
+      $("#tabsrow").innerHTML = [["home", "Home", "Dramas first"], ["scenes", "Scenes", "Trailers, clips, creators, pilots"], ["plus", "Create", "Video, episode, pilot"], ["library", "Library", "Watching, list, drops"], ["user", "Me", "Wallet, VIP, rewards"]].map(function (t, i) { return '<div class="' + (i === 2 ? "c" : "") + '">' + ic(t[0], 20) + t[1] + "<small>" + t[2] + "</small></div>"; }).join("");
+      $("#adminNav").innerHTML = S.SITEMAP.admin.map(function (g) { return "<div><h4>" + g.g + "</h4>" + g.items.map(function (i) { return '<a href="admin.html#/' + i[0] + '" style="color:inherit;text-decoration:none">' + i[1] + "</a>"; }).join("<br>") + "</div>"; }).join("");
+
+      /* screen map */
+      var mob = S.SITEMAP.mobile.map(function (g) { return "<h4>" + g.g + '</h4><div class="ls">' + g.items.map(function (i) { return '<a href="mobile.html#/' + i[0] + '">' + i[1] + "</a>"; }).join("") + "</div>"; }).join("");
+      var adm = S.SITEMAP.admin.map(function (g) { return "<h4>" + g.g + '</h4><div class="ls">' + g.items.map(function (i) { return '<a href="admin.html#/' + i[0] + '">' + i[1] + "</a>"; }).join("") + "</div>"; }).join("") +
+        '<h4>More</h4><div class="ls"><a href="admin.html#/users/u_10293">User · wallet ledger</a><a href="admin.html#/paywall-lab/x-31">Experiment detail</a><a href="admin.html#/login">Sign in</a></div>';
+      $("#screenMap").innerHTML = '<div class="sgr"><h3>' + ic("phone", 18) + 'Mobile app<a class="hb" href="mobile.html">Open</a></h3>' + mob + '<h4>Sheets & moments</h4><div class="ls"><a href="mobile.html#/player/heiress/8">Fair Unlock sheet</a><a href="mobile.html#/player/heiress/7/76">Cliffhanger Call</a><a href="mobile.html#/rewards">Honest rewarded ad</a><a href="mobile.html#/wallet">Ledger detail</a></div></div>' +
+        '<div class="sgr"><h3>' + ic("layout", 18) + 'Admin panel<a class="hb" href="admin.html">Open</a></h3>' + adm + "</div>";
+    })();
+  </script>
+</body>
+
+</html>

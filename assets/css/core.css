@@ -1,0 +1,448 @@
+/* ==========================================================================
+   Spool — shared design system
+   --------------------------------------------------------------------------
+   One file of tokens and primitives used by the hub, the mobile app and the
+   admin panel, so the three read as one product.
+
+   Why chartreuse: every top short-drama app on Google Play dresses in red,
+   maroon and gold. Spool's chrome is ink and cream with one "greenlight"
+   accent, so the interface never competes with the warm key art and the
+   product is recognisable at a glance. The accent is a variable: operators
+   rebrand by changing --accent (see [data-accent] below).
+   ========================================================================== */
+
+/* ---------- fonts (self-hosted, SIL OFL) ---------- */
+@font-face {
+  font-family: "Geist";
+  src: url("../fonts/geist-latin.woff2") format("woff2");
+  font-weight: 300 800;
+  font-style: normal;
+  font-display: swap;
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: "Geist";
+  src: url("../fonts/geist-latin-ext.woff2") format("woff2");
+  font-weight: 300 800;
+  font-style: normal;
+  font-display: swap;
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: "Geist Mono";
+  src: url("../fonts/geist-mono-latin.woff2") format("woff2");
+  font-weight: 400 600;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Instrument Serif";
+  src: url("../fonts/instrument-serif-latin.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Instrument Serif";
+  src: url("../fonts/instrument-serif-italic-latin.woff2") format("woff2");
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* ---------- tokens ---------- */
+:root {
+  --f-ui: "Geist", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans Devanagari", sans-serif;
+  --f-display: "Instrument Serif", "Iowan Old Style", "Palatino Linotype", Georgia, serif;
+  --f-mono: "Geist Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+
+  /* Accent: the one action colour. Text on an accent fill is always ink. */
+  --accent: #C9F04F;
+  --accent-2: #DDF98A;
+  --accent-ink: #10130A;
+  --accent-rgb: 201, 240, 79;
+  --accent-soft: rgba(var(--accent-rgb), .13);
+  --accent-line: rgba(var(--accent-rgb), .38);
+  --accent-text: #D4F574;
+
+  /* Fixed meaning colours */
+  --rose: #FF4F6E;      /* love, reactions, live */
+  --gold: #F2C25B;      /* coins, always with the play-coin glyph */
+  --gold-2: #FFDA8A;
+  --vip: #F1DDB3;       /* VIP, always with the crown */
+  --vip-grad: linear-gradient(135deg, #FBEACB 0%, #E7C88E 46%, #B98A45 100%);
+  --green: #2FCB8C;     /* success, completed */
+  --amber: #FFB23F;     /* warning, pending */
+  --red: #FF4D5E;       /* danger, error */
+  --blue: #5AA9FF;      /* info */
+  --violet: #A98BFF;    /* AI-assisted features */
+
+  --r-xs: 8px;
+  --r-sm: 12px;
+  --r-md: 16px;
+  --r-lg: 22px;
+  --r-xl: 28px;
+  --r-pill: 999px;
+
+  --ease: cubic-bezier(.22, 1, .36, 1);
+  --ease-spring: cubic-bezier(.34, 1.4, .64, 1);
+  --t1: .14s;
+  --t2: .26s;
+  --t3: .42s;
+
+  /* dark ("ink") is the default; light ("paper") below */
+  color-scheme: dark;
+  --bg: #0A0A0B;
+  --bg-2: #0F0F11;
+  --surface: #151517;
+  --surface-2: #1C1C1F;
+  --surface-3: #27272B;
+  --line: rgba(240, 238, 230, .08);
+  --line-2: rgba(240, 238, 230, .15);
+  --text: #F3F1EA;
+  --text-2: #B4B1A8;
+  --text-3: #7D7B74;
+  --shadow-1: 0 1px 2px rgba(0, 0, 0, .4);
+  --shadow-2: 0 12px 32px -14px rgba(0, 0, 0, .75);
+  --shadow-3: 0 34px 90px -30px rgba(0, 0, 0, .9);
+  --gold-soft: rgba(242, 194, 91, .13);
+  --rose-soft: rgba(255, 79, 110, .14);
+  --green-soft: rgba(47, 203, 140, .14);
+  --amber-soft: rgba(255, 178, 63, .14);
+  --red-soft: rgba(255, 77, 94, .14);
+  --blue-soft: rgba(90, 169, 255, .14);
+  --violet-soft: rgba(169, 139, 255, .15);
+  --gold-ink: var(--gold);
+  --rose-ink: #FF7790;
+  --green-ink: #4BDDA2;
+  --amber-ink: #FFC266;
+  --red-ink: #FF7380;
+  --blue-ink: #7DBBFF;
+  --violet-ink: #BCA5FF;
+}
+
+/* Paper theme, used by the admin panel and the hub when chosen or when the
+   OS asks for light. The app's player stays dark by design. */
+:root[data-theme="light"] {
+  color-scheme: light;
+  --bg: #F4F3EF;
+  --bg-2: #ECEBE5;
+  --surface: #FFFFFF;
+  --surface-2: #FAF9F6;
+  --surface-3: #EFEEE8;
+  --line: #E6E4DC;
+  --line-2: #D6D3C8;
+  --text: #161614;
+  --text-2: #5B5A53;
+  --text-3: #8A8881;
+  --shadow-1: 0 1px 2px rgba(30, 28, 20, .06);
+  --shadow-2: 0 12px 30px -16px rgba(30, 28, 20, .24);
+  --shadow-3: 0 30px 80px -36px rgba(30, 28, 20, .38);
+  --accent-soft: rgba(var(--accent-rgb), .24);
+  --accent-line: rgba(var(--accent-rgb), .7);
+  --accent-text: #4C6800;
+  --gold-soft: rgba(200, 145, 40, .13);
+  --rose-soft: rgba(220, 40, 80, .09);
+  --green-soft: rgba(20, 150, 100, .1);
+  --amber-soft: rgba(214, 133, 0, .12);
+  --red-soft: rgba(214, 38, 58, .09);
+  --blue-soft: rgba(40, 120, 220, .09);
+  --violet-soft: rgba(110, 80, 220, .1);
+  --gold-ink: #8E5F0B;
+  --rose-ink: #C21E4A;
+  --green-ink: #0F7A54;
+  --amber-ink: #985A00;
+  --red-ink: #C21F33;
+  --blue-ink: #1F64B8;
+  --violet-ink: #5B3FC4;
+}
+@media (prefers-color-scheme: light) {
+  :root[data-theme="auto"] {
+    color-scheme: light;
+    --bg: #F4F3EF;
+    --bg-2: #ECEBE5;
+    --surface: #FFFFFF;
+    --surface-2: #FAF9F6;
+    --surface-3: #EFEEE8;
+    --line: #E6E4DC;
+    --line-2: #D6D3C8;
+    --text: #161614;
+    --text-2: #5B5A53;
+    --text-3: #8A8881;
+    --shadow-1: 0 1px 2px rgba(30, 28, 20, .06);
+    --shadow-2: 0 12px 30px -16px rgba(30, 28, 20, .24);
+    --shadow-3: 0 30px 80px -36px rgba(30, 28, 20, .38);
+    --accent-soft: rgba(var(--accent-rgb), .24);
+    --accent-line: rgba(var(--accent-rgb), .7);
+    --accent-text: #4C6800;
+    --gold-soft: rgba(200, 145, 40, .13);
+    --rose-soft: rgba(220, 40, 80, .09);
+    --green-soft: rgba(20, 150, 100, .1);
+    --amber-soft: rgba(214, 133, 0, .12);
+    --red-soft: rgba(214, 38, 58, .09);
+    --blue-soft: rgba(40, 120, 220, .09);
+    --violet-soft: rgba(110, 80, 220, .1);
+    --gold-ink: #8E5F0B;
+    --rose-ink: #C21E4A;
+    --green-ink: #0F7A54;
+    --amber-ink: #985A00;
+    --red-ink: #C21F33;
+    --blue-ink: #1F64B8;
+    --violet-ink: #5B3FC4;
+  }
+}
+
+/* White-label accents. Each keeps ink text on the fill (all pass AA). */
+[data-accent="ember"] { --accent: #FF6A45; --accent-2: #FF9575; --accent-rgb: 255, 106, 69; --accent-text: #FF8A6A; --accent-ink: #1A0700; }
+[data-accent="iris"]  { --accent: #9C8CFF; --accent-2: #BDB2FF; --accent-rgb: 156, 140, 255; --accent-text: #B4A8FF; --accent-ink: #0D0A1F; }
+[data-accent="rose"]  { --accent: #FF7FA6; --accent-2: #FFA9C3; --accent-rgb: 255, 127, 166; --accent-text: #FF9DBA; --accent-ink: #1F0610; }
+[data-accent="aqua"]  { --accent: #46DDD3; --accent-2: #8AEDE6; --accent-rgb: 70, 221, 211; --accent-text: #6BE6DE; --accent-ink: #021614; }
+:root[data-theme="light"][data-accent="ember"], :root[data-theme="light"] [data-accent="ember"] { --accent-text: #B83A16; }
+:root[data-theme="light"][data-accent="iris"], :root[data-theme="light"] [data-accent="iris"] { --accent-text: #5440D8; }
+:root[data-theme="light"][data-accent="rose"], :root[data-theme="light"] [data-accent="rose"] { --accent-text: #B8285A; }
+:root[data-theme="light"][data-accent="aqua"], :root[data-theme="light"] [data-accent="aqua"] { --accent-text: #0A7A73; }
+
+/* ---------- base ---------- */
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--f-ui);
+  font-size: 14px;
+  line-height: 1.45;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+img, svg { display: block; max-width: 100%; }
+svg.i { display: inline-block; vertical-align: -.18em; flex: none; }
+button, input, select, textarea { font: inherit; color: inherit; }
+button { cursor: pointer; }
+a { color: inherit; }
+::selection { background: rgba(var(--accent-rgb), .4); color: var(--text); }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+.sr-only {
+  position: absolute !important; width: 1px; height: 1px; padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0;
+}
+.serif { font-family: var(--f-display); font-weight: 400; letter-spacing: -.01em; }
+.serif-i { font-family: var(--f-display); font-style: italic; font-weight: 400; letter-spacing: -.01em; }
+.mono { font-family: var(--f-mono); }
+.num { font-variant-numeric: tabular-nums; }
+.muted { color: var(--text-2); }
+.faint { color: var(--text-3); }
+.nowrap { white-space: nowrap; }
+.clamp1 { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.clamp2 { display: -webkit-box; -webkit-line-clamp: 2; line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.clamp3 { display: -webkit-box; -webkit-line-clamp: 3; line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+
+/* ---------- brand mark: a spool seen from above, with a play notch ---------- */
+.mark {
+  --s: 28px;
+  width: var(--s); height: var(--s);
+  flex: none;
+  display: grid; place-items: center;
+  border-radius: 30%;
+  background: var(--accent);
+  color: var(--accent-ink);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .45), 0 8px 20px -8px rgba(var(--accent-rgb), .55);
+}
+.mark svg { width: 70%; height: 70%; }
+.wordmark {
+  font-family: var(--f-display);
+  font-style: italic;
+  font-size: 26px;
+  letter-spacing: -.02em;
+  line-height: 1;
+}
+
+/* ---------- coin, money, VIP ----------
+   One treatment everywhere so a coin figure can never be read as money:
+   coins are gold with the play-coin glyph; money is plain text with its
+   currency symbol; the two never share a style. */
+.coin {
+  display: inline-flex; align-items: center; gap: .28em;
+  color: var(--gold-ink);
+  font-weight: 650;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+.coin svg { width: 1.1em; height: 1.1em; flex: none; }
+.coin.bonus { color: var(--green-ink); }
+.money { font-variant-numeric: tabular-nums; white-space: nowrap; }
+.vipmark {
+  display: inline-flex; align-items: center; gap: 4px;
+  height: 18px; padding: 0 7px 0 5px;
+  border-radius: 6px;
+  background: var(--vip-grad);
+  color: #3A2408;
+  font-size: 9.5px; font-weight: 780; letter-spacing: .07em; text-transform: uppercase;
+  white-space: nowrap;
+}
+.vipmark svg { width: 11px; height: 11px; }
+
+/* ---------- pills ---------- */
+.pill {
+  display: inline-flex; align-items: center; gap: 5px;
+  height: 22px; padding: 0 8px;
+  border-radius: 7px;
+  font-size: 11px; font-weight: 640;
+  white-space: nowrap;
+  background: var(--surface-3);
+  color: var(--text-2);
+}
+.pill svg { width: 12px; height: 12px; flex: none; }
+.pill.accent { background: var(--accent-soft); color: var(--accent-text); }
+.pill.solid { background: var(--accent); color: var(--accent-ink); }
+.pill.gold { background: var(--gold-soft); color: var(--gold-ink); }
+.pill.rose { background: var(--rose-soft); color: var(--rose-ink); }
+.pill.green { background: var(--green-soft); color: var(--green-ink); }
+.pill.amber { background: var(--amber-soft); color: var(--amber-ink); }
+.pill.red { background: var(--red-soft); color: var(--red-ink); }
+.pill.blue { background: var(--blue-soft); color: var(--blue-ink); }
+.pill.violet { background: var(--violet-soft); color: var(--violet-ink); }
+.pill .dot { width: 6px; height: 6px; border-radius: 50%; background: currentColor; flex: none; }
+.pill.live .dot { animation: livepulse 1.6s ease-in-out infinite; }
+@keyframes livepulse { 0%, 100% { opacity: 1; } 50% { opacity: .3; } }
+
+/* ---------- poster: generated key art + a real-text title ----------
+   The art is a generated SVG image; the title is live text set over it, so
+   it stays sharp, translatable and searchable. Titles scale with the card
+   through container units. */
+.poster {
+  position: relative;
+  aspect-ratio: 2 / 3;
+  border-radius: var(--r-sm);
+  overflow: hidden;
+  background: #121214;
+  container-type: inline-size;
+  isolation: isolate;
+}
+.poster > img {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+}
+.poster::after {
+  content: "";
+  position: absolute; inset: 0;
+  background: linear-gradient(180deg, transparent 50%, rgba(6, 6, 7, .8) 100%);
+  pointer-events: none;
+}
+.poster .pt {
+  position: absolute; z-index: 2;
+  left: 7cqw; right: 7cqw; bottom: 7.5cqw;
+  color: #FFFAF2;
+  text-shadow: 0 2px 16px rgba(0, 0, 0, .6);
+  pointer-events: none;
+  overflow-wrap: break-word;
+}
+.poster .pt.serif { font-family: var(--f-display); font-style: italic; font-size: 15.5cqw; line-height: .88; letter-spacing: -.02em; }
+.poster .pt.caps { font-family: var(--f-ui); font-weight: 800; text-transform: uppercase; font-size: 11.5cqw; line-height: .9; letter-spacing: -.04em; }
+.poster .pt.wide { font-family: var(--f-ui); font-weight: 360; text-transform: uppercase; font-size: 8cqw; line-height: 1.15; letter-spacing: .24em; }
+.poster .pt small {
+  display: block;
+  margin-bottom: 3.4cqw;
+  font-family: var(--f-ui); font-style: normal; font-weight: 700;
+  font-size: max(6.5px, 4.4cqw); letter-spacing: .22em; text-transform: uppercase;
+  opacity: .85; line-height: 1;
+}
+.poster .corner {
+  position: absolute; z-index: 3; top: 5.5cqw; left: 5.5cqw; right: 5.5cqw;
+  display: flex; gap: 4px; flex-wrap: wrap;
+}
+.poster .tag {
+  display: inline-flex; align-items: center; gap: 3px;
+  height: 18px; padding: 0 6px;
+  border-radius: 5px;
+  font-size: 9.5px; font-weight: 760; letter-spacing: .04em; text-transform: uppercase;
+  background: rgba(10, 10, 11, .62);
+  color: #fff;
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  white-space: nowrap;
+}
+.poster .tag.new { background: var(--rose); color: #fff; }
+.poster .tag.free { background: var(--accent); color: var(--accent-ink); }
+.poster .tag.vip { background: var(--vip-grad); color: #3A2408; }
+.poster .tag.pilot { background: #fff; color: #111; }
+.poster .tag.done { background: rgba(10, 10, 11, .62); color: var(--green-ink); }
+.poster .tag svg { width: 11px; height: 11px; }
+.poster.wide { aspect-ratio: 16 / 9; }
+.poster.tall { aspect-ratio: 9 / 16; }
+.poster.sq { aspect-ratio: 1; }
+.poster.wide .pt.serif { font-size: 9cqw; }
+.poster.wide .pt.caps { font-size: 7cqw; }
+.poster.wide .pt.wide { font-size: 4.6cqw; }
+.poster.wide .pt { left: 5cqw; bottom: 5cqw; right: 30cqw; }
+.poster.wide .pt small { font-size: max(6.5px, 2.6cqw); margin-bottom: 2cqw; }
+.poster.bare::after { display: none; }
+
+/* ---------- avatar ---------- */
+.ava {
+  --s: 36px;
+  display: inline-block; vertical-align: middle;
+  width: var(--s); height: var(--s);
+  flex: none;
+  border-radius: 50%;
+  overflow: hidden;
+  background: var(--surface-3);
+  position: relative;
+}
+.ava img { width: 100%; height: 100%; object-fit: cover; }
+.ava.ring { box-shadow: 0 0 0 2px var(--bg), 0 0 0 3.5px var(--accent); }
+
+/* ---------- switch ---------- */
+.switch {
+  --w: 42px; --h: 25px;
+  position: relative; flex: none;
+  width: var(--w); height: var(--h);
+  border: 0; padding: 0;
+  border-radius: var(--h);
+  background: var(--surface-3);
+  box-shadow: inset 0 0 0 1px var(--line-2);
+  transition: background var(--t2) var(--ease);
+}
+.switch::after {
+  content: "";
+  position: absolute; top: 3px; left: 3px;
+  width: calc(var(--h) - 6px); height: calc(var(--h) - 6px);
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, .35);
+  transition: transform var(--t2) var(--ease-spring);
+}
+.switch[aria-checked="true"] { background: var(--accent); box-shadow: none; }
+.switch[aria-checked="true"]::after { transform: translateX(calc(var(--w) - var(--h))); background: var(--accent-ink); }
+.switch.sm { --w: 34px; --h: 20px; }
+
+/* ---------- keyboard hint ---------- */
+.kbd {
+  display: inline-grid; place-items: center;
+  min-width: 20px; height: 20px; padding: 0 5px;
+  border-radius: 5px;
+  border: 1px solid var(--line-2);
+  border-bottom-width: 2px;
+  font-family: var(--f-mono); font-size: 10.5px; line-height: 1;
+  color: var(--text-2);
+  background: var(--surface-2);
+}
+
+/* ---------- skeleton shimmer ---------- */
+.shimmer {
+  background: linear-gradient(90deg, var(--surface-2) 0%, var(--surface-3) 50%, var(--surface-2) 100%);
+  background-size: 200% 100%;
+  animation: shimmer 1.4s linear infinite;
+}
+@keyframes shimmer { to { background-position: -200% 0; } }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: .001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
