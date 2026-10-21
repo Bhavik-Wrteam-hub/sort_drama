@@ -131,16 +131,35 @@
     return { bonus: b, paid: cost - b, ok: cost - b <= st.wallet.paid };
   }
 
+  /* One score ranks the Top 10 rail, the Charts and the Hot label, so they never disagree. */
+  function heat(t) { return t.views * (t.status === "ongoing" ? 1.5 : 1); }
+  let hotFor = null, hotIds = [];
+  /* A title's status label: "hot" for the three hottest dramas in the viewer's region, "done" for a finished series. */
+  function statusOf(t) {
+    if (hotFor !== st.region) {
+      hotFor = st.region;
+      hotIds = S.TITLES.filter(x => x.kind === "drama" && (st.region === "IN" || x.lang !== "hi")).sort((a, b) => heat(b) - heat(a)).slice(0, 3).map(x => x.id);
+    }
+    if (hotIds.indexOf(t.id) >= 0) return "hot";
+    return t.status === "complete" && t.kind !== "movie" ? "done" : "";
+  }
+  function statusTag(t) {
+    const s = statusOf(t);
+    return s === "hot" ? '<span class="tag hot">' + ic("flame", 11) + "Hot</span>" : s === "done" ? '<span class="tag done">' + ic("check", 11) + "Complete</span>" : "";
+  }
+
   function poster(t, o) {
     o = o || {};
-    const tags = [];
+    let tags = [];
     if (o.tags !== false) {
       if (t.kind === "pilot") tags.push('<span class="tag pilot">' + ic("clapper", 11) + "Pilot</span>");
       else if (o.newEp) tags.push('<span class="tag new">New ep</span>');
+      if (o.status !== false && statusOf(t)) tags.push(statusTag(t));
       if (t.kind === "series" && !o.compact) tags.push('<span class="tag">Series</span>');
       if (t.kind === "movie" && !o.compact) tags.push('<span class="tag">Film</span>');
       if (st.vip && t.kind !== "pilot" && t.kind !== "creator" && o.vipTag) tags.push('<span class="tag vip">VIP</span>');
       if (o.free) tags.push('<span class="tag free">Free</span>');
+      tags = tags.slice(0, 2); // a small poster has room for two
     }
     const ratio = o.wide ? " wide" : o.tall ? " tall" : "";
     const img = o.wide ? Art.wide(t) : Art.poster(t);
@@ -669,7 +688,7 @@
   /* ---------------- public API ---------------- */
   const App = {
     st, S, $, $$, esc, ic: (n, s, w) => root.ic(n, s, w), money, coin, priceOf, passOf, freeOf, access, canWatch, costToFinish, balance, split,
-    poster, avaC, avaSeed, stars, epTitle, now, key,
+    poster, heat, statusOf, statusTag, avaC, avaSeed, stars, epTitle, now, key,
     SCREENS, SHEETS, ACT, Sheet, Player, pager, heartBurst,
     go, back, tab, replace, refresh, toast, push, log, on, emit,
     unlock, buyPass, spend, credit, addLedger,

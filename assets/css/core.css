@@ -353,7 +353,8 @@ a { color: inherit; }
   position: absolute; z-index: 3; top: 5.5cqw; left: 5.5cqw; right: 5.5cqw;
   display: flex; gap: 4px; flex-wrap: wrap;
 }
-.poster .tag {
+/* .labs carries the same tags outside a poster, e.g. beside a series title */
+.poster .tag, .labs .tag {
   display: inline-flex; align-items: center; gap: 3px;
   height: 18px; padding: 0 6px;
   border-radius: 5px;
@@ -368,8 +369,10 @@ a { color: inherit; }
 .poster .tag.free { background: var(--accent); color: var(--accent-ink); }
 .poster .tag.vip { background: var(--vip-grad); color: #3A2408; }
 .poster .tag.pilot { background: #fff; color: #111; }
-.poster .tag.done { background: rgba(10, 10, 11, .62); color: var(--green-ink); }
-.poster .tag svg { width: 11px; height: 11px; }
+.poster .tag.done, .labs .tag.done { background: rgba(10, 10, 11, .62); color: #4BDDA2; } /* sits on artwork in both themes */
+.poster .tag.hot, .labs .tag.hot { background: var(--amber); color: #2A1700; }
+.poster .tag svg, .labs .tag svg { width: 11px; height: 11px; }
+.labs { display: inline-flex; gap: 5px; margin-left: 8px; vertical-align: 1px; }
 .poster.wide { aspect-ratio: 16 / 9; }
 .poster.tall { aspect-ratio: 9 / 16; }
 .poster.sq { aspect-ratio: 1; }

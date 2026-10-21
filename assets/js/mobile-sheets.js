@@ -16,7 +16,6 @@
     return '<div class="sh-h"><div class="b"><h3' + (serif ? ' class="serif"' : "") + ">" + title + "</h3>" + (sub ? '<div class="s">' + sub + "</div>" : "") + '</div><button class="ib sm" data-close aria-label="Close">' + ic("x", 20) + "</button></div>";
   }
   const inPlayer = () => { const c = A.current(); return c && c.name === "player"; };
-  const castAva = (c, s) => '<span class="ava" style="--s:' + (s || 40) + 'px"><img src="' + Art.avatar("cast" + c.id, { pal: c.pal, kind: c.kind, hair: c.hair }) + '" alt=""></span>';
 
   /* =====================================================================
      FAIR UNLOCK
@@ -278,41 +277,6 @@
     Sheet.refresh();
   };
 
-  /* Who's who: a spoiler-safe relationship map centred on the lead */
-  A.sheet("cast", {
-    title: "Who's who",
-    render(id) {
-      const t = T[id];
-      const upto = (st.progress[id] || {}).ep || 1;
-      const cast = t.cast || [];
-      const lead = cast[0];
-      const others = cast.slice(1);
-      const W = 358, H = 300, cx = W / 2, cy = H / 2 + 4, R = 112;
-      const rel = { victor: "ex-fiancé", celeste: "rival", ethan: "protects her", grandma: "grandmother", unknown: "?", kade: "bound by vow" };
-      let svg = '<svg viewBox="0 0 ' + W + " " + H + '" width="100%" style="display:block;margin:2px 0 10px">';
-      others.forEach((c, i) => {
-        const a = -Math.PI / 2 + i * (Math.PI * 2 / others.length);
-        const x = cx + Math.cos(a) * R * 1.25, y = cy + Math.sin(a) * R * .95;
-        const known = c.since <= upto && !c.hidden;
-        svg += '<line x1="' + cx + '" y1="' + cy + '" x2="' + x + '" y2="' + y + '" stroke="' + (known ? "rgba(var(--accent-rgb),.55)" : "rgba(255,255,255,.14)") + '" stroke-width="1.5"' + (known ? "" : ' stroke-dasharray="3 4"') + "/>";
-        const mx = (cx + x) / 2, my = (cy + y) / 2;
-        if (known) svg += '<rect x="' + (mx - 38) + '" y="' + (my - 9) + '" width="76" height="18" rx="9" fill="#1C1C1F" stroke="rgba(255,255,255,.12)"/><text x="' + mx + '" y="' + (my + 3.5) + '" text-anchor="middle" font-size="9.5" font-weight="650" fill="#B4B1A8" font-family="Geist, sans-serif">' + esc(rel[c.id] || c.role) + "</text>";
-        svg += '<clipPath id="cp' + i + '"><circle cx="' + x + '" cy="' + y + '" r="24"/></clipPath>' +
-          (known ? '<image href="' + Art.avatar("cast" + c.id, { pal: c.pal, kind: c.kind, hair: c.hair }) + '" x="' + (x - 24) + '" y="' + (y - 24) + '" width="48" height="48" clip-path="url(#cp' + i + ')"/>' : '<circle cx="' + x + '" cy="' + y + '" r="24" fill="#1C1C1F" stroke="rgba(255,255,255,.18)" stroke-dasharray="3 3"/><text x="' + x + '" y="' + (y + 6) + '" text-anchor="middle" font-size="18" fill="#7D7B74">?</text>') +
-          '<text x="' + x + '" y="' + (y + 38) + '" text-anchor="middle" font-size="11" font-weight="680" fill="' + (known ? "#F3F1EA" : "#7D7B74") + '" font-family="Geist, sans-serif">' + (known ? esc(c.name) : "E" + c.since + "+") + "</text>";
-      });
-      svg += '<circle cx="' + cx + '" cy="' + cy + '" r="40" fill="none" stroke="var(--accent)" stroke-width="2"/><clipPath id="cpl"><circle cx="' + cx + '" cy="' + cy + '" r="36"/></clipPath>' +
-        '<image href="' + Art.avatar("cast" + lead.id, { pal: lead.pal, kind: lead.kind, hair: lead.hair }) + '" x="' + (cx - 36) + '" y="' + (cy - 36) + '" width="72" height="72" clip-path="url(#cpl)"/>' +
-        '<text x="' + cx + '" y="' + (cy + 56) + '" text-anchor="middle" font-size="12.5" font-weight="720" fill="#F3F1EA" font-family="Geist, sans-serif">' + esc(lead.name) + "</text></svg>";
-      return head("Who's who", "Spoiler-safe up to E" + upto + " · " + esc(t.name)) +
-        '<div class="sh-b">' + svg + cast.map(c => {
-          const known = c.since <= upto && !c.hidden;
-          return '<div class="hstack" style="padding:9px 0;border-bottom:1px solid var(--line);align-items:flex-start;gap:11px;opacity:' + (known ? 1 : .55) + '">' + (known ? castAva(c, 42) : '<span class="ava" style="--s:42px;display:grid;place-items:center">' + ic("eyeoff", 18) + "</span>") +
-            '<div class="sp"><b style="font-size:14px">' + (known ? esc(c.name) : "Hidden until E" + c.since) + '</b> <span class="tiny">' + (known ? esc(c.actor) : "") + '</span><div style="font-size:12px;color:var(--accent-text);font-weight:600;margin-top:1px">' + (known ? esc(c.role) : "") + '</div><div class="tiny" style="margin-top:3px;line-height:1.45">' + (known ? esc(c.note) : "Keep watching to meet this character.") + "</div></div></div>";
-        }).join("") + "</div>";
-    }
-  });
-
   /* Story Rewind */
   A.sheet("recap", {
     title: "Story Rewind",
@@ -329,11 +293,18 @@
         '<div class="sh-b recap"><div class="recap-vid"><img src="' + Art.scene(t, Math.max(1, upto - 1), 1) + '" alt=""><div class="ov"><span class="pill violet">' + ic("sparkle") + 'AI recap</span><b>' + esc(t.name) + '</b><span class="t">0:20</span></div><div class="pb"></div></div>' +
         beats.map(([ep, txt]) => '<div class="beat"><span class="n"><img src="' + Art.scene(t, ep, 0) + '" alt=""><span>E' + ep + "</span></span><p>" + txt + "</p></div>").join("") +
         '<div class="note violet mt8">' + ic("eye", 18) + "<span><b>No spoilers past E" + upto + ".</b> Written by AI from subtitles and scene notes, checked by an editor before it ships.</span></div>" +
-        '<div class="vstack mt12"><button class="btn pri block" data-act="recapGo:' + id + ":" + (p.ep || 7) + '">' + ic("play", 18) + "Continue E" + (p.ep || 7) + '</button><button class="btn ghost block" data-sheet="cast:' + id + '">' + ic("users", 18) + "Who's who</button></div></div>";
+        '<div class="vstack mt12"><button class="btn pri block" data-act="recapGo:' + id + ":" + (p.ep || 7) + '">' + ic("play", 18) + "Continue E" + (p.ep || 7) + '</button><button class="btn ghost block" data-act="castGo:' + id + '">' + ic("users", 18) + "Cast</button></div></div>";
     },
     mount(el, id) { A.log("track", "story_rewind_open", "{title:" + id + ", trigger:" + (st.returning ? "returning_scenario" : "manual") + "}"); }
   });
   ACT.recapGo = (el, id, n) => { Sheet.close(true); st.returning = false; if (inPlayer()) A.replace("player/" + id + "/" + n); else A.go("player/" + id + "/" + n); };
+  /* Open the Cast tab of a series page, from a sheet or from anywhere else. */
+  ACT.castGo = (el, id) => {
+    Sheet.close(true);
+    st.seriesTab[id] = "cast";
+    const cur = A.current();
+    if (cur && cur.path === "series/" + id) A.refresh(); else A.go("series/" + id);
+  };
 
   /* Send a Cliffhanger */
   const FRIENDS = [["Riya", "f1", "woman", "long"], ["Dev", "f2", "man", "short"], ["Sam", "f3", "man", "cap"], ["Ana", "f4", "woman", "bun"], ["Mira", "f5", "woman", "bob"], ["Leo", "f6", "man", "short"]];

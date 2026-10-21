@@ -50,7 +50,7 @@
     browse: { t: "Browse by trope", d: "The trope taxonomy is managed in the admin and drives rows, filters and Scene Search.",
       tries: [["tap", "Open any title"]], why: [["<b>Admin-managed taxonomy</b> means no app release to add a trope.", "Admin · Titles"]] },
     series: { t: "Series page", d: "Everything needed to decide: price to finish, what's free, languages, cast and reviews.",
-      tries: [["tap", "Episode grid — locked episodes show the coin price"], ["tap", "Who's who (spoiler-safe)"], ["tap", "Reviews — weighted score"], ["tap", "Gift icon · Send a Cliffhanger"]],
+      tries: [["tap", "Episode grid — locked episodes show the coin price"], ["tap", "Cast tab — who plays whom"], ["tap", "Reviews — weighted score"], ["tap", "Gift icon · Send a Cliffhanger"]],
       why: [["<b>Cost to finish, up front.</b> A FlexTV reviewer worked out ~$30 to finish one story — 157 people found it helpful.", "Play reviews"], ["<b>Price lock.</b> “The coin cost often increases with each new episode” is a top complaint.", "Sikayetvar · Play"], ["<b>Weighted ratings</b> stop three 5★ ratings outranking thousands of 4.6s.", "MVP research doc"]] },
     player: null, // computed — see playerNotes()
     landscape: { t: "Landscape player", d: "The same player for web series and films, at 16:9. The phone rotates.",
@@ -111,7 +111,7 @@
     { id: "paywall", n: "The paywall moment", persona: "fan", steps: [["player/heiress/7/62", "E7 · the gala", "Reaction peaks, subtitles"], ["@end", "Cliffhanger Call", "Predict the twist"], ["player/heiress/8", "E8 is locked", "The Fair Unlock sheet"], ["@unlock", "Unlock with coins", "Bonus first · ledger row"], ["wallet", "Wallet", "See exactly what was spent"]] },
     { id: "broke", n: "Out of coins", persona: "fan", wallet: "low", steps: [["player/heiress/8", "E8 locked, balance low"], ["@sheet:topup:heiress:8", "Top up from the paywall", "One step"], ["@buy", "Store confirmation", "Google Play sheet"], ["@pay", "Tap 1-tap buy", "Coins land, E8 unlocks itself"], ["wallet", "Wallet", "Top-up and unlock rows"]] },
     { id: "ads", n: "Free with ads · India", region: "IN", steps: [["home", "Home in India", "Hindi Originals first"], ["series/sindoor", "Sindoor Ka Badla", "15 free episodes"], ["player/sindoor/16", "E16 locked", "Ad is the default option"], ["@ad", "Watch 1 ad", "Try “Simulate a failed ad”"]] },
-    { id: "return", n: "Coming back after 12 days", steps: [["@returning", "Mark as returning", "Scenario toggle"], ["@push:winback", "Win-back push arrives", "Cliffhanger offer"], ["@tappush", "Tap it", "E8 free, once per series"], ["@sheet:recap:heiress", "Story Rewind", "Previously on, 20 s"], ["@sheet:cast:heiress", "Who's who", "Spoiler-safe map"]] },
+    { id: "return", n: "Coming back after 12 days", steps: [["@returning", "Mark as returning", "Scenario toggle"], ["@push:winback", "Win-back push arrives", "Cliffhanger offer"], ["@tappush", "Tap it", "E8 free, once per series"], ["@sheet:recap:heiress", "Story Rewind", "Previously on, 20 s"], ["@cast:heiress", "Cast", "Who plays whom"]] },
     { id: "creator", n: "Creator: post a video", steps: [["scenes", "Scenes feed"], ["create", "Create · pick a clip"], ["create/details", "Details, Fan Link, rights"], ["@post", "Post", "Watch the pipeline"], ["studio", "Creator Studio"]] },
     { id: "pilot", n: "Vote a pilot into production", steps: [["scenes/pilots", "Pilots feed"], ["series/lastdelivery", "Pilot page", "358 votes to go"], ["@vote:lastdelivery", "Want more"], ["@push:greenlit", "Greenlit push"]] },
     { id: "scene", n: "Find a scene by describing it", steps: [["search", "Search"], ["@scenesearch", "Scene Search on", "“the slap at the gala”"], ["player/heiress/7/40", "Player opens at 0:40"]] },
@@ -247,6 +247,7 @@
     if (k === "end") { const P = A.Player; if (P.el) P.seek(P.sc.dur - 3); }
     else if (k === "unlock") { A.st.uopt = "coins"; if (Sh.kind !== "unlock") Sh.open("unlock", "heiress", 8); setTimeout(() => A.ACT.doUnlock(null, "heiress", 8), 450); }
     else if (k === "sheet") Sh.open.apply(null, args);
+    else if (k === "cast") A.ACT.castGo(null, args[0]);
     else if (k === "buy") A.ACT.quickBuy(null, "p1000", "heiress", "8");
     else if (k === "ad") { A.st.uopt = "ad"; if (Sh.kind !== "unlock") Sh.open("unlock", "sindoor", 16); setTimeout(() => A.ACT.doUnlock(null, "sindoor", 16), 450); }
     else if (k === "returning") { A.st.returning = true; renderScenario(); A.toast("Viewer marked as returning after 12 days", "history"); }
@@ -266,7 +267,7 @@
     const el = $("#sat-screens");
     const cur = A.current() ? A.current().path : "";
     const f = (filter || "").toLowerCase();
-    const extras = [{ g: "Sheets & overlays", items: [["@sheet:unlock:heiress:8", "Fair Unlock sheet"], ["@sheet:topup:heiress:8", "Top up from paywall"], ["@sheet:recap:heiress", "Story Rewind"], ["@sheet:cast:heiress", "Who's who map"], ["@sheet:comments:heiress:7", "Comments by moment"], ["@sheet:share:heiress:8", "Send a Cliffhanger"], ["@sheet:guard", "Spend guard"], ["@adcoins", "Rewarded ad (honest)"]] }];
+    const extras = [{ g: "Sheets & overlays", items: [["@sheet:unlock:heiress:8", "Fair Unlock sheet"], ["@sheet:topup:heiress:8", "Top up from paywall"], ["@sheet:recap:heiress", "Story Rewind"], ["@sheet:comments:heiress:7", "Comments by moment"], ["@sheet:share:heiress:8", "Send a Cliffhanger"], ["@sheet:guard", "Spend guard"], ["@adcoins", "Rewarded ad (honest)"]] }];
     const groups = S.SITEMAP.mobile.concat(extras);
     const count = groups.reduce((a, g) => a + g.items.length, 0);
     el.innerHTML = satHead("grid", "Screens", count + " screens & sheets") +

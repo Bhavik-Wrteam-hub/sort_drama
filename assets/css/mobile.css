@@ -577,6 +577,7 @@ button.try:hover { border-color: var(--accent-line); }
 .pc .poster { border-radius: 12px; box-shadow: 0 10px 22px -14px rgba(0, 0, 0, .9); transition: transform var(--t2) var(--ease); }
 .pc:hover .poster { transform: translateY(-2px); }
 .pc .meta { margin-top: 7px; font-size: 11.5px; color: var(--text-3); line-height: 1.3; }
+.pc .meta .gl { display: inline-block; margin-right: 6px; padding: 1px 6px; border-radius: 5px; background: var(--surface-3); color: var(--text-2); font-size: 10.5px; font-weight: 650; vertical-align: 1px; } /* genre label */
 .pc .meta b { display: block; color: var(--text-2); font-weight: 600; font-size: 12px; margin-bottom: 1px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .pc .prog { margin-top: 7px; height: 3px; border-radius: 3px; background: var(--surface-3); overflow: hidden; }
 .pc .prog i { display: block; height: 100%; background: var(--accent); border-radius: 3px; }
@@ -1118,9 +1119,8 @@ button.try:hover { border-color: var(--accent-line); }
 .castc .ava { --s: 44px; }
 .castc .b { min-width: 0; }
 .castc .n { font-size: 13.5px; font-weight: 680; }
-.castc .r { font-size: 11.5px; color: var(--accent-text); font-weight: 600; margin-top: 1px; }
+.castc .r { font-size: 11.5px; color: var(--text-2); margin-top: 1px; }
 .castc .a { font-size: 11px; color: var(--text-3); margin-top: 2px; }
-.castc.hidden { opacity: .55; }
 
 .rv { padding: 12px 0; border-bottom: 1px solid var(--line); }
 .rv .h { display: flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 650; }

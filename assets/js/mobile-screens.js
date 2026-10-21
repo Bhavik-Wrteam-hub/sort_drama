@@ -8,7 +8,7 @@
 (function () {
   "use strict";
   const A = window.App;
-  const { st, S, esc, coin, money, poster, avaC, avaSeed, stars, $, $$ } = A;
+  const { st, S, esc, coin, money, poster, heat, statusTag, avaC, avaSeed, stars, $, $$ } = A;
   const { FMT, T, C, V } = S;
   const ic = window.ic;
 
@@ -30,9 +30,9 @@
   function pc(t, o) {
     o = o || {};
     const ep = st.progress[t.id];
-    const meta = o.meta === false ? "" : '<div class="meta">' + (o.metaText || (t.kind === "movie" ? FMT.mins(t.runtime) + " · Film" : t.kind === "series" ? t.eps + " episodes · Series" : t.tropes[0] + " · " + t.eps + " eps")) + "</div>";
+    const meta = o.meta === false ? "" : '<div class="meta">' + '<span class="gl">' + esc(S.genre(t)) + "</span>" + (o.metaText || (t.kind === "movie" ? FMT.mins(t.runtime) + " · Film" : t.kind === "series" ? t.eps + " episodes · Series" : t.eps + " eps")) + "</div>";
     return '<button class="pc ' + (o.size || "") + '" data-go="series/' + t.id + '" aria-label="' + esc(t.name) + '">' +
-      poster(t, { newEp: o.newEp, compact: o.compact, free: o.free }) +
+      poster(t, { newEp: o.newEp, compact: o.compact, free: o.free, status: o.status }) +
       (o.progress && ep ? '<div class="prog"><i style="width:' + Math.round(ep.ep / t.eps * 100) + '%"></i></div>' : "") +
       meta + "</button>";
   }
@@ -160,9 +160,9 @@
     }).join("") + "</div>";
   }
   function top10() {
-    const list = regional(dramas()).slice().sort((a, b) => b.views * (b.status === "ongoing" ? 1.4 : 1) - a.views * (a.status === "ongoing" ? 1.4 : 1)).slice(0, 10);
+    const list = regional(dramas()).slice().sort((a, b) => heat(b) - heat(a)).slice(0, 10);
     return sec("Top 10 <em>today</em>", 'data-go="charts"', st.region === "IN" ? "India" : "United States") + '<div class="rail">' +
-      list.map((t, i) => '<button class="t10" data-go="series/' + t.id + '"><span class="rk">' + (i + 1) + "</span>" + poster(t, { compact: true }) + "</button>").join("") + "</div>";
+      list.map((t, i) => '<button class="t10" data-go="series/' + t.id + '"><span class="rk">' + (i + 1) + "</span>" + poster(t, { compact: true, status: false }) + "</button>").join("") + "</div>";
   }
   function tropeRow(trope) {
     const list = S.TITLES.filter(t => t.tropes.indexOf(trope) >= 0 && t.kind !== "pilot" && (st.region === "IN" || t.lang !== "hi"));
@@ -192,7 +192,7 @@
   }
   function completeRow() {
     const list = regional(dramas()).filter(t => t.status === "complete");
-    return sec("Complete — binge to the end") + '<div class="rail">' + list.map(t => pc(t, { metaText: t.eps + " eps · cost to finish shown" })).join("") + "</div>";
+    return sec("Complete — binge to the end") + '<div class="rail">' + list.map(t => pc(t, { metaText: t.eps + " eps · cost to finish shown", status: false })).join("") + "</div>";
   }
 
   A.screen("home", {
@@ -300,7 +300,7 @@
       const k = st.chart || "today";
       const base = regional(S.TITLES.filter(t => t.kind === "drama"));
       const sorters = {
-        today: (a, b) => b.views * (b.status === "ongoing" ? 1.5 : 1) - a.views * (a.status === "ongoing" ? 1.5 : 1),
+        today: (a, b) => heat(b) - heat(a),
         trending: (a, b) => (b.ratings / b.views) - (a.ratings / a.views),
         saved: (a, b) => b.saves - a.saves,
         new: (a, b) => (a.status === "ongoing" ? -1 : 1) - (b.status === "ongoing" ? -1 : 1) || b.rating - a.rating,
@@ -394,14 +394,9 @@
       '<div class="foot">' + ic("checkc", 14) + "<span>" + p + " coins (≈ " + money(p) + ") an episode, never more. Or 1 ad ≤ 30 s per episode — the ad unlocks it even if it fails.</span></div></div>";
   }
   function castTab(t) {
-    const upto = (st.progress[t.id] || {}).ep || 1;
-    if (!t.cast) return '<div class="empty"><b>Cast guide coming soon</b>We add Who\'s who once a series passes 10 episodes.</div>';
-    return '<div class="note violet" style="margin:0 16px 12px">' + ic("eye", 18) + "<span><b>Spoiler-safe.</b> Only what you've seen up to E" + upto + ". Characters you haven't met stay hidden.</span></div>" +
-      '<div class="castg">' + t.cast.map(c => {
-        const known = c.since <= upto;
-        const hidden = !known || c.hidden;
-        return '<button class="castc' + (hidden ? " hidden" : "") + '" data-sheet="cast:' + t.id + '"><span class="ava" style="--s:44px"><img src="' + Art.avatar("cast" + c.id, { pal: c.pal, kind: c.kind, hair: c.hair }) + '" alt=""></span><span class="b"><div class="n">' + (known ? esc(c.name) : "???") + '</div><div class="r">' + (known ? esc(c.role) : "Appears in E" + c.since) + '</div><div class="a">' + (known ? esc(c.actor) : "Keep watching") + "</div></span></button>";
-      }).join("") + "</div>";
+    if (!t.cast) return '<div class="empty"><b>Cast list coming soon</b>We add the cast once it is confirmed.</div>';
+    return '<div class="castg">' + t.cast.map(c =>
+      '<div class="castc"><span class="ava" style="--s:44px"><img src="' + Art.avatar("cast" + c.id, { pal: c.pal, kind: c.kind, hair: c.hair }) + '" alt=""></span><span class="b"><div class="n">' + esc(c.actor) + '</div><div class="r">as ' + esc(c.name) + '</div><div class="a">' + esc(c.role) + "</div></span></div>").join("") + "</div>";
   }
   function reviewsTab(t) {
     const list = S.REVIEWS[t.id] || S.REVIEWS.heiress;
@@ -426,7 +421,7 @@
       const play = '<button class="btn pri" data-go="' + (t.orient === "landscape" ? "landscape/" : "player/") + t.id + "/" + resumeEp + '">' + ic("play", 18) + (t.kind === "movie" ? "Watch film" : p && p.ep ? "Continue E" + resumeEp : "Play E1") + "</button>";
       const returning = st.returning || (p && /\d+ days ago/.test(p.lastSeen) && parseInt(p.lastSeen, 10) > 3);
       let tabsHtml = "";
-      const tabs = isPilot ? [["eps", "Episodes"], ["more", "About the pilot"]] : t.kind === "movie" ? [["more", "Details"], ["reviews", "Reviews"]] : [["eps", "Episodes"], ["cast", "Who's who"], ["reviews", "Reviews"], ["more", "More like this"]];
+      const tabs = isPilot ? [["eps", "Episodes"], ["more", "About the pilot"]] : t.kind === "movie" ? [["more", "Details"], ["reviews", "Reviews"]] : [["eps", "Episodes"], ["cast", "Cast"], ["reviews", "Reviews"], ["more", "More like this"]];
       tabsHtml = '<div class="ttabs mt20">' + tabs.map(([k, n]) => '<button class="' + (k === tabk ? "on" : "") + '" data-act="seriesTab:' + t.id + ":" + k + '">' + n + "</button>").join("") + "</div>";
       let tabBody = "";
       if (tabk === "eps") tabBody = '<div class="mt16">' + epGrid(t) + "</div>";
@@ -444,7 +439,7 @@
         '<div class="bar"><button class="ib glass" data-back aria-label="Back">' + ic("back", 22, 2) + '</button><span class="sp"></span>' +
         '<button class="ib glass" data-sheet="share:' + t.id + ":" + resumeEp + '" aria-label="Share">' + ic("share", 20) + "</button>" +
         '<button class="ib glass" data-sheet="settings" aria-label="More">' + ic("more", 20) + "</button></div>" +
-        '<div class="in"><div class="kick">' + esc(t.kicker || "") + "</div><h1" + (t.st === "caps" || t.st === "wide" ? ' class="caps"' : "") + ">" + esc(t.name) + "</h1>" + (t.sub ? '<div class="subt">' + esc(t.sub) + "</div>" : "") +
+        '<div class="in"><div class="kick">' + esc(t.kicker || "") + '<span class="labs">' + statusTag(t) + '<span class="tag">' + esc(S.genre(t)) + "</span></span></div><h1" + (t.st === "caps" || t.st === "wide" ? ' class="caps"' : "") + ">" + esc(t.name) + "</h1>" + (t.sub ? '<div class="subt">' + esc(t.sub) + "</div>" : "") +
         '<div class="metaline"><span class="star">' + ic("starf") + t.rating + "</span><span>" + FMT.n(t.ratings) + ' ratings</span><span class="sep"></span><span>' + t.age + '</span><span class="sep"></span><span>' +
         (t.kind === "movie" ? FMT.mins(t.runtime) : t.eps + " episodes") + "</span>" + (t.status === "ongoing" ? '<span class="sep"></span><span>' + esc(t.schedule) + "</span>" : t.status === "complete" ? '<span class="sep"></span><span style="color:var(--green-ink)">Complete</span>' : "") + "</div></div></div>" +
         (returning && t.kind !== "movie" && t.kind !== "pilot" ? '<button class="aitoggle" data-sheet="recap:' + t.id + '" style="margin-top:12px"><span class="ic">' + ic("sparkle") + '</span><span class="b"><b>It\'s been a while — catch up in 20 s</b><span>Story Rewind recaps E1–E' + (p ? p.ep - 1 : 1) + " without spoilers.</span></span>" + ic("fwd", 18) + "</button>" : "") +
@@ -511,7 +506,6 @@
         '<button class="ra" data-sheet="episodes:' + t.id + '" aria-label="Episodes"><span class="c">' + ic("grid", 22) + "</span>" + n + "/" + t.eps + "</button></div>" +
         '<div class="pinfo"><button class="series" data-go="series/' + t.id + '">' + esc(t.name) + ic("fwd", 16, 2.2) + '</button><div class="ep clamp1">E' + n + " · " + esc(ep.title) + "</div>" +
         '<div class="chipsrow">' + (returning && n > 1 ? '<button class="pchip ai" data-sheet="recap:' + t.id + '">' + ic("sparkle") + "Previously on · 20 s</button>" : "") +
-        (t.cast ? '<button class="pchip" data-sheet="cast:' + t.id + '">' + ic("users") + "Who's who</button>" : "") +
         '<button class="pchip" data-sheet="settings">' + ic("headphones") + esc(st.settings.audio === "Original" ? t.audio[0] : t.audio[1] || t.audio[0]).replace(" · AI voice", " · AI") + "</button></div></div>" +
         '<div class="pulse" id="pulse"><div class="pks"></div><div class="heat"></div><div class="line"><i></i></div><div class="knob"></div></div>' +
         '<div class="ptime"><span class="a">' + FMT.dur(+at || 0) + "</span><span>" + FMT.dur(sc.dur) + "</span></div>" +

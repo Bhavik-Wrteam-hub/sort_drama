@@ -13,7 +13,7 @@ Nothing persists. Every number is sample data. Video playback is simulated.
 
 | Entry point | What it is |
 |---|---|
-| `index.html` | Product brief: research, Google Play teardown, signature features, navigation, design language, screen map, and a feature review that walks through every built feature with screenshots |
+| `index.html` | Product brief: research, Google Play teardown, signature features, navigation, design language, screen map, and a feature review that walks through every built feature with screenshots, plus the proposed revenue-share rules |
 | `mobile.html` | Mobile prototype. The phone sits in the centre; panels around it carry the journey, the screen map, live events, what to try on this screen, and scenario controls |
 | `admin.html` | Admin panel prototype: 20 sections across content, community, audience, money, insights and system |
 
@@ -76,7 +76,8 @@ and are shown as locked policies in `admin.html#/monetization?tab=fair`.
 |---|---|---|
 | `TITLES` | id, name, kind (`drama` · `series` · `movie` · `creator` · `pilot`), orient, tropes, eps, released, free, price, pass, status, schedule, audio[], subs, cast, admin{revenue30, completion, unlockRate, region[], rights} | One model for every format; a film is a title with one episode |
 | `episodes(t)` | n, title, dur (s), released, free, views | Generated; the flagship has named episodes |
-| `CAST` | name, actor, role, note, since (first episode), hidden | Drives the spoiler-safe *Who's who* |
+| `CAST` | actor, name (the character), role | The Cast list on the series page (`note` and `since` are kept but not shown) |
+| `MOODS`, `genre(t)` | k, n, icon, label | A title's `mood` gives its short genre label (Revenge, Romance, Thriller, Emotional, Comedy); `genre` on a title overrides it. The Hot and Complete badges are worked out in `mobile.js` (`statusOf`) |
 | `SCRIPT["title:ep"]` | dur, lines[[start, end, speaker, text]], heat[], peaks[], call{q, options, answer, reveal} | Subtitles, the Pulse Bar track and the Cliffhanger Call |
 | `VIEWER`, `LEDGER` | wallet{paid, bonus, bonusExpires}, unlocked, passes, priceLock, progress; ledger rows {type, label, paid, bonus, after[paid, bonus], ref, exp} | The ledger reconciles to the wallet |
 | `REGIONS` | mode (`hybrid` · `ads` · `coins`), epPrice, freeEps, adsPerDay, vip[], coinValue, dau, arpdau | Per-country monetisation |
@@ -132,5 +133,7 @@ and are shown as locked policies in `admin.html#/monetization?tab=fair`.
 - Key art is generated; replace with licensed artwork for demos and store listings.
 - The feature review in `index.html` uses static screenshots in `assets/shots/` (captured 10 Oct 2026).
   Recapture the affected images when a screen changes.
+- Revenue share is rules only. The feature review's "Where the money goes" part describes who earns what from
+  coins, ads, Series Passes and VIP; no screen calculates a split, an earnings ledger or a monthly pool yet.
 - “Spool” and chartreuse are working choices; both are single config values.
 # sort_drama

@@ -90,12 +90,14 @@
   const TROPES = ["Hidden identity", "Revenge", "Billionaire", "Contract marriage", "Werewolf", "Second chance", "Secret baby",
     "Mafia", "Rebirth", "Enemies to lovers", "Fake dating", "Royal", "Bodyguard", "Thriller", "Family drama", "Small town", "Office romance", "Comedy"];
   const MOODS = [
-    { k: "revenge", n: "Sweet revenge", icon: "zap" },
-    { k: "swoon", n: "Swoon", icon: "heart" },
-    { k: "gasp", n: "Gasp", icon: "alert" },
-    { k: "cry", n: "Good cry", icon: "smile" },
-    { k: "laugh", n: "Laugh", icon: "smile" }
+    { k: "revenge", n: "Sweet revenge", icon: "zap", label: "Revenge" },
+    { k: "swoon", n: "Swoon", icon: "heart", label: "Romance" },
+    { k: "gasp", n: "Gasp", icon: "alert", label: "Thriller" },
+    { k: "cry", n: "Good cry", icon: "smile", label: "Emotional" },
+    { k: "laugh", n: "Laugh", icon: "smile", label: "Comedy" }
   ];
+  /* The short genre label on a card. It comes from the title's mood; a title can override it with `genre`. */
+  const genre = t => t.genre || (MOODS.find(m => m.k === t.mood) || {}).label || t.tropes[0];
 
   /* ---------- titles ----------
      kind: drama (vertical micro-drama) | series (landscape web series) |
@@ -108,8 +110,7 @@
       { id: "victor", name: "Victor Hale", actor: "Marcus Reid", role: "The ex-fiancé", note: "CEO of Hale Group. Hasn't recognised Ava — until the gala.", since: 1, kind: "man", hair: "short", pal: ["#101c33", "#2a4f8a", "#ffe0b0"] },
       { id: "celeste", name: "Celeste Hale", actor: "Sofía Marín", role: "The rival", note: "Victor's sister. Planned the wedding sabotage.", since: 4, kind: "woman", hair: "bob", pal: ["#2b1230", "#8a3a7a", "#ffd0e8"] },
       { id: "ethan", name: "Ethan Cross", actor: "Daniel Okafor", role: "The bodyguard", note: "Has worked for Ava all along. Knows who she really is.", since: 3, kind: "man", hair: "short", pal: ["#0f2a2a", "#1f6b62", "#ffd9a0"] },
-      { id: "grandma", name: "Grandma Lin", actor: "Helen Park", role: "The matriarch", note: "Holds the deciding vote on the Lin board.", since: 6, kind: "woman", hair: "bun", pal: ["#2a1f0c", "#7a5520", "#fff0c8"] },
-      { id: "unknown", name: "Unknown texter", actor: "—", role: "Revealed in E8", note: "Sent “I know who you really are.”", since: 7, kind: "man", hair: "cap", pal: ["#111", "#222", "#666"], hidden: true }
+      { id: "grandma", name: "Grandma Lin", actor: "Helen Park", role: "The matriarch", note: "Holds the deciding vote on the Lin board.", since: 6, kind: "woman", hair: "bun", pal: ["#2a1f0c", "#7a5520", "#fff0c8"] }
     ],
     moonbound: [
       { id: "mara", name: "Mara Vale", actor: "Ivy Carter", role: "The outsider", note: "A human who can hear the pack.", since: 1, kind: "woman", hair: "long", pal: ["#050b18", "#0f2340", "#cfe3ff"] },
@@ -824,7 +825,7 @@
   };
 
   root.SPOOL = {
-    rng, FMT, BRAND, REGIONS, TROPES, MOODS, TITLES, T, CAST, episodes, SCRIPT, genericScript,
+    rng, FMT, BRAND, REGIONS, TROPES, MOODS, genre, TITLES, T, CAST, episodes, SCRIPT, genericScript,
     VIEWER, LEDGER, PACKS, VIP_PLANS, VIP_PERKS, REWARDS,
     CREATORS, C, VIDEOS, V, COMMENTS, REVIEWS, INBOX,
     TEAM, ROLES, PERMS, USERS, TXNS, PIPELINE, MOD_QUEUE, PAYOUTS, EXPERIMENTS, CAMPAIGNS, AUDIT,

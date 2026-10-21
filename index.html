@@ -135,7 +135,7 @@
           <div class="tabsrow" id="tabsrow"></div>
           <div class="navg" style="margin-top:16px">
             <div><h4>From Home</h4>Series page → vertical player → Fair Unlock<br>Search & Scene Search · Charts · Drops · Browse by trope</div>
-            <div><h4>From the player</h4>Episodes · Comments by moment · Who's who · Story Rewind · Send a Cliffhanger · Cliffhanger Call</div>
+            <div><h4>From the player</h4>Episodes · Comments by moment · Story Rewind · Send a Cliffhanger · Cliffhanger Call</div>
             <div><h4>From Me</h4>Wallet & ledger · Top up · VIP · Rewards · Spend guard · Creator Studio · Settings</div>
             <div><h4>Gestures</h4>Swipe for episodes · tap pause · double-tap like · hold for 2× · rotate for series and films</div>
           </div>
@@ -186,7 +186,7 @@
     <section class="blk" id="guide">
       <div class="kick">7 · Feature review</div>
       <h2 class="h">How Spool works today.</h2>
-      <p class="lede">A walkthrough of everything the prototypes already do, and nothing they don't: how a viewer gets in, where money comes in, how a creator's video moves through review, and what each admin section is for. Every step uses a real screenshot and the same sample people and numbers you'll meet in the prototypes. <b>Click any screenshot to enlarge it.</b></p>
+      <p class="lede">A walkthrough of everything the prototypes already do, and nothing they don't: how a viewer gets in, where money comes in, how a creator's video moves through review, and what each admin section is for. Every step uses a real screenshot and the same sample people and numbers you'll meet in the prototypes. One part, <a href="#g-share">Where the money goes</a>, sets out revenue-share rules that are proposed but not built yet, and says so. <b>Click any screenshot to enlarge it.</b></p>
 
       <div class="g-doc">
         <nav class="g-toc" aria-label="Feature review contents">
@@ -197,6 +197,7 @@
             <li><a href="#g-words">Glossary</a></li>
             <li><a href="#g-enter">How a viewer gets in</a></li>
             <li><a href="#g-paywall">When money comes in</a></li>
+            <li><a href="#g-share">Where the money goes</a></li>
             <li><a href="#g-app">Every app screen</a></li>
             <li><a href="#g-creator">Creator upload</a></li>
             <li><a href="#g-review">The review module</a></li>
@@ -216,7 +217,7 @@
             <p>Both prototypes are clickable models of the real product. They look and behave like the app: buttons respond, coins move, the wallet gains a ledger row. There is no server or database behind them. All data is sample data, and a page reload puts everything back where it started.</p>
             <div class="g-counts">
               <div><b>23</b><span>app screens</span></div>
-              <div><b>16</b><span>bottom sheets</span></div>
+              <div><b>15</b><span>bottom sheets</span></div>
               <div><b>11</b><span>one-click demo journeys</span></div>
               <div><b>18</b><span>admin sections</span></div>
               <div><b>23</b><span>sample titles</span></div>
@@ -267,7 +268,8 @@
               <div><dt>Cliffhanger Call</dt><dd>A prediction at the end of an episode, such as “Who sent Ava the text?” A correct call earns +5 bonus coins.</dd></div>
               <div><dt>Pulse Bar</dt><dd>The bar under the player that shows where viewers reacted most. Tap a 😱 to jump to that moment.</dd></div>
               <div><dt>Story Rewind</dt><dd>A 20-second recap for viewers coming back after a break, without spoilers.</dd></div>
-              <div><dt>Who's who</dt><dd>A character map that only shows the people you've already met.</dd></div>
+              <div><dt>Cast</dt><dd>The actors in a series and the character each one plays, on the series page.</dd></div>
+              <div><dt>Labels</dt><dd>Short tags on a title. <span class="g-ui">Hot</span> marks the three most-watched dramas in your country today, <span class="g-ui">Complete</span> a finished series, and every card names its genre: Revenge, Romance, Thriller, Emotional or Comedy.</dd></div>
               <div><dt>Scene Search</dt><dd>Find a moment by describing it, like “the slap at the gala”.</dd></div>
               <div><dt>Fan Link</dt><dd>A creator tags a drama in their video. Viewers get a <span class="g-ui">Watch</span> button and the creator earns a share.</dd></div>
               <div><dt>Pilot Season</dt><dd>Creators post 2–3 episode pilots, viewers vote <span class="g-ui">Want more</span>, and at 10,000 votes the team considers a full season.</dd></div>
@@ -417,6 +419,211 @@
             </div>
           </article>
 
+          <!-- where the money goes -->
+          <article class="g-part" id="g-share">
+            <div class="g-k">Revenue share</div>
+            <h3 class="g-h">Where the money goes</h3>
+            <p>The paywall offers four ways to unlock an episode, and each brings money in differently. This part sets out who is paid from each one: the platform, the creator of the series, and sometimes a creator whose Fan Link sent the viewer. One rule holds throughout: <b>a share is paid only from money that actually arrived</b>, after the store's fee.</p>
+            <div class="g-box" style="margin-top:18px">
+              <span class="g-pill warn">Proposed rules · not built yet</span>
+              <p style="margin-top:10px">Unlike the rest of this review, this part describes rules, not screens. The prototype already shows the prices, the creator share (50% by default, set per creator) and the Fan Link commission (10%) under <span class="g-ui">Creators &amp; payouts › Program settings</span>. The split itself, the earnings ledger and the monthly pools are still to build. Today the admin says creators are paid from coins only; the ad and VIP shares below would extend that.</p>
+            </div>
+
+            <h4 class="g-sub">Who can be paid</h4>
+            <p>Who earns depends on who owns the series, not on how the episode was unlocked.</p>
+            <div class="g-files">
+              <div class="g-tile"><span class="g-label plain">Spool original</span><h5>The platform owns it</h5><div class="where">e.g. The Heiress Returns</div><p>The platform keeps everything that is left after the store's fee.</p></div>
+              <div class="g-tile"><span class="g-label plain">Creator series</span><h5>A creator owns it</h5><div class="where">e.g. Flatmates by Ritu Sharma</div><p>The creator gets a share of the net amount: 50% by default, set per creator (40% to 50% in the sample data). The platform keeps the rest.</p></div>
+              <div class="g-tile"><span class="g-label plain">Licensed drama</span><h5>Another company owns it</h5><div class="where">e.g. Moonbound, from Northlight Media</div><p>The owner's share comes from its contract and is set per title. No rate is fixed yet.</p></div>
+            </div>
+            <ul class="g-bul" style="margin-top:16px">
+              <li><b>Fan Link.</b> When a creator's video sends a viewer to a drama, that creator gets 10% of what the viewer then spends on it in coins, for 30 days. It comes out of the platform's share, never the series owner's.</li>
+              <li><b>Greenlit series.</b> A series funded through Pilot Season uses the share written in its greenlight offer (30% in the sample offer) instead of the default.</li>
+              <li><b>Tips.</b> A tip goes to the creator in full, after the store's fee. Tips can only be paid with paid coins.</li>
+            </ul>
+
+            <h4 class="g-sub">Four ways to unlock, four ways money arrives</h4>
+            <ol class="g-cycle">
+              <li><span class="g-num">1</span><h5>Coins</h5><p>The viewer bought coins through the store. The share is worked out the moment the episode unlocks.</p></li>
+              <li><span class="g-num">2</span><h5>One ad</h5><p>The viewer pays nothing; an ad network pays Spool. Shared at month end from a pool, by number of ads.</p></li>
+              <li><span class="g-num">3</span><h5>Series Pass</h5><p>Bought with coins, so the coin rules apply. One pass belongs to one series.</p></li>
+              <li><span class="g-num">4</span><h5>VIP</h5><p>A weekly, monthly or yearly plan. Shared at month end from a pool, by minutes watched.</p></li>
+            </ol>
+
+            <h4 class="g-sub">1 · Unlock with coins</h4>
+            <p>Take one unlock on a creator series. The episode costs <span class="g-coin">60</span> coins, and the viewer pays with 20 bonus and 40 paid coins, as Maya did above.</p>
+            <div class="g-pay">
+              <div class="g-receipt">
+                <h5>One 60-coin unlock on a creator series</h5>
+                <div class="r"><span>20 bonus coins</span><b>$0.00</b></div>
+                <div class="r"><span>40 paid coins × $0.0099</span><b>$0.40</b></div>
+                <div class="r"><span>Store fee, 15%</span><b class="minus">−$0.06</b></div>
+                <div class="r t"><span>Net amount to share</span><b>$0.34</b></div>
+                <div class="r"><span>Creator, 50%</span><b>$0.17</b></div>
+                <div class="r"><span>Platform, 50%</span><b>$0.17</b></div>
+                <p class="foot">Rule of thumb: 100 paid coins are $0.99. The store keeps $0.15, leaving $0.84: $0.42 for the creator and $0.42 for the platform.</p>
+              </div>
+              <div>
+                <ul class="g-bul">
+                  <li><b>Only paid coins count.</b> Bonus coins are free, so no money arrived for them and nobody is paid. They are the platform's promotion cost.</li>
+                  <li><b>Net, not face value.</b> Google Play and the App Store keep 15% from small developers and 30% from larger ones, and tax comes off too. Sharing the full 60 coins would hand the creator $0.30 of the $0.34 that arrived.</li>
+                  <li><b>Shared at unlock, not at top-up.</b> Coins a viewer buys but never spends are not shared with anyone.</li>
+                  <li><b>One coin value per region,</b> set once a month from what the stores actually paid.</li>
+                </ul>
+              </div>
+            </div>
+            <p style="margin-top:24px"><b>The same $0.34 on other titles.</b> Only the owner changes.</p>
+            <div class="tw" style="margin-top:14px">
+              <table class="tb g-money">
+                <thead><tr><th>Title</th><th class="r">Series owner</th><th class="r">Fan Link creator</th><th class="r">Platform</th></tr></thead>
+                <tbody>
+                  <tr><td><b>Spool original</b><br>The Heiress Returns</td><td class="r">–</td><td class="r">–</td><td class="r">100% · $0.34</td></tr>
+                  <tr><td><b>Spool original, through a Fan Link</b><br>The viewer came from Zara Q's video</td><td class="r">–</td><td class="r">10% · $0.034</td><td class="r">90% · $0.306</td></tr>
+                  <tr><td><b>Creator series</b><br>The example above</td><td class="r">50% · $0.17</td><td class="r">–</td><td class="r">50% · $0.17</td></tr>
+                  <tr><td><b>Creator series, through a Fan Link</b><br>Another creator's video sent the viewer</td><td class="r">50% · $0.17</td><td class="r">10% · $0.034</td><td class="r">40% · $0.136</td></tr>
+                  <tr><td><b>Licensed drama</b><br>If its contract says 40%</td><td class="r">40% · $0.136</td><td class="r">–</td><td class="r">60% · $0.204</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <p style="margin-top:16px">Over a month it adds up the same way. If US viewers spend 100,000 paid coins on Flatmates in October, that is $990.00. The store keeps $148.50, leaving $841.50: <b>$420.75 for Ritu</b> and $420.75 for the platform.</p>
+
+            <h4 class="g-sub">2 · Watch one ad</h4>
+            <p>The viewer pays nothing. An ad network pays Spool, and a single ad earns very little: about $0.012 in the US and about $0.004 in a region like India, going by the prototype's sample ad rates. The 40 paid coins above left $0.34, about 28 times a US ad. The stores take no fee on ad money.</p>
+            <p>Nobody follows the money for each ad. The system only counts, and the real total arrives once a month.</p>
+            <ol class="g-bul">
+              <li><b>When an ad finishes,</b> the server unlocks the episode and saves one row: viewer, title, episode, owner, region and ad network. The app knows the episode because the ad was started from that episode's unlock sheet. No money is recorded yet.</li>
+              <li><b>At month end,</b> the system counts the rows for each owner and fetches the month's ad revenue from the ad networks' reporting APIs. With a mediation layer such as AppLovin MAX, one report covers every network.</li>
+              <li><b>The pool is divided.</b> Revenue ÷ ad unlocks = the value of one ad unlock. Each owner gets its count × that value, and a creator gets their share of it.</li>
+            </ol>
+            <p style="margin-top:20px"><b>Example: one region, one month.</b> The ad networks paid $4.00 for 1,000 ad unlocks, so one ad unlock is worth $0.004.</p>
+            <div class="tw" style="margin-top:14px">
+              <table class="tb g-money">
+                <thead><tr><th>Owner</th><th class="r">Ad unlocks</th><th class="r">Amount</th><th class="r">Creator</th><th class="r">Platform</th></tr></thead>
+                <tbody>
+                  <tr><td><b>Flatmates</b> (Ritu Sharma, 50%)</td><td class="r">300</td><td class="r">$1.20</td><td class="r">$0.60</td><td class="r">$0.60</td></tr>
+                  <tr><td><b>A second creator series</b> (45%)</td><td class="r">100</td><td class="r">$0.40</td><td class="r">$0.18</td><td class="r">$0.22</td></tr>
+                  <tr><td><b>Spool originals</b></td><td class="r">600</td><td class="r">$2.40</td><td class="r">–</td><td class="r">$2.40</td></tr>
+                  <tr><td><b>Total</b></td><td class="r"><b>1,000</b></td><td class="r"><b>$4.00</b></td><td class="r"><b>$0.78</b></td><td class="r"><b>$3.22</b></td></tr>
+                </tbody>
+              </table>
+            </div>
+            <p style="margin-top:16px">The same sum at real size: $10,000 for 2,500,000 ad unlocks in India is still $0.004 each. If 200,000 of them were on Flatmates, that is $800, so <b>$400 for Ritu</b>.</p>
+            <ul class="g-bul">
+              <li><b>Final figures, not estimates.</b> Reporting APIs return estimated earnings. The networks later remove invalid traffic, so the amount paid can be lower. Creators are paid from the final amount.</li>
+              <li><b>A failed ad still unlocks the episode.</b> Its row is counted but earns nothing.</li>
+              <li><b>No Fan Link commission on ads.</b> The amounts are too small to split further.</li>
+              <li><b>Ads on the Rewards screen</b> (+15 bonus coins) belong to no title, so the platform keeps that money.</li>
+              <li><b>Guards.</b> The daily ad limit per viewer (6 in the US, 20 in India), server-side verification, and a creator's own views don't count.</li>
+            </ul>
+
+            <h4 class="g-sub">3 · Series Pass</h4>
+            <p>A Series Pass is bought with coins, so every coin rule above applies. One pass covers one series, so there is one owner to pay and no pool.</p>
+            <div class="g-pay">
+              <div class="g-receipt">
+                <h5>A 1,990-coin pass on a creator series</h5>
+                <div class="r"><span>1,990 paid coins × $0.0099</span><b>$19.70</b></div>
+                <div class="r"><span>Store fee, 15%</span><b class="minus">−$2.95</b></div>
+                <div class="r t"><span>Net amount to share</span><b>$16.75</b></div>
+                <div class="r"><span>Creator, 50%</span><b>$8.37</b></div>
+                <div class="r"><span>Platform, 50%</span><b>$8.38</b></div>
+                <p class="foot">On The Heiress Returns, a Spool original, the whole $16.75 stays with the platform. A Fan Link would pay its creator 10% of the net, about $1.67, from the platform's side.</p>
+              </div>
+              <div>
+                <ul class="g-bul">
+                  <li><b>Bonus coins matter more here.</b> Large packs carry large bonuses (2,000 coins come with 600 bonus), and bonus coins are spent first. A viewer holding 620 bonus coins pays only 1,370 paid coins: $13.56, less $2.03 for the store, leaves $11.53. The creator gets $5.76 instead of $8.37.</li>
+                  <li><b>Future episodes are paid as they arrive.</b> A pass includes episodes that aren't out yet. For a finished series the creator's share is recorded at purchase. For an ongoing one, the part for released episodes is recorded now and the rest as each new episode goes live.</li>
+                  <li><b>Example.</b> 60 episodes, 24 released. Of the creator's $8.37, 24 ÷ 60 gives $3.35 at purchase. The other $5.02 is spread over the 36 episodes to come, about $0.14 each. If the series is abandoned, the unpaid part stays with the platform to refund viewers.</li>
+                </ul>
+              </div>
+            </div>
+
+            <h4 class="g-sub">4 · VIP</h4>
+            <p>VIP opens everything, so there is no single unlock to pay for. The money is shared the way ad money is, with one change: count minutes watched instead of ads.</p>
+            <ol class="g-bul">
+              <li><b>When a VIP viewer watches a locked episode,</b> the server saves one row: viewer, title, episode, owner, region and minutes watched. No money is recorded.</li>
+              <li><b>At month end,</b> the pool is the VIP money received for that month in that region, less store fee and tax, taken from the store and payment reports.</li>
+              <li><b>The pool is divided.</b> Pool ÷ total VIP minutes = the value of one minute. Each owner gets its minutes × that value, and a creator gets their share of it.</li>
+            </ol>
+            <p style="margin-top:20px"><b>Example: one region, one month.</b> The pool is $10,000 and VIP viewers watched 500,000 minutes, so one minute is worth $0.02.</p>
+            <div class="tw" style="margin-top:14px">
+              <table class="tb g-money">
+                <thead><tr><th>Owner</th><th class="r">Minutes</th><th class="r">Amount</th><th class="r">Creator</th><th class="r">Platform</th></tr></thead>
+                <tbody>
+                  <tr><td><b>Flatmates</b> (Ritu Sharma, 50%)</td><td class="r">50,000</td><td class="r">$1,000</td><td class="r">$500</td><td class="r">$500</td></tr>
+                  <tr><td><b>A second creator series</b> (45%)</td><td class="r">10,000</td><td class="r">$200</td><td class="r">$90</td><td class="r">$110</td></tr>
+                  <tr><td><b>Spool originals</b></td><td class="r">440,000</td><td class="r">$8,800</td><td class="r">–</td><td class="r">$8,800</td></tr>
+                  <tr><td><b>Total</b></td><td class="r"><b>500,000</b></td><td class="r"><b>$10,000</b></td><td class="r"><b>$590</b></td><td class="r"><b>$9,410</b></td></tr>
+                </tbody>
+              </table>
+            </div>
+            <ul class="g-bul" style="margin-top:16px">
+              <li><b>Minutes, not episodes.</b> Counting episodes would reward cutting a story into shorter pieces. Minutes don't.</li>
+              <li><b>Locked episodes only.</b> Free episodes earn nothing in any other mode either.</li>
+              <li><b>A plan pays into the months it covers.</b> A $119.99 yearly plan adds about $10 a month for twelve months, less the store's fee. It is never counted all at once.</li>
+              <li><b>One pool per region.</b> VIP costs $5.99 a week in the US and ₹49 in India, so the two are never mixed.</li>
+              <li><b>Guards.</b> A creator's own viewing is ignored, and an episode counts once per viewer per month.</li>
+              <li><b>Outside VIP.</b> New Originals in their 7-day premiere aren't included in VIP, so those unlocks use coins and follow the coin rules.</li>
+            </ul>
+
+            <h4 class="g-sub">From split to payout</h4>
+            <div class="g-pay">
+              <div>
+                <p>Every split is written as a row in an <b>earnings ledger</b>, built like the viewer's wallet ledger: rows are added, never edited. A refund adds a reversal row.</p>
+                <ul class="g-bul">
+                  <li><b>When rows appear.</b> Coin and Series Pass rows at the unlock; ad and VIP rows once a month.</li>
+                  <li><b>A 30-day hold.</b> October's earnings are paid on 1 December. Stores and ad networks pay about a month late, and most refunds land in the same window.</li>
+                  <li><b>$50 minimum.</b> A smaller balance carries over to the next month.</li>
+                  <li><b>Finance approves</b> each payout under <span class="g-ui">Creators &amp; payouts</span>. A first payout waits for the identity check.</li>
+                  <li><b>The platform's share is never paid out.</b> Stores and ad networks pay the company directly; the platform's share is what remains once creators are paid.</li>
+                </ul>
+              </div>
+              <button class="g-shot g-browser" type="button" data-zoom="assets/shots/d-payouts.webp"><span class="bar"><i></i><i></i><i></i><span>admin.html#/creators?tab=payouts · built today</span></span><img src="assets/shots/d-payouts.webp" width="1440" height="900" alt="Payout requests in the admin" loading="lazy" decoding="async"></button>
+            </div>
+
+            <h4 class="g-sub">Edge cases</h4>
+            <div class="tw">
+              <table class="tb">
+                <thead><tr><th>Situation</th><th>What happens</th></tr></thead>
+                <tbody>
+                  <tr><td><b>An unlock paid only with bonus coins</b></td><td>No money arrived, so there is no share. The viewer still gets the episode.</td></tr>
+                  <tr><td><b>A free unlock</b>: free episodes, the win-back episode, a gifted Cliffhanger, a support grant</td><td>No share, for the same reason.</td></tr>
+                  <tr><td><b>A refund or chargeback after the split</b></td><td>Reversal rows cancel the shares. If the creator was already paid, the amount comes off their next payout. The 30-day hold keeps this rare.</td></tr>
+                  <tr><td><b>A price-locked viewer pays an older, lower price</b></td><td>The share is worked out on what the viewer actually paid.</td></tr>
+                  <tr><td><b>The same episode is opened again, or on another device</b></td><td>It is never charged twice, so there is one row only.</td></tr>
+                  <tr><td><b>An ad fails or doesn't finish</b></td><td>The episode unlocks and the row counts, but it earns nothing. The value of one ad unlock drops slightly for everyone that month.</td></tr>
+                  <tr><td><b>A creator watches their own series</b> through ads or VIP</td><td>Those rows are not counted.</td></tr>
+                  <tr><td><b>A region has no ad unlocks or no VIP minutes in a month</b></td><td>There is nothing to divide by, so the pool stays with the platform.</td></tr>
+                  <tr><td><b>A film rental, or a new Original in its premiere week</b></td><td>Paid with coins, so the coin rules apply.</td></tr>
+                  <tr><td><b>A yearly VIP plan is refunded part-way</b></td><td>The months not yet used never enter a pool.</td></tr>
+                  <tr><td><b>A creator's payout is on hold</b>: identity check or a strike</td><td>Earnings keep adding up and are paid once the hold is lifted.</td></tr>
+                  <tr><td><b>Amounts smaller than a cent</b></td><td>The ledger keeps fractions of a cent. Rounding happens once, at payout.</td></tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div class="g-box">
+              <span class="g-label">Eight sharing rules</span>
+              <ol class="g-rules">
+                <li>A share is paid only from money that actually arrived.</li>
+                <li>Only paid coins count; bonus coins pay no one.</li>
+                <li>Shares come from the net amount, after store fee and tax.</li>
+                <li>One share percentage per creator, used for coins, ads, passes and VIP.</li>
+                <li>Fan Link commission comes out of the platform's share, on coins and Series Passes only.</li>
+                <li>Ads and VIP are shared from a monthly pool per region: ads by count, VIP by minutes.</li>
+                <li>Every split is a row in an earnings ledger that never loses a row; refunds add reversal rows.</li>
+                <li>Creators are paid monthly, after a 30-day hold, from $50.</li>
+              </ol>
+            </div>
+
+            <h4 class="g-sub">Still to decide</h4>
+            <ul class="g-bul">
+              <li><b>A creator share of ad and VIP money.</b> The examples assume the same percentage as coins. The prototype today pays creators from coins only.</li>
+              <li><b>Rates for licensed dramas.</b> They come from each contract; none is set. The 40% above is only an illustration.</li>
+              <li><b>Bonus coins.</b> They pay no one here. Paying creators for them at a reduced rate is possible, but the platform would fund it.</li>
+              <li><b>The store fee tier.</b> The examples use 15%. At 30%, every net amount above is smaller.</li>
+            </ul>
+          </article>
+
           <!-- every app screen -->
           <article class="g-part" id="g-app">
             <div class="g-k">Every app screen</div>
@@ -446,7 +653,8 @@
             <div class="g-group">
               <h5>Watch</h5>
               <div class="g-cat c2">
-                <div class="g-card"><button class="g-shot g-phone" type="button" data-zoom="assets/shots/a-series3.webp"><img src="assets/shots/a-series3.webp" width="585" height="1266" alt="Series page episode grid" loading="lazy" decoding="async"></button><div><h6>Series page</h6><a class="g-route" href="mobile.html#/series/heiress">/series/heiress ↗</a><p>The price card, the episode grid (✓ watched, 🔒 locked, ⏱ coming), Who's who, Reviews, More like this. Share and gift from the top.</p></div></div>
+                <div class="g-card"><button class="g-shot g-phone" type="button" data-zoom="assets/shots/a-series3.webp"><img src="assets/shots/a-series3.webp" width="585" height="1266" alt="Series page episode grid" loading="lazy" decoding="async"></button><div><h6>Series page</h6><a class="g-route" href="mobile.html#/series/heiress">/series/heiress ↗</a><p>The price card, the episode grid (✓ watched, 🔒 locked, ⏱ coming), Cast, Reviews, More like this. Status and genre labels sit beside the title. Share and gift from the top.</p></div></div>
+                <div class="g-card"><button class="g-shot g-phone" type="button" data-zoom="assets/shots/a-cast.webp"><img src="assets/shots/a-cast.webp" width="585" height="1266" alt="Series page, Cast tab" loading="lazy" decoding="async"></button><div><h6>Series page: Cast</h6><a class="g-route" href="mobile.html#/series/heiress">/series/heiress ↗</a><p>The Cast tab lists who plays whom: the actor, the character and a one-line role. Story Rewind links straight to it.</p></div></div>
                 <div class="g-card"><button class="g-shot g-phone" type="button" data-zoom="assets/shots/a-player.webp"><img src="assets/shots/a-player.webp" width="585" height="1266" alt="Vertical player" loading="lazy" decoding="async"></button><div><h6>Vertical player</h6><a class="g-route" href="mobile.html#/player/heiress/7">/player/heiress/7 ↗</a><p>Swipe, Pulse Bar, subtitles. Like, comment, save, gift and episodes down the right side. Keys: <span class="kbd">C</span> comments, <span class="kbd">E</span> episodes.</p></div></div>
                 <div class="g-card"><button class="g-shot g-phone" type="button" data-zoom="assets/shots/a-unlock.webp"><img src="assets/shots/a-unlock.webp" width="585" height="1266" alt="Paywall moment" loading="lazy" decoding="async"></button><div><h6>Paywall moment</h6><a class="g-route" href="mobile.html#/player/heiress/8">/player/heiress/8 ↗</a><p>A locked episode opens the Fair Unlock sheet on its own, with the four options above.</p></div></div>
                 <div class="g-card"><button class="g-shot g-phone land" type="button" data-zoom="assets/shots/a-landscape.webp"><img src="assets/shots/a-landscape.webp" width="1218" height="561" alt="Landscape player" loading="lazy" decoding="async"></button><div><h6>Landscape player</h6><a class="g-route" href="mobile.html#/landscape/ledger/1">/landscape/ledger/1 ↗</a><p>Web series and films (Cold Ledger, Monsoon Hostel, Paper Lanterns). The phone turns sideways; Skip intro and Next episode. Films rent for <span class="g-coin">300</span> coins for 30 days, or come with VIP.</p></div></div>
@@ -484,7 +692,7 @@
               </div>
             </div>
 
-            <h4 class="g-sub">The 16 bottom sheets</h4>
+            <h4 class="g-sub">The 15 bottom sheets</h4>
             <p>A sheet is a panel that slides up from the bottom of the screen. Drag it down to close it.</p>
             <div class="g-sheets">
               <figure><button class="g-shot g-phone" type="button" data-zoom="assets/shots/a-unlock.webp"><img src="assets/shots/a-unlock.webp" width="585" height="1266" alt="Unlock options sheet" loading="lazy" decoding="async"></button><figcaption><b>Unlock options</b><span>Fair Unlock: four priced ways in.</span></figcaption></figure>
@@ -495,7 +703,6 @@
               <figure><button class="g-shot g-phone" type="button" data-zoom="assets/shots/a-cancelvip.webp"><img src="assets/shots/a-cancelvip.webp" width="585" height="1266" alt="Cancel VIP sheet" loading="lazy" decoding="async"></button><figcaption><b>Cancel VIP</b><span>Two taps, with the terms spelled out.</span></figcaption></figure>
               <figure><button class="g-shot g-phone" type="button" data-zoom="assets/shots/a-episodes.webp"><img src="assets/shots/a-episodes.webp" width="585" height="1266" alt="Episodes sheet" loading="lazy" decoding="async"></button><figcaption><b>Episodes</b><span>Every episode and the catch-up cost.</span></figcaption></figure>
               <figure><button class="g-shot g-phone" type="button" data-zoom="assets/shots/a-comments.webp"><img src="assets/shots/a-comments.webp" width="585" height="1266" alt="Comments sheet" loading="lazy" decoding="async"></button><figcaption><b>Comments</b><span>Top, By moment, Newest. Tap a timestamp to jump; spoilers stay blurred.</span></figcaption></figure>
-              <figure><button class="g-shot g-phone" type="button" data-zoom="assets/shots/a-cast.webp"><img src="assets/shots/a-cast.webp" width="585" height="1266" alt="Who's who sheet" loading="lazy" decoding="async"></button><figcaption><b>Who's who</b><span>The spoiler-safe character map.</span></figcaption></figure>
               <figure><button class="g-shot g-phone" type="button" data-zoom="assets/shots/a-recap.webp"><img src="assets/shots/a-recap.webp" width="585" height="1266" alt="Story Rewind sheet" loading="lazy" decoding="async"></button><figcaption><b>Story Rewind</b><span>The story so far in 20 seconds.</span></figcaption></figure>
               <figure><button class="g-shot g-phone" type="button" data-zoom="assets/shots/a-share.webp"><img src="assets/shots/a-share.webp" width="585" height="1266" alt="Send a Cliffhanger sheet" loading="lazy" decoding="async"></button><figcaption><b>Send a Cliffhanger</b><span>Gift an episode to a friend.</span></figcaption></figure>
               <figure><button class="g-shot g-phone" type="button" data-zoom="assets/shots/a-psettings.webp"><img src="assets/shots/a-psettings.webp" width="585" height="1266" alt="Playback settings sheet" loading="lazy" decoding="async"></button><figcaption><b>Playback settings</b><span>Speed, quality, audio, subtitles, Clean view, Report a problem.</span></figcaption></figure>
@@ -870,7 +1077,7 @@
                   <tr><td><b>The paywall moment</b></td><td>E7 → Cliffhanger Call → E8 locked → unlock with coins → Wallet</td><td class="r">5</td></tr>
                   <tr><td><b>Out of coins</b></td><td>20 coins → top up from the paywall → Google Play → E8 unlocks itself → Wallet</td><td class="r">5</td></tr>
                   <tr><td><b>Free with ads · India</b></td><td>Hindi Originals → Sindoor Ka Badla → E16 locked → one ad (try “Simulate a failed ad”)</td><td class="r">4</td></tr>
-                  <tr><td><b>Coming back after 12 days</b></td><td>Win-back push → E8 free → Story Rewind → Who's who</td><td class="r">5</td></tr>
+                  <tr><td><b>Coming back after 12 days</b></td><td>Win-back push → E8 free → Story Rewind → Cast</td><td class="r">5</td></tr>
                   <tr><td><b>Creator: post a video</b></td><td>Scenes → clip → details, Fan Link, rights → Post → Creator Studio</td><td class="r">5</td></tr>
                   <tr><td><b>Vote a pilot into production</b></td><td>Pilots feed → The Last Delivery → Want more → “Greenlit” push</td><td class="r">4</td></tr>
                   <tr><td><b>Find a scene by describing it</b></td><td>Search → Scene Search → the player opens at 0:40</td><td class="r">3</td></tr>
@@ -896,6 +1103,7 @@
               <li><b>No real AI.</b>Scene Search and Story Rewind use pre-written examples.</li>
               <li><b>Generated artwork.</b>Posters and character art are generated; real, licensed posters are needed.</li>
               <li><b>Admin changes don't reach the app.</b>Only the accent colour carries across.</li>
+              <li><b>No revenue split.</b>The admin shows the creator share and Fan Link settings, but nothing works out who earns what. The rules are in <a href="#g-share">Where the money goes</a>; the earnings ledger and monthly pools are still to build.</li>
               <li><b>No SaaS or Partner Studio module.</b>Outside companies registering, getting approved and connecting platforms has only been discussed; there is no code.</li>
               <li><b>The real apps haven't started.</b>Flutter (Android and iOS), the Laravel admin and the Next.js web are still to come. These prototypes are their blueprint; each part of <span class="g-mono">data.js</span> becomes a database table.</li>
             </ul>
@@ -917,6 +1125,7 @@
         <div class="st2"><b>Write store-policy rules per country</b><span>Web checkout links are an admin switch per region, off by default except where policy allows.</span></div>
         <div class="st2"><b>Prototype on real devices</b><span>Validate the vertical player's preload and the swipe-to-unlock moment in Flutter first. It's the riskiest piece.</span></div>
         <div class="st2"><b>Source licensed demo content</b><span>Vertical and landscape samples with clear rights for the store listing and buyer demos.</span></div>
+        <div class="st2"><b>Confirm the revenue shares</b><span>The <a href="#g-share">sharing rules</a> are drafted. Still open: a creator share of ad and VIP money, rates for licensed dramas, and whether bonus coins ever pay creators.</span></div>
         <div class="st2"><b>Choose the first market</b><span>India (ads first, low prices) or the US (coins and VIP). Both region modes already run in the prototype.</span></div>
         <div class="st2"><b>Set the build order</b><span>Backend and admin first, so content can go in before the app ships, or both together. The prototypes are the spec either way.</span></div>
       </div>
@@ -1019,7 +1228,7 @@
         ["Fair Unlock", "The coin wall is the #1 complaint (29% of 1–3★ reviews).", "Price in coins <b>and</b> money, the bonus/paid split, a daily <b>spend cap</b>, auto-unlock off by default, and a price lock per viewer.", [["See the paywall", "mobile.html#/player/heiress/8"], ["Fair-play rules", "admin.html#/monetization?tab=fair"]], true],
         ["Pulse Bar", "Viewers react in the comments, but nobody can find the moment again.", "The progress bar shows <b>where everyone reacted</b>; tap a 😱 to jump there. Comments carry timestamps.", [["Play E7", "mobile.html#/player/heiress/7/30"], ["Pulse analytics", "admin.html#/titles/heiress?tab=analytics"]]],
         ["Cliffhanger Calls", "Day-30 retention is 2%. People need a reason to come back.", "Predict the twist at the end card. The <b>reveal is in the next episode</b>; correct callers get +5 bonus coins.", [["Watch the end of E7", "mobile.html#/player/heiress/7/76"]]],
-        ["Story Rewind", "Returning viewers have lost the thread.", "A 20-second <b>“Previously on…”</b> recap and a <b>spoiler-safe Who's who</b> map, generated from subtitles and checked by an editor.", [["Try it", "mobile.html#/series/crown"], ["Cast setup", "admin.html#/titles/heiress?tab=cast"]]],
+        ["Story Rewind", "Returning viewers have lost the thread.", "A 20-second <b>“Previously on…”</b> recap that never goes past the last episode watched, generated from subtitles and checked by an editor.", [["Try it", "mobile.html#/series/crown"], ["Recap setup", "admin.html#/titles/heiress?tab=cast"]]],
         ["Pilot Season", "Creators post episodic stories, but no app turns them into shows.", "Creators post 2–3 episode pilots; viewers vote <b>Want more</b>; the best get a <b>funded season</b>.", [["Pilots feed", "mobile.html#/scenes/pilots"], ["Greenlight board", "admin.html#/pilots"]], true],
         ["Fan Links", "Fan edits drive discovery, but the drama never gets the credit.", "Creators tag a drama; viewers get a <b>Watch E1</b> chip; the creator earns 10% of what those viewers spend.", [["Scenes feed", "mobile.html#/scenes"], ["Fan Link payouts", "admin.html#/creators?tab=fanlinks"]]],
         ["Fits Your Break", "“I have 15 minutes” has no button anywhere.", "Pick 5, 15 or 30 minutes and get a session that <b>ends at a good stopping point</b>, not on a paywall.", [["Home", "mobile.html#/home"]]],
