@@ -267,7 +267,7 @@
       if (k === "create") return '<button class="tb plus" data-go="create" aria-label="Create">' + '<span class="pl">' + ic("plus", 22, 2.4) + "</span></button>";
       const on = show === k;
       return '<button class="tb' + (on ? " on" : "") + '" data-tab="' + k + '" aria-label="' + label + '"' + (on ? ' aria-current="page"' : "") + ">" +
-        ic(icon, 23, on ? 2.1 : 1.8) + "<span>" + label + "</span>" +
+        ic(icon, 23, on ? 2.1 : 1.8) + '<span class="lb">' + label + "</span>" +
         (k === "me" && unread ? '<i class="bdg">' + unread + "</i>" : "") + "</button>";
     }).join("");
   }

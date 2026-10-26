@@ -489,7 +489,7 @@
         pane = '<div class="lockpane"><span class="lk">' + ic("calendar", 30) + "</span><h4>E" + n + " drops " + esc((t.nextDrop || "soon").replace("Today ", "tonight at ")) + "</h4><p>We'll remind you an hour before. VIP gets followed series 24 hours early.</p>" +
           '<button class="btn ' + (st.following.has(t.id) ? "" : "pri") + '" data-act="follow:' + t.id + '">' + ic("bell", 18) + (st.following.has(t.id) ? "Reminder on" : "Remind me") + "</button></div>";
       }
-      return '<div class="player' + (a === "locked" || a === "soon" ? " paused" : "") + '" id="player">' +
+      return '<div class="player' + (a === "locked" || a === "soon" ? " paused locked" : "") + '" id="player">' +
         '<div class="ptrack">' + (n > 1 ? slide(t, n - 1, "prev") : "") + slide(t, n, "cur") + (n < t.eps ? slide(t, n + 1, "next") : "") + "</div>" +
         '<div class="ptop"><button class="ib" data-back aria-label="Back">' + ic("back", 24, 2) + '</button><div class="ttl"><b>' + esc(t.name) + "</b><span>E" + n + " · " + esc(ep.title) + "</span></div>" +
         '<button class="ib" data-act="cc" aria-label="Subtitles">' + ic("cc", 22) + "</button>" +
@@ -640,7 +640,12 @@
         seek(d) { time = Math.max(0, Math.min(dur, d === 85 ? 85 : time + d)); A.log("track", d === 85 ? "skip_intro" : "seek", "t=" + FMT.dur(time)); },
         save() { const p = st.progress[t.id] || (st.progress[t.id] = {}); p.ep = n; p.t = Math.round(time); p.lastSeen = "Now"; }
       };
-      $("#lpulse", view).addEventListener("click", e => { const rr = e.currentTarget.getBoundingClientRect(); time = (e.clientX - rr.left) / rr.width * dur; });
+      $("#lpulse", view).addEventListener("click", e => {
+        const rr = e.currentTarget.getBoundingClientRect();
+        // on a phone the screen is turned sideways, so the bar runs top to bottom
+        const f = rr.height > rr.width ? (e.clientY - rr.top) / rr.height : (e.clientX - rr.left) / rr.width;
+        time = f * dur;
+      });
       A.log("track", "episode_start", "{title:" + t.id + ", ep:" + n + ", orientation:landscape, rendition:16:9}");
     },
     unmount(view) {

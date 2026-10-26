@@ -46,7 +46,7 @@
         (rg.adsPerDay ? opt("ad", "ad", "acc", "Watch 1 ad", adsLeft ? "≤ 30 s · " + adsLeft + " of " + rg.adsPerDay + " left today · unlocks even if the ad fails" : "Daily ad limit reached — back tomorrow", adsLeft ? "Free" : "—", adsLeft ? "1 ad = 1 episode" : "") : "") +
         (t.kind !== "movie" ? opt("pass", "pass", "violet", "Series Pass", "All " + t.eps + " episodes, including future drops · save " + Math.round((1 - c.pass / Math.max(c.whole, 1)) * 100) + "%", FMT.int(c.pass), "≈ " + money(c.pass)) : "") +
         opt("vip", "crown", "vip", "VIP", "Everything unlocked · no ads, ever · cancel in 2 taps", cur + rg.vip[0], "per week") +
-        '<div class="balrow">Balance ' + coin(st.wallet.paid) + ' paid · <span class="coin bonus">' + ic("coin") + st.wallet.bonus + "</span> bonus" + (st.wallet.bonus ? " (exp " + st.wallet.bonusExpires + ")" : "") + '<button class="link" data-sheet="topup:' + id + ":" + n + '">Top up</button></div>' +
+        '<div class="balrow"><span class="bal">Balance ' + coin(st.wallet.paid) + ' paid · <span class="coin bonus">' + ic("coin") + st.wallet.bonus + "</span> bonus" + (st.wallet.bonus ? " (exp " + st.wallet.bonusExpires + ")" : "") + '</span><button class="link" data-sheet="topup:' + id + ":" + n + '">Top up</button></div>' +
         '<div class="autorow"><span class="b">Auto-unlock next episodes<small>Only up to your cap: ' + st.spentToday + " of " + st.spendCap + " coins used today</small></span>" +
         '<button class="switch sm" role="switch" aria-checked="' + st.autoUnlock + '" data-act="toggle:autoUnlock"></button></div></div>' +
         '<div class="sh-f"><button class="btn ' + (sel === "vip" ? "vip" : "pri") + ' block" data-act="doUnlock:' + id + ":" + n + '">' + cta + "</button>" +

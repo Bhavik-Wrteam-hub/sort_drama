@@ -313,6 +313,7 @@ a { color: inherit; }
    through container units. */
 .poster {
   position: relative;
+  display: block; /* also when the markup uses a <span> (admin tables) */
   aspect-ratio: 2 / 3;
   border-radius: var(--r-sm);
   overflow: hidden;
@@ -324,6 +325,7 @@ a { color: inherit; }
   position: absolute; inset: 0;
   width: 100%; height: 100%;
   object-fit: cover;
+  object-position: 50% 28%; /* photos are 9:16 with the face up top; keep it when a card crops them */
 }
 .poster::after {
   content: "";

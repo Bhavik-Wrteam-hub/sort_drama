@@ -1,0 +1,36 @@
+/* ==========================================================================
+   Spool — the phone on its own (app.html)
+   --------------------------------------------------------------------------
+   One device centred on a dotted canvas and nothing else: no stagebar, no
+   panels, no captions. The page keeps the ink tokens (data-theme="dark") so
+   nothing from the paper theme leaks into the phone, which is always dark;
+   only the canvas follows the OS theme. standalone.js scales the device to
+   fit the window; under 560px the app fills the phone's screen.
+   ========================================================================== */
+:root { --canvas: #0A0A0B; --canvas-dot: rgba(240, 238, 230, .15); }
+@media (prefers-color-scheme: light) {
+  :root { --canvas: #F4F3EF; --canvas-dot: #D6D3C8; }
+}
+html, body { height: 100%; }
+body {
+  overflow: hidden;
+  background-color: var(--canvas);
+  background-image:
+    radial-gradient(ellipse 46% 60% at 50% 50%, rgba(var(--accent-rgb), .07), transparent 70%),
+    radial-gradient(var(--canvas-dot) 1px, transparent 1.2px);
+  background-size: 100% 100%, 22px 22px;
+  background-position: 0 0, -1px -1px;
+}
+.canvas {
+  position: fixed; inset: 0;
+  display: grid; place-items: center;
+  padding:
+    max(24px, env(safe-area-inset-top)) max(24px, env(safe-area-inset-right))
+    max(24px, env(safe-area-inset-bottom)) max(24px, env(safe-area-inset-left));
+}
+
+/* the phone itself fills a phone's viewport (see the ≤560px block in mobile.css) */
+@media (max-width: 560px) {
+  body { background: #000; }
+  .canvas { padding: 0; }
+}

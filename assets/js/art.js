@@ -400,11 +400,40 @@
     ["#2b1230", "#8a3a7a", "#ffd0e8"], ["#0c1f2b", "#21607a", "#c8f0ff"]
   ];
 
+  /* ---------- photography ----------
+     photos.js maps titles, videos and people to photos. A photo wins over
+     generated art; anything without one keeps the SVG. app.html inlines the
+     files as base64 (SPOOL_PHOTO_DATA), which become blob URLs on first use
+     for the same reason as above: short srcs, one decode. */
+  const photoUrls = new Map();
+  function photo(path) {
+    if (!path) return null;
+    if (photoUrls.has(path)) return photoUrls.get(path);
+    const P = root.SPOOL_PHOTOS || {};
+    const data = root.SPOOL_PHOTO_DATA && root.SPOOL_PHOTO_DATA[path];
+    let u = (P.base || "") + path;
+    if (data) {
+      try {
+        const bin = atob(data), bytes = new Uint8Array(bin.length);
+        for (let i = 0; i < bin.length; i++) bytes[i] = bin.charCodeAt(i);
+        u = URL.createObjectURL(new Blob([bytes], { type: "image/webp" }));
+      } catch (e) { u = "data:image/webp;base64," + data; }
+    }
+    photoUrls.set(path, u);
+    return u;
+  }
+  const photos = () => root.SPOOL_PHOTOS || { titles: {}, videos: {}, clips: {}, people: {}, pool: {} };
+  const titlePhoto = id => photos().titles[id] || null;
+
   const Art = {
     poster(t) {
+      const p = titlePhoto(t.id);
+      if (p) return photo(p.tall);
       return url("p:" + t.id, () => compose(t.art, 600, 900, { key: "poster" }));
     },
     wide(t) {
+      const p = titlePhoto(t.id);
+      if (p) return photo(p.wide || p.tall);
       return url("w:" + t.id, () => {
         const shot = t.art.wideFig || (t.art.fig === "woman" || t.art.fig === "man" ? t.art.fig : t.art.fig);
         return compose(Object.assign({}, t.art, { glow: [.7, .4] }), 960, 540, { key: "wide", shot: shot });
@@ -413,6 +442,11 @@
     /* A 9:16 still standing in for a video frame. Shots rotate through the
        episode so a playing "video" cuts between angles like an edit would. */
     scene(t, ep, i) {
+      const p = titlePhoto(t.id);
+      if (p) {
+        const stills = [p.tall].concat(p.scenes || []);
+        return photo(stills[((ep || 1) + (i || 0)) % stills.length]);
+      }
       const shots = t.art.shots || ["two", "close", "over", "closeM"];
       const pick = shots[((ep || 1) + (i || 0)) % shots.length];
       return url("s:" + t.id + ":" + ep + ":" + pick, () => {
@@ -425,6 +459,13 @@
       });
     },
     thumb(v) {
+      const P = photos();
+      const clip = /^(?:clip)?(c\d+)/.exec(v.id); // camera-roll clips: "c1", or "clipc1" for a variant
+      const own = clip ? P.clips[clip[1]] : P.videos[v.id];
+      if (own) return photo(own);
+      // a fan edit, pilot episode or series clip shows the title it belongs to
+      const t = titlePhoto(v.pilot || v.series || v.link);
+      if (t) return photo((t.scenes && t.scenes[(v.id.length + (v.dur || 0)) % t.scenes.length]) || t.tall);
       const spec = v.art || Object.assign({ seed: v.id }, UGC[v.cat] || UGC.vlog);
       const wide = v.orient === "landscape";
       return url("t:" + v.id, () => compose(Object.assign({ seed: v.id }, spec), wide ? 960 : 540, wide ? 540 : 960, { key: "thumb" }));
@@ -434,6 +475,11 @@
       const r = rng("av" + seed);
       const pal = opt.pal || AV[Math.floor(r() * AV.length)];
       const kind = opt.kind || (r() < .55 ? "woman" : "man");
+      const P = photos();
+      const pool = P.pool[kind];
+      const own = P.people[seed] || P.people[String(seed).replace(/-.*$/, "")]; // "me-fan" → "me"
+      if (own) return photo(own);
+      if (pool && pool.length) return photo(pool[Math.floor(rng("face" + seed)() * pool.length)]);
       const hair = opt.hair || (kind === "woman" ? ["long", "bob", "bun"][Math.floor(r() * 3)] : ["short", "short", "cap"][Math.floor(r() * 3)]);
       return url("a:" + seed + ":" + kind + ":" + hair, () => {
         const W = 200, H = 200, p = pal;
